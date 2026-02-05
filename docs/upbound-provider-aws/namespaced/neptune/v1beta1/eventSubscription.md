@@ -1,0 +1,948 @@
+---
+permalink: /upbound-provider-aws/namespaced/neptune/v1beta1/eventSubscription/
+---
+
+# neptune.v1beta1.eventSubscription
+
+"EventSubscription is the Schema for the EventSubscriptions API. Provides a Neptune event subscription resource."
+
+## Index
+
+* [`fn new(name)`](#fn-new)
+* [`obj metadata`](#obj-metadata)
+  * [`fn withAnnotations(annotations)`](#fn-metadatawithannotations)
+  * [`fn withAnnotationsMixin(annotations)`](#fn-metadatawithannotationsmixin)
+  * [`fn withClusterName(clusterName)`](#fn-metadatawithclustername)
+  * [`fn withCreationTimestamp(creationTimestamp)`](#fn-metadatawithcreationtimestamp)
+  * [`fn withDeletionGracePeriodSeconds(deletionGracePeriodSeconds)`](#fn-metadatawithdeletiongraceperiodseconds)
+  * [`fn withDeletionTimestamp(deletionTimestamp)`](#fn-metadatawithdeletiontimestamp)
+  * [`fn withFinalizers(finalizers)`](#fn-metadatawithfinalizers)
+  * [`fn withFinalizersMixin(finalizers)`](#fn-metadatawithfinalizersmixin)
+  * [`fn withGenerateName(generateName)`](#fn-metadatawithgeneratename)
+  * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
+  * [`fn withLabels(labels)`](#fn-metadatawithlabels)
+  * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
+  * [`fn withName(name)`](#fn-metadatawithname)
+  * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
+  * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
+  * [`fn withOwnerReferencesMixin(ownerReferences)`](#fn-metadatawithownerreferencesmixin)
+  * [`fn withResourceVersion(resourceVersion)`](#fn-metadatawithresourceversion)
+  * [`fn withSelfLink(selfLink)`](#fn-metadatawithselflink)
+  * [`fn withUid(uid)`](#fn-metadatawithuid)
+* [`obj spec`](#obj-spec)
+  * [`fn withManagementPolicies(managementPolicies)`](#fn-specwithmanagementpolicies)
+  * [`fn withManagementPoliciesMixin(managementPolicies)`](#fn-specwithmanagementpoliciesmixin)
+  * [`obj spec.forProvider`](#obj-specforprovider)
+    * [`fn withEnabled(enabled)`](#fn-specforproviderwithenabled)
+    * [`fn withEventCategories(eventCategories)`](#fn-specforproviderwitheventcategories)
+    * [`fn withEventCategoriesMixin(eventCategories)`](#fn-specforproviderwitheventcategoriesmixin)
+    * [`fn withRegion(region)`](#fn-specforproviderwithregion)
+    * [`fn withSnsTopicArn(snsTopicArn)`](#fn-specforproviderwithsnstopicarn)
+    * [`fn withSourceIds(sourceIds)`](#fn-specforproviderwithsourceids)
+    * [`fn withSourceIdsMixin(sourceIds)`](#fn-specforproviderwithsourceidsmixin)
+    * [`fn withSourceIdsRefs(sourceIdsRefs)`](#fn-specforproviderwithsourceidsrefs)
+    * [`fn withSourceIdsRefsMixin(sourceIdsRefs)`](#fn-specforproviderwithsourceidsrefsmixin)
+    * [`fn withSourceType(sourceType)`](#fn-specforproviderwithsourcetype)
+    * [`fn withTags(tags)`](#fn-specforproviderwithtags)
+    * [`fn withTagsMixin(tags)`](#fn-specforproviderwithtagsmixin)
+    * [`obj spec.forProvider.snsTopicArnRef`](#obj-specforprovidersnstopicarnref)
+      * [`fn withName(name)`](#fn-specforprovidersnstopicarnrefwithname)
+      * [`fn withNamespace(namespace)`](#fn-specforprovidersnstopicarnrefwithnamespace)
+      * [`obj spec.forProvider.snsTopicArnRef.policy`](#obj-specforprovidersnstopicarnrefpolicy)
+        * [`fn withResolution(resolution)`](#fn-specforprovidersnstopicarnrefpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specforprovidersnstopicarnrefpolicywithresolve)
+    * [`obj spec.forProvider.snsTopicArnSelector`](#obj-specforprovidersnstopicarnselector)
+      * [`fn withMatchControllerRef(matchControllerRef)`](#fn-specforprovidersnstopicarnselectorwithmatchcontrollerref)
+      * [`fn withMatchLabels(matchLabels)`](#fn-specforprovidersnstopicarnselectorwithmatchlabels)
+      * [`fn withMatchLabelsMixin(matchLabels)`](#fn-specforprovidersnstopicarnselectorwithmatchlabelsmixin)
+      * [`fn withNamespace(namespace)`](#fn-specforprovidersnstopicarnselectorwithnamespace)
+      * [`obj spec.forProvider.snsTopicArnSelector.policy`](#obj-specforprovidersnstopicarnselectorpolicy)
+        * [`fn withResolution(resolution)`](#fn-specforprovidersnstopicarnselectorpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specforprovidersnstopicarnselectorpolicywithresolve)
+    * [`obj spec.forProvider.sourceIdsRefs`](#obj-specforprovidersourceidsrefs)
+      * [`fn withName(name)`](#fn-specforprovidersourceidsrefswithname)
+      * [`fn withNamespace(namespace)`](#fn-specforprovidersourceidsrefswithnamespace)
+      * [`obj spec.forProvider.sourceIdsRefs.policy`](#obj-specforprovidersourceidsrefspolicy)
+        * [`fn withResolution(resolution)`](#fn-specforprovidersourceidsrefspolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specforprovidersourceidsrefspolicywithresolve)
+    * [`obj spec.forProvider.sourceIdsSelector`](#obj-specforprovidersourceidsselector)
+      * [`fn withMatchControllerRef(matchControllerRef)`](#fn-specforprovidersourceidsselectorwithmatchcontrollerref)
+      * [`fn withMatchLabels(matchLabels)`](#fn-specforprovidersourceidsselectorwithmatchlabels)
+      * [`fn withMatchLabelsMixin(matchLabels)`](#fn-specforprovidersourceidsselectorwithmatchlabelsmixin)
+      * [`fn withNamespace(namespace)`](#fn-specforprovidersourceidsselectorwithnamespace)
+      * [`obj spec.forProvider.sourceIdsSelector.policy`](#obj-specforprovidersourceidsselectorpolicy)
+        * [`fn withResolution(resolution)`](#fn-specforprovidersourceidsselectorpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specforprovidersourceidsselectorpolicywithresolve)
+  * [`obj spec.initProvider`](#obj-specinitprovider)
+    * [`fn withEnabled(enabled)`](#fn-specinitproviderwithenabled)
+    * [`fn withEventCategories(eventCategories)`](#fn-specinitproviderwitheventcategories)
+    * [`fn withEventCategoriesMixin(eventCategories)`](#fn-specinitproviderwitheventcategoriesmixin)
+    * [`fn withSnsTopicArn(snsTopicArn)`](#fn-specinitproviderwithsnstopicarn)
+    * [`fn withSourceIds(sourceIds)`](#fn-specinitproviderwithsourceids)
+    * [`fn withSourceIdsMixin(sourceIds)`](#fn-specinitproviderwithsourceidsmixin)
+    * [`fn withSourceIdsRefs(sourceIdsRefs)`](#fn-specinitproviderwithsourceidsrefs)
+    * [`fn withSourceIdsRefsMixin(sourceIdsRefs)`](#fn-specinitproviderwithsourceidsrefsmixin)
+    * [`fn withSourceType(sourceType)`](#fn-specinitproviderwithsourcetype)
+    * [`fn withTags(tags)`](#fn-specinitproviderwithtags)
+    * [`fn withTagsMixin(tags)`](#fn-specinitproviderwithtagsmixin)
+    * [`obj spec.initProvider.snsTopicArnRef`](#obj-specinitprovidersnstopicarnref)
+      * [`fn withName(name)`](#fn-specinitprovidersnstopicarnrefwithname)
+      * [`fn withNamespace(namespace)`](#fn-specinitprovidersnstopicarnrefwithnamespace)
+      * [`obj spec.initProvider.snsTopicArnRef.policy`](#obj-specinitprovidersnstopicarnrefpolicy)
+        * [`fn withResolution(resolution)`](#fn-specinitprovidersnstopicarnrefpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specinitprovidersnstopicarnrefpolicywithresolve)
+    * [`obj spec.initProvider.snsTopicArnSelector`](#obj-specinitprovidersnstopicarnselector)
+      * [`fn withMatchControllerRef(matchControllerRef)`](#fn-specinitprovidersnstopicarnselectorwithmatchcontrollerref)
+      * [`fn withMatchLabels(matchLabels)`](#fn-specinitprovidersnstopicarnselectorwithmatchlabels)
+      * [`fn withMatchLabelsMixin(matchLabels)`](#fn-specinitprovidersnstopicarnselectorwithmatchlabelsmixin)
+      * [`fn withNamespace(namespace)`](#fn-specinitprovidersnstopicarnselectorwithnamespace)
+      * [`obj spec.initProvider.snsTopicArnSelector.policy`](#obj-specinitprovidersnstopicarnselectorpolicy)
+        * [`fn withResolution(resolution)`](#fn-specinitprovidersnstopicarnselectorpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specinitprovidersnstopicarnselectorpolicywithresolve)
+    * [`obj spec.initProvider.sourceIdsRefs`](#obj-specinitprovidersourceidsrefs)
+      * [`fn withName(name)`](#fn-specinitprovidersourceidsrefswithname)
+      * [`fn withNamespace(namespace)`](#fn-specinitprovidersourceidsrefswithnamespace)
+      * [`obj spec.initProvider.sourceIdsRefs.policy`](#obj-specinitprovidersourceidsrefspolicy)
+        * [`fn withResolution(resolution)`](#fn-specinitprovidersourceidsrefspolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specinitprovidersourceidsrefspolicywithresolve)
+    * [`obj spec.initProvider.sourceIdsSelector`](#obj-specinitprovidersourceidsselector)
+      * [`fn withMatchControllerRef(matchControllerRef)`](#fn-specinitprovidersourceidsselectorwithmatchcontrollerref)
+      * [`fn withMatchLabels(matchLabels)`](#fn-specinitprovidersourceidsselectorwithmatchlabels)
+      * [`fn withMatchLabelsMixin(matchLabels)`](#fn-specinitprovidersourceidsselectorwithmatchlabelsmixin)
+      * [`fn withNamespace(namespace)`](#fn-specinitprovidersourceidsselectorwithnamespace)
+      * [`obj spec.initProvider.sourceIdsSelector.policy`](#obj-specinitprovidersourceidsselectorpolicy)
+        * [`fn withResolution(resolution)`](#fn-specinitprovidersourceidsselectorpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specinitprovidersourceidsselectorpolicywithresolve)
+  * [`obj spec.providerConfigRef`](#obj-specproviderconfigref)
+    * [`fn withKind(kind)`](#fn-specproviderconfigrefwithkind)
+    * [`fn withName(name)`](#fn-specproviderconfigrefwithname)
+  * [`obj spec.writeConnectionSecretToRef`](#obj-specwriteconnectionsecrettoref)
+    * [`fn withName(name)`](#fn-specwriteconnectionsecrettorefwithname)
+
+## Fields
+
+### fn new
+
+```ts
+new(name)
+```
+
+new returns an instance of EventSubscription
+
+## obj metadata
+
+"ObjectMeta is metadata that all persisted resources must have, which includes all objects users must create."
+
+### fn metadata.withAnnotations
+
+```ts
+withAnnotations(annotations)
+```
+
+"Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations"
+
+### fn metadata.withAnnotationsMixin
+
+```ts
+withAnnotationsMixin(annotations)
+```
+
+"Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations"
+
+**Note:** This function appends passed data to existing values
+
+### fn metadata.withClusterName
+
+```ts
+withClusterName(clusterName)
+```
+
+"The name of the cluster which the object belongs to. This is used to distinguish resources with same name and namespace in different clusters. This field is not set anywhere right now and apiserver is going to ignore it if set in create or update request."
+
+### fn metadata.withCreationTimestamp
+
+```ts
+withCreationTimestamp(creationTimestamp)
+```
+
+"Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers."
+
+### fn metadata.withDeletionGracePeriodSeconds
+
+```ts
+withDeletionGracePeriodSeconds(deletionGracePeriodSeconds)
+```
+
+"Number of seconds allowed for this object to gracefully terminate before it will be removed from the system. Only set when deletionTimestamp is also set. May only be shortened. Read-only."
+
+### fn metadata.withDeletionTimestamp
+
+```ts
+withDeletionTimestamp(deletionTimestamp)
+```
+
+"Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers."
+
+### fn metadata.withFinalizers
+
+```ts
+withFinalizers(finalizers)
+```
+
+"Must be empty before the object is deleted from the registry. Each entry is an identifier for the responsible component that will remove the entry from the list. If the deletionTimestamp of the object is non-nil, entries in this list can only be removed. Finalizers may be processed and removed in any order.  Order is NOT enforced because it introduces significant risk of stuck finalizers. finalizers is a shared field, any actor with permission can reorder it. If the finalizer list is processed in order, then this can lead to a situation in which the component responsible for the first finalizer in the list is waiting for a signal (field value, external system, or other) produced by a component responsible for a finalizer later in the list, resulting in a deadlock. Without enforced ordering finalizers are free to order amongst themselves and are not vulnerable to ordering changes in the list."
+
+### fn metadata.withFinalizersMixin
+
+```ts
+withFinalizersMixin(finalizers)
+```
+
+"Must be empty before the object is deleted from the registry. Each entry is an identifier for the responsible component that will remove the entry from the list. If the deletionTimestamp of the object is non-nil, entries in this list can only be removed. Finalizers may be processed and removed in any order.  Order is NOT enforced because it introduces significant risk of stuck finalizers. finalizers is a shared field, any actor with permission can reorder it. If the finalizer list is processed in order, then this can lead to a situation in which the component responsible for the first finalizer in the list is waiting for a signal (field value, external system, or other) produced by a component responsible for a finalizer later in the list, resulting in a deadlock. Without enforced ordering finalizers are free to order amongst themselves and are not vulnerable to ordering changes in the list."
+
+**Note:** This function appends passed data to existing values
+
+### fn metadata.withGenerateName
+
+```ts
+withGenerateName(generateName)
+```
+
+"GenerateName is an optional prefix, used by the server, to generate a unique name ONLY IF the Name field has not been provided. If this field is used, the name returned to the client will be different than the name passed. This value will also be combined with a unique suffix. The provided value has the same validation rules as the Name field, and may be truncated by the length of the suffix required to make the value unique on the server.\n\nIf this field is specified and the generated name exists, the server will NOT return a 409 - instead, it will either return 201 Created or 500 with Reason ServerTimeout indicating a unique name could not be found in the time allotted, and the client should retry (optionally after the time indicated in the Retry-After header).\n\nApplied only if Name is not specified. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#idempotency"
+
+### fn metadata.withGeneration
+
+```ts
+withGeneration(generation)
+```
+
+"A sequence number representing a specific generation of the desired state. Populated by the system. Read-only."
+
+### fn metadata.withLabels
+
+```ts
+withLabels(labels)
+```
+
+"Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
+
+### fn metadata.withLabelsMixin
+
+```ts
+withLabelsMixin(labels)
+```
+
+"Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
+
+**Note:** This function appends passed data to existing values
+
+### fn metadata.withName
+
+```ts
+withName(name)
+```
+
+"Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+
+### fn metadata.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace defines the space within which each name must be unique. An empty namespace is equivalent to the \"default\" namespace, but \"default\" is the canonical representation. Not all objects are required to be scoped to a namespace - the value of this field for those objects will be empty.\n\nMust be a DNS_LABEL. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/namespaces"
+
+### fn metadata.withOwnerReferences
+
+```ts
+withOwnerReferences(ownerReferences)
+```
+
+"List of objects depended by this object. If ALL objects in the list have been deleted, this object will be garbage collected. If this object is managed by a controller, then an entry in this list will point to this controller, with the controller field set to true. There cannot be more than one managing controller."
+
+### fn metadata.withOwnerReferencesMixin
+
+```ts
+withOwnerReferencesMixin(ownerReferences)
+```
+
+"List of objects depended by this object. If ALL objects in the list have been deleted, this object will be garbage collected. If this object is managed by a controller, then an entry in this list will point to this controller, with the controller field set to true. There cannot be more than one managing controller."
+
+**Note:** This function appends passed data to existing values
+
+### fn metadata.withResourceVersion
+
+```ts
+withResourceVersion(resourceVersion)
+```
+
+"An opaque value that represents the internal version of this object that can be used by clients to determine when objects have changed. May be used for optimistic concurrency, change detection, and the watch operation on a resource or set of resources. Clients must treat these values as opaque and passed unmodified back to the server. They may only be valid for a particular resource or set of resources.\n\nPopulated by the system. Read-only. Value must be treated as opaque by clients and . More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency"
+
+### fn metadata.withSelfLink
+
+```ts
+withSelfLink(selfLink)
+```
+
+"SelfLink is a URL representing this object. Populated by the system. Read-only.\n\nDEPRECATED Kubernetes will stop propagating this field in 1.20 release and the field is planned to be removed in 1.21 release."
+
+### fn metadata.withUid
+
+```ts
+withUid(uid)
+```
+
+"UID is the unique in time and space value for this object. It is typically generated by the server on successful creation of a resource and is not allowed to change on PUT operations.\n\nPopulated by the system. Read-only. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+
+## obj spec
+
+"EventSubscriptionSpec defines the desired state of EventSubscription"
+
+### fn spec.withManagementPolicies
+
+```ts
+withManagementPolicies(managementPolicies)
+```
+
+"THIS IS A BETA FIELD. It is on by default but can be opted out\nthrough a Crossplane feature flag.\nManagementPolicies specify the array of actions Crossplane is allowed to\ntake on the managed and external resources.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223\nand this one: https://github.com/crossplane/crossplane/blob/444267e84783136daa93568b364a5f01228cacbe/design/one-pager-ignore-changes.md"
+
+### fn spec.withManagementPoliciesMixin
+
+```ts
+withManagementPoliciesMixin(managementPolicies)
+```
+
+"THIS IS A BETA FIELD. It is on by default but can be opted out\nthrough a Crossplane feature flag.\nManagementPolicies specify the array of actions Crossplane is allowed to\ntake on the managed and external resources.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223\nand this one: https://github.com/crossplane/crossplane/blob/444267e84783136daa93568b364a5f01228cacbe/design/one-pager-ignore-changes.md"
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.forProvider
+
+
+
+### fn spec.forProvider.withEnabled
+
+```ts
+withEnabled(enabled)
+```
+
+"A boolean flag to enable/disable the subscription. Defaults to true."
+
+### fn spec.forProvider.withEventCategories
+
+```ts
+withEventCategories(eventCategories)
+```
+
+"A list of event categories for a source_type that you want to subscribe to. Run aws neptune describe-event-categories to find all the event categories."
+
+### fn spec.forProvider.withEventCategoriesMixin
+
+```ts
+withEventCategoriesMixin(eventCategories)
+```
+
+"A list of event categories for a source_type that you want to subscribe to. Run aws neptune describe-event-categories to find all the event categories."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.withRegion
+
+```ts
+withRegion(region)
+```
+
+"Region where this resource will be managed. Defaults to the Region set in the provider configuration.\nRegion is the region you'd like your resource to be created in."
+
+### fn spec.forProvider.withSnsTopicArn
+
+```ts
+withSnsTopicArn(snsTopicArn)
+```
+
+"The ARN of the SNS topic to send events to."
+
+### fn spec.forProvider.withSourceIds
+
+```ts
+withSourceIds(sourceIds)
+```
+
+"A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a source_type must also be specified."
+
+### fn spec.forProvider.withSourceIdsMixin
+
+```ts
+withSourceIdsMixin(sourceIds)
+```
+
+"A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a source_type must also be specified."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.withSourceIdsRefs
+
+```ts
+withSourceIdsRefs(sourceIdsRefs)
+```
+
+"References to ClusterInstance in neptune to populate sourceIds."
+
+### fn spec.forProvider.withSourceIdsRefsMixin
+
+```ts
+withSourceIdsRefsMixin(sourceIdsRefs)
+```
+
+"References to ClusterInstance in neptune to populate sourceIds."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.withSourceType
+
+```ts
+withSourceType(sourceType)
+```
+
+"The type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot. If not set, all sources will be subscribed to."
+
+### fn spec.forProvider.withTags
+
+```ts
+withTags(tags)
+```
+
+"Key-value map of resource tags."
+
+### fn spec.forProvider.withTagsMixin
+
+```ts
+withTagsMixin(tags)
+```
+
+"Key-value map of resource tags."
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.forProvider.snsTopicArnRef
+
+"Reference to a Topic in sns to populate snsTopicArn."
+
+### fn spec.forProvider.snsTopicArnRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+### fn spec.forProvider.snsTopicArnRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referenced object"
+
+## obj spec.forProvider.snsTopicArnRef.policy
+
+"Policies for referencing."
+
+### fn spec.forProvider.snsTopicArnRef.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.forProvider.snsTopicArnRef.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.forProvider.snsTopicArnSelector
+
+"Selector for a Topic in sns to populate snsTopicArn."
+
+### fn spec.forProvider.snsTopicArnSelector.withMatchControllerRef
+
+```ts
+withMatchControllerRef(matchControllerRef)
+```
+
+"MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected."
+
+### fn spec.forProvider.snsTopicArnSelector.withMatchLabels
+
+```ts
+withMatchLabels(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+### fn spec.forProvider.snsTopicArnSelector.withMatchLabelsMixin
+
+```ts
+withMatchLabelsMixin(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.snsTopicArnSelector.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace for the selector"
+
+## obj spec.forProvider.snsTopicArnSelector.policy
+
+"Policies for selection."
+
+### fn spec.forProvider.snsTopicArnSelector.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.forProvider.snsTopicArnSelector.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.forProvider.sourceIdsRefs
+
+"References to ClusterInstance in neptune to populate sourceIds."
+
+### fn spec.forProvider.sourceIdsRefs.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+### fn spec.forProvider.sourceIdsRefs.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referenced object"
+
+## obj spec.forProvider.sourceIdsRefs.policy
+
+"Policies for referencing."
+
+### fn spec.forProvider.sourceIdsRefs.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.forProvider.sourceIdsRefs.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.forProvider.sourceIdsSelector
+
+"Selector for a list of ClusterInstance in neptune to populate sourceIds."
+
+### fn spec.forProvider.sourceIdsSelector.withMatchControllerRef
+
+```ts
+withMatchControllerRef(matchControllerRef)
+```
+
+"MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected."
+
+### fn spec.forProvider.sourceIdsSelector.withMatchLabels
+
+```ts
+withMatchLabels(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+### fn spec.forProvider.sourceIdsSelector.withMatchLabelsMixin
+
+```ts
+withMatchLabelsMixin(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.sourceIdsSelector.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace for the selector"
+
+## obj spec.forProvider.sourceIdsSelector.policy
+
+"Policies for selection."
+
+### fn spec.forProvider.sourceIdsSelector.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.forProvider.sourceIdsSelector.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.initProvider
+
+"THIS IS A BETA FIELD. It will be honored\nunless the Management Policies feature flag is disabled.\nInitProvider holds the same fields as ForProvider, with the exception\nof Identifier and other resource reference fields. The fields that are\nin InitProvider are merged into ForProvider when the resource is created.\nThe same fields are also added to the terraform ignore_changes hook, to\navoid updating them after creation. This is useful for fields that are\nrequired on creation, but we do not desire to update them after creation,\nfor example because of an external controller is managing them, like an\nautoscaler."
+
+### fn spec.initProvider.withEnabled
+
+```ts
+withEnabled(enabled)
+```
+
+"A boolean flag to enable/disable the subscription. Defaults to true."
+
+### fn spec.initProvider.withEventCategories
+
+```ts
+withEventCategories(eventCategories)
+```
+
+"A list of event categories for a source_type that you want to subscribe to. Run aws neptune describe-event-categories to find all the event categories."
+
+### fn spec.initProvider.withEventCategoriesMixin
+
+```ts
+withEventCategoriesMixin(eventCategories)
+```
+
+"A list of event categories for a source_type that you want to subscribe to. Run aws neptune describe-event-categories to find all the event categories."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.initProvider.withSnsTopicArn
+
+```ts
+withSnsTopicArn(snsTopicArn)
+```
+
+"The ARN of the SNS topic to send events to."
+
+### fn spec.initProvider.withSourceIds
+
+```ts
+withSourceIds(sourceIds)
+```
+
+"A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a source_type must also be specified."
+
+### fn spec.initProvider.withSourceIdsMixin
+
+```ts
+withSourceIdsMixin(sourceIds)
+```
+
+"A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a source_type must also be specified."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.initProvider.withSourceIdsRefs
+
+```ts
+withSourceIdsRefs(sourceIdsRefs)
+```
+
+"References to ClusterInstance in neptune to populate sourceIds."
+
+### fn spec.initProvider.withSourceIdsRefsMixin
+
+```ts
+withSourceIdsRefsMixin(sourceIdsRefs)
+```
+
+"References to ClusterInstance in neptune to populate sourceIds."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.initProvider.withSourceType
+
+```ts
+withSourceType(sourceType)
+```
+
+"The type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot. If not set, all sources will be subscribed to."
+
+### fn spec.initProvider.withTags
+
+```ts
+withTags(tags)
+```
+
+"Key-value map of resource tags."
+
+### fn spec.initProvider.withTagsMixin
+
+```ts
+withTagsMixin(tags)
+```
+
+"Key-value map of resource tags."
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.initProvider.snsTopicArnRef
+
+"Reference to a Topic in sns to populate snsTopicArn."
+
+### fn spec.initProvider.snsTopicArnRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+### fn spec.initProvider.snsTopicArnRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referenced object"
+
+## obj spec.initProvider.snsTopicArnRef.policy
+
+"Policies for referencing."
+
+### fn spec.initProvider.snsTopicArnRef.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.initProvider.snsTopicArnRef.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.initProvider.snsTopicArnSelector
+
+"Selector for a Topic in sns to populate snsTopicArn."
+
+### fn spec.initProvider.snsTopicArnSelector.withMatchControllerRef
+
+```ts
+withMatchControllerRef(matchControllerRef)
+```
+
+"MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected."
+
+### fn spec.initProvider.snsTopicArnSelector.withMatchLabels
+
+```ts
+withMatchLabels(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+### fn spec.initProvider.snsTopicArnSelector.withMatchLabelsMixin
+
+```ts
+withMatchLabelsMixin(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.initProvider.snsTopicArnSelector.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace for the selector"
+
+## obj spec.initProvider.snsTopicArnSelector.policy
+
+"Policies for selection."
+
+### fn spec.initProvider.snsTopicArnSelector.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.initProvider.snsTopicArnSelector.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.initProvider.sourceIdsRefs
+
+"References to ClusterInstance in neptune to populate sourceIds."
+
+### fn spec.initProvider.sourceIdsRefs.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+### fn spec.initProvider.sourceIdsRefs.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referenced object"
+
+## obj spec.initProvider.sourceIdsRefs.policy
+
+"Policies for referencing."
+
+### fn spec.initProvider.sourceIdsRefs.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.initProvider.sourceIdsRefs.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.initProvider.sourceIdsSelector
+
+"Selector for a list of ClusterInstance in neptune to populate sourceIds."
+
+### fn spec.initProvider.sourceIdsSelector.withMatchControllerRef
+
+```ts
+withMatchControllerRef(matchControllerRef)
+```
+
+"MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected."
+
+### fn spec.initProvider.sourceIdsSelector.withMatchLabels
+
+```ts
+withMatchLabels(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+### fn spec.initProvider.sourceIdsSelector.withMatchLabelsMixin
+
+```ts
+withMatchLabelsMixin(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.initProvider.sourceIdsSelector.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace for the selector"
+
+## obj spec.initProvider.sourceIdsSelector.policy
+
+"Policies for selection."
+
+### fn spec.initProvider.sourceIdsSelector.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.initProvider.sourceIdsSelector.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.providerConfigRef
+
+"ProviderConfigReference specifies how the provider that will be used to\ncreate, observe, update, and delete this managed resource should be\nconfigured."
+
+### fn spec.providerConfigRef.withKind
+
+```ts
+withKind(kind)
+```
+
+"Kind of the referenced object."
+
+### fn spec.providerConfigRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+## obj spec.writeConnectionSecretToRef
+
+"WriteConnectionSecretToReference specifies the namespace and name of a\nSecret to which any connection details for this managed resource should\nbe written. Connection details frequently include the endpoint, username,\nand password required to connect to the managed resource."
+
+### fn spec.writeConnectionSecretToRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the secret."

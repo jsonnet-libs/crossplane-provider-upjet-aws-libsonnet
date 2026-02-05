@@ -1,0 +1,1772 @@
+---
+permalink: /upbound-provider-aws/cluster/lambda/v1beta2/eventSourceMapping/
+---
+
+# lambda.v1beta2.eventSourceMapping
+
+"EventSourceMapping is the Schema for the EventSourceMappings API. Manages an AWS Lambda Event Source Mapping."
+
+## Index
+
+* [`fn new(name)`](#fn-new)
+* [`obj metadata`](#obj-metadata)
+  * [`fn withAnnotations(annotations)`](#fn-metadatawithannotations)
+  * [`fn withAnnotationsMixin(annotations)`](#fn-metadatawithannotationsmixin)
+  * [`fn withClusterName(clusterName)`](#fn-metadatawithclustername)
+  * [`fn withCreationTimestamp(creationTimestamp)`](#fn-metadatawithcreationtimestamp)
+  * [`fn withDeletionGracePeriodSeconds(deletionGracePeriodSeconds)`](#fn-metadatawithdeletiongraceperiodseconds)
+  * [`fn withDeletionTimestamp(deletionTimestamp)`](#fn-metadatawithdeletiontimestamp)
+  * [`fn withFinalizers(finalizers)`](#fn-metadatawithfinalizers)
+  * [`fn withFinalizersMixin(finalizers)`](#fn-metadatawithfinalizersmixin)
+  * [`fn withGenerateName(generateName)`](#fn-metadatawithgeneratename)
+  * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
+  * [`fn withLabels(labels)`](#fn-metadatawithlabels)
+  * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
+  * [`fn withName(name)`](#fn-metadatawithname)
+  * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
+  * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
+  * [`fn withOwnerReferencesMixin(ownerReferences)`](#fn-metadatawithownerreferencesmixin)
+  * [`fn withResourceVersion(resourceVersion)`](#fn-metadatawithresourceversion)
+  * [`fn withSelfLink(selfLink)`](#fn-metadatawithselflink)
+  * [`fn withUid(uid)`](#fn-metadatawithuid)
+* [`obj spec`](#obj-spec)
+  * [`fn withDeletionPolicy(deletionPolicy)`](#fn-specwithdeletionpolicy)
+  * [`fn withManagementPolicies(managementPolicies)`](#fn-specwithmanagementpolicies)
+  * [`fn withManagementPoliciesMixin(managementPolicies)`](#fn-specwithmanagementpoliciesmixin)
+  * [`obj spec.forProvider`](#obj-specforprovider)
+    * [`fn withBatchSize(batchSize)`](#fn-specforproviderwithbatchsize)
+    * [`fn withBisectBatchOnFunctionError(bisectBatchOnFunctionError)`](#fn-specforproviderwithbisectbatchonfunctionerror)
+    * [`fn withEnabled(enabled)`](#fn-specforproviderwithenabled)
+    * [`fn withEventSourceArn(eventSourceArn)`](#fn-specforproviderwitheventsourcearn)
+    * [`fn withFunctionName(functionName)`](#fn-specforproviderwithfunctionname)
+    * [`fn withFunctionResponseTypes(functionResponseTypes)`](#fn-specforproviderwithfunctionresponsetypes)
+    * [`fn withFunctionResponseTypesMixin(functionResponseTypes)`](#fn-specforproviderwithfunctionresponsetypesmixin)
+    * [`fn withKmsKeyArn(kmsKeyArn)`](#fn-specforproviderwithkmskeyarn)
+    * [`fn withMaximumBatchingWindowInSeconds(maximumBatchingWindowInSeconds)`](#fn-specforproviderwithmaximumbatchingwindowinseconds)
+    * [`fn withMaximumRecordAgeInSeconds(maximumRecordAgeInSeconds)`](#fn-specforproviderwithmaximumrecordageinseconds)
+    * [`fn withMaximumRetryAttempts(maximumRetryAttempts)`](#fn-specforproviderwithmaximumretryattempts)
+    * [`fn withParallelizationFactor(parallelizationFactor)`](#fn-specforproviderwithparallelizationfactor)
+    * [`fn withQueues(queues)`](#fn-specforproviderwithqueues)
+    * [`fn withQueuesMixin(queues)`](#fn-specforproviderwithqueuesmixin)
+    * [`fn withRegion(region)`](#fn-specforproviderwithregion)
+    * [`fn withSourceAccessConfiguration(sourceAccessConfiguration)`](#fn-specforproviderwithsourceaccessconfiguration)
+    * [`fn withSourceAccessConfigurationMixin(sourceAccessConfiguration)`](#fn-specforproviderwithsourceaccessconfigurationmixin)
+    * [`fn withStartingPosition(startingPosition)`](#fn-specforproviderwithstartingposition)
+    * [`fn withStartingPositionTimestamp(startingPositionTimestamp)`](#fn-specforproviderwithstartingpositiontimestamp)
+    * [`fn withTags(tags)`](#fn-specforproviderwithtags)
+    * [`fn withTagsMixin(tags)`](#fn-specforproviderwithtagsmixin)
+    * [`fn withTopics(topics)`](#fn-specforproviderwithtopics)
+    * [`fn withTopicsMixin(topics)`](#fn-specforproviderwithtopicsmixin)
+    * [`fn withTumblingWindowInSeconds(tumblingWindowInSeconds)`](#fn-specforproviderwithtumblingwindowinseconds)
+    * [`obj spec.forProvider.amazonManagedKafkaEventSourceConfig`](#obj-specforprovideramazonmanagedkafkaeventsourceconfig)
+      * [`fn withConsumerGroupId(consumerGroupId)`](#fn-specforprovideramazonmanagedkafkaeventsourceconfigwithconsumergroupid)
+    * [`obj spec.forProvider.destinationConfig`](#obj-specforproviderdestinationconfig)
+      * [`obj spec.forProvider.destinationConfig.onFailure`](#obj-specforproviderdestinationconfigonfailure)
+        * [`fn withDestinationArn(destinationArn)`](#fn-specforproviderdestinationconfigonfailurewithdestinationarn)
+        * [`obj spec.forProvider.destinationConfig.onFailure.destinationArnRef`](#obj-specforproviderdestinationconfigonfailuredestinationarnref)
+          * [`fn withName(name)`](#fn-specforproviderdestinationconfigonfailuredestinationarnrefwithname)
+          * [`obj spec.forProvider.destinationConfig.onFailure.destinationArnRef.policy`](#obj-specforproviderdestinationconfigonfailuredestinationarnrefpolicy)
+            * [`fn withResolution(resolution)`](#fn-specforproviderdestinationconfigonfailuredestinationarnrefpolicywithresolution)
+            * [`fn withResolve(resolve)`](#fn-specforproviderdestinationconfigonfailuredestinationarnrefpolicywithresolve)
+        * [`obj spec.forProvider.destinationConfig.onFailure.destinationArnSelector`](#obj-specforproviderdestinationconfigonfailuredestinationarnselector)
+          * [`fn withMatchControllerRef(matchControllerRef)`](#fn-specforproviderdestinationconfigonfailuredestinationarnselectorwithmatchcontrollerref)
+          * [`fn withMatchLabels(matchLabels)`](#fn-specforproviderdestinationconfigonfailuredestinationarnselectorwithmatchlabels)
+          * [`fn withMatchLabelsMixin(matchLabels)`](#fn-specforproviderdestinationconfigonfailuredestinationarnselectorwithmatchlabelsmixin)
+          * [`obj spec.forProvider.destinationConfig.onFailure.destinationArnSelector.policy`](#obj-specforproviderdestinationconfigonfailuredestinationarnselectorpolicy)
+            * [`fn withResolution(resolution)`](#fn-specforproviderdestinationconfigonfailuredestinationarnselectorpolicywithresolution)
+            * [`fn withResolve(resolve)`](#fn-specforproviderdestinationconfigonfailuredestinationarnselectorpolicywithresolve)
+    * [`obj spec.forProvider.documentDbEventSourceConfig`](#obj-specforproviderdocumentdbeventsourceconfig)
+      * [`fn withCollectionName(collectionName)`](#fn-specforproviderdocumentdbeventsourceconfigwithcollectionname)
+      * [`fn withDatabaseName(databaseName)`](#fn-specforproviderdocumentdbeventsourceconfigwithdatabasename)
+      * [`fn withFullDocument(fullDocument)`](#fn-specforproviderdocumentdbeventsourceconfigwithfulldocument)
+    * [`obj spec.forProvider.filterCriteria`](#obj-specforproviderfiltercriteria)
+      * [`fn withFilter(filter)`](#fn-specforproviderfiltercriteriawithfilter)
+      * [`fn withFilterMixin(filter)`](#fn-specforproviderfiltercriteriawithfiltermixin)
+      * [`obj spec.forProvider.filterCriteria.filter`](#obj-specforproviderfiltercriteriafilter)
+        * [`fn withPattern(pattern)`](#fn-specforproviderfiltercriteriafilterwithpattern)
+    * [`obj spec.forProvider.functionNameRef`](#obj-specforproviderfunctionnameref)
+      * [`fn withName(name)`](#fn-specforproviderfunctionnamerefwithname)
+      * [`obj spec.forProvider.functionNameRef.policy`](#obj-specforproviderfunctionnamerefpolicy)
+        * [`fn withResolution(resolution)`](#fn-specforproviderfunctionnamerefpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specforproviderfunctionnamerefpolicywithresolve)
+    * [`obj spec.forProvider.functionNameSelector`](#obj-specforproviderfunctionnameselector)
+      * [`fn withMatchControllerRef(matchControllerRef)`](#fn-specforproviderfunctionnameselectorwithmatchcontrollerref)
+      * [`fn withMatchLabels(matchLabels)`](#fn-specforproviderfunctionnameselectorwithmatchlabels)
+      * [`fn withMatchLabelsMixin(matchLabels)`](#fn-specforproviderfunctionnameselectorwithmatchlabelsmixin)
+      * [`obj spec.forProvider.functionNameSelector.policy`](#obj-specforproviderfunctionnameselectorpolicy)
+        * [`fn withResolution(resolution)`](#fn-specforproviderfunctionnameselectorpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specforproviderfunctionnameselectorpolicywithresolve)
+    * [`obj spec.forProvider.kmsKeyArnRef`](#obj-specforproviderkmskeyarnref)
+      * [`fn withName(name)`](#fn-specforproviderkmskeyarnrefwithname)
+      * [`obj spec.forProvider.kmsKeyArnRef.policy`](#obj-specforproviderkmskeyarnrefpolicy)
+        * [`fn withResolution(resolution)`](#fn-specforproviderkmskeyarnrefpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specforproviderkmskeyarnrefpolicywithresolve)
+    * [`obj spec.forProvider.kmsKeyArnSelector`](#obj-specforproviderkmskeyarnselector)
+      * [`fn withMatchControllerRef(matchControllerRef)`](#fn-specforproviderkmskeyarnselectorwithmatchcontrollerref)
+      * [`fn withMatchLabels(matchLabels)`](#fn-specforproviderkmskeyarnselectorwithmatchlabels)
+      * [`fn withMatchLabelsMixin(matchLabels)`](#fn-specforproviderkmskeyarnselectorwithmatchlabelsmixin)
+      * [`obj spec.forProvider.kmsKeyArnSelector.policy`](#obj-specforproviderkmskeyarnselectorpolicy)
+        * [`fn withResolution(resolution)`](#fn-specforproviderkmskeyarnselectorpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specforproviderkmskeyarnselectorpolicywithresolve)
+    * [`obj spec.forProvider.metricsConfig`](#obj-specforprovidermetricsconfig)
+      * [`fn withMetrics(metrics)`](#fn-specforprovidermetricsconfigwithmetrics)
+      * [`fn withMetricsMixin(metrics)`](#fn-specforprovidermetricsconfigwithmetricsmixin)
+    * [`obj spec.forProvider.provisionedPollerConfig`](#obj-specforproviderprovisionedpollerconfig)
+      * [`fn withMaximumPollers(maximumPollers)`](#fn-specforproviderprovisionedpollerconfigwithmaximumpollers)
+      * [`fn withMinimumPollers(minimumPollers)`](#fn-specforproviderprovisionedpollerconfigwithminimumpollers)
+    * [`obj spec.forProvider.scalingConfig`](#obj-specforproviderscalingconfig)
+      * [`fn withMaximumConcurrency(maximumConcurrency)`](#fn-specforproviderscalingconfigwithmaximumconcurrency)
+    * [`obj spec.forProvider.selfManagedEventSource`](#obj-specforproviderselfmanagedeventsource)
+      * [`fn withEndpoints(endpoints)`](#fn-specforproviderselfmanagedeventsourcewithendpoints)
+      * [`fn withEndpointsMixin(endpoints)`](#fn-specforproviderselfmanagedeventsourcewithendpointsmixin)
+    * [`obj spec.forProvider.selfManagedKafkaEventSourceConfig`](#obj-specforproviderselfmanagedkafkaeventsourceconfig)
+      * [`fn withConsumerGroupId(consumerGroupId)`](#fn-specforproviderselfmanagedkafkaeventsourceconfigwithconsumergroupid)
+    * [`obj spec.forProvider.sourceAccessConfiguration`](#obj-specforprovidersourceaccessconfiguration)
+      * [`fn withType(type)`](#fn-specforprovidersourceaccessconfigurationwithtype)
+      * [`fn withUri(uri)`](#fn-specforprovidersourceaccessconfigurationwithuri)
+  * [`obj spec.initProvider`](#obj-specinitprovider)
+    * [`fn withBatchSize(batchSize)`](#fn-specinitproviderwithbatchsize)
+    * [`fn withBisectBatchOnFunctionError(bisectBatchOnFunctionError)`](#fn-specinitproviderwithbisectbatchonfunctionerror)
+    * [`fn withEnabled(enabled)`](#fn-specinitproviderwithenabled)
+    * [`fn withEventSourceArn(eventSourceArn)`](#fn-specinitproviderwitheventsourcearn)
+    * [`fn withFunctionName(functionName)`](#fn-specinitproviderwithfunctionname)
+    * [`fn withFunctionResponseTypes(functionResponseTypes)`](#fn-specinitproviderwithfunctionresponsetypes)
+    * [`fn withFunctionResponseTypesMixin(functionResponseTypes)`](#fn-specinitproviderwithfunctionresponsetypesmixin)
+    * [`fn withKmsKeyArn(kmsKeyArn)`](#fn-specinitproviderwithkmskeyarn)
+    * [`fn withMaximumBatchingWindowInSeconds(maximumBatchingWindowInSeconds)`](#fn-specinitproviderwithmaximumbatchingwindowinseconds)
+    * [`fn withMaximumRecordAgeInSeconds(maximumRecordAgeInSeconds)`](#fn-specinitproviderwithmaximumrecordageinseconds)
+    * [`fn withMaximumRetryAttempts(maximumRetryAttempts)`](#fn-specinitproviderwithmaximumretryattempts)
+    * [`fn withParallelizationFactor(parallelizationFactor)`](#fn-specinitproviderwithparallelizationfactor)
+    * [`fn withQueues(queues)`](#fn-specinitproviderwithqueues)
+    * [`fn withQueuesMixin(queues)`](#fn-specinitproviderwithqueuesmixin)
+    * [`fn withSourceAccessConfiguration(sourceAccessConfiguration)`](#fn-specinitproviderwithsourceaccessconfiguration)
+    * [`fn withSourceAccessConfigurationMixin(sourceAccessConfiguration)`](#fn-specinitproviderwithsourceaccessconfigurationmixin)
+    * [`fn withStartingPosition(startingPosition)`](#fn-specinitproviderwithstartingposition)
+    * [`fn withStartingPositionTimestamp(startingPositionTimestamp)`](#fn-specinitproviderwithstartingpositiontimestamp)
+    * [`fn withTags(tags)`](#fn-specinitproviderwithtags)
+    * [`fn withTagsMixin(tags)`](#fn-specinitproviderwithtagsmixin)
+    * [`fn withTopics(topics)`](#fn-specinitproviderwithtopics)
+    * [`fn withTopicsMixin(topics)`](#fn-specinitproviderwithtopicsmixin)
+    * [`fn withTumblingWindowInSeconds(tumblingWindowInSeconds)`](#fn-specinitproviderwithtumblingwindowinseconds)
+    * [`obj spec.initProvider.amazonManagedKafkaEventSourceConfig`](#obj-specinitprovideramazonmanagedkafkaeventsourceconfig)
+      * [`fn withConsumerGroupId(consumerGroupId)`](#fn-specinitprovideramazonmanagedkafkaeventsourceconfigwithconsumergroupid)
+    * [`obj spec.initProvider.destinationConfig`](#obj-specinitproviderdestinationconfig)
+      * [`obj spec.initProvider.destinationConfig.onFailure`](#obj-specinitproviderdestinationconfigonfailure)
+        * [`fn withDestinationArn(destinationArn)`](#fn-specinitproviderdestinationconfigonfailurewithdestinationarn)
+        * [`obj spec.initProvider.destinationConfig.onFailure.destinationArnRef`](#obj-specinitproviderdestinationconfigonfailuredestinationarnref)
+          * [`fn withName(name)`](#fn-specinitproviderdestinationconfigonfailuredestinationarnrefwithname)
+          * [`obj spec.initProvider.destinationConfig.onFailure.destinationArnRef.policy`](#obj-specinitproviderdestinationconfigonfailuredestinationarnrefpolicy)
+            * [`fn withResolution(resolution)`](#fn-specinitproviderdestinationconfigonfailuredestinationarnrefpolicywithresolution)
+            * [`fn withResolve(resolve)`](#fn-specinitproviderdestinationconfigonfailuredestinationarnrefpolicywithresolve)
+        * [`obj spec.initProvider.destinationConfig.onFailure.destinationArnSelector`](#obj-specinitproviderdestinationconfigonfailuredestinationarnselector)
+          * [`fn withMatchControllerRef(matchControllerRef)`](#fn-specinitproviderdestinationconfigonfailuredestinationarnselectorwithmatchcontrollerref)
+          * [`fn withMatchLabels(matchLabels)`](#fn-specinitproviderdestinationconfigonfailuredestinationarnselectorwithmatchlabels)
+          * [`fn withMatchLabelsMixin(matchLabels)`](#fn-specinitproviderdestinationconfigonfailuredestinationarnselectorwithmatchlabelsmixin)
+          * [`obj spec.initProvider.destinationConfig.onFailure.destinationArnSelector.policy`](#obj-specinitproviderdestinationconfigonfailuredestinationarnselectorpolicy)
+            * [`fn withResolution(resolution)`](#fn-specinitproviderdestinationconfigonfailuredestinationarnselectorpolicywithresolution)
+            * [`fn withResolve(resolve)`](#fn-specinitproviderdestinationconfigonfailuredestinationarnselectorpolicywithresolve)
+    * [`obj spec.initProvider.documentDbEventSourceConfig`](#obj-specinitproviderdocumentdbeventsourceconfig)
+      * [`fn withCollectionName(collectionName)`](#fn-specinitproviderdocumentdbeventsourceconfigwithcollectionname)
+      * [`fn withDatabaseName(databaseName)`](#fn-specinitproviderdocumentdbeventsourceconfigwithdatabasename)
+      * [`fn withFullDocument(fullDocument)`](#fn-specinitproviderdocumentdbeventsourceconfigwithfulldocument)
+    * [`obj spec.initProvider.filterCriteria`](#obj-specinitproviderfiltercriteria)
+      * [`fn withFilter(filter)`](#fn-specinitproviderfiltercriteriawithfilter)
+      * [`fn withFilterMixin(filter)`](#fn-specinitproviderfiltercriteriawithfiltermixin)
+      * [`obj spec.initProvider.filterCriteria.filter`](#obj-specinitproviderfiltercriteriafilter)
+        * [`fn withPattern(pattern)`](#fn-specinitproviderfiltercriteriafilterwithpattern)
+    * [`obj spec.initProvider.functionNameRef`](#obj-specinitproviderfunctionnameref)
+      * [`fn withName(name)`](#fn-specinitproviderfunctionnamerefwithname)
+      * [`obj spec.initProvider.functionNameRef.policy`](#obj-specinitproviderfunctionnamerefpolicy)
+        * [`fn withResolution(resolution)`](#fn-specinitproviderfunctionnamerefpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specinitproviderfunctionnamerefpolicywithresolve)
+    * [`obj spec.initProvider.functionNameSelector`](#obj-specinitproviderfunctionnameselector)
+      * [`fn withMatchControllerRef(matchControllerRef)`](#fn-specinitproviderfunctionnameselectorwithmatchcontrollerref)
+      * [`fn withMatchLabels(matchLabels)`](#fn-specinitproviderfunctionnameselectorwithmatchlabels)
+      * [`fn withMatchLabelsMixin(matchLabels)`](#fn-specinitproviderfunctionnameselectorwithmatchlabelsmixin)
+      * [`obj spec.initProvider.functionNameSelector.policy`](#obj-specinitproviderfunctionnameselectorpolicy)
+        * [`fn withResolution(resolution)`](#fn-specinitproviderfunctionnameselectorpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specinitproviderfunctionnameselectorpolicywithresolve)
+    * [`obj spec.initProvider.kmsKeyArnRef`](#obj-specinitproviderkmskeyarnref)
+      * [`fn withName(name)`](#fn-specinitproviderkmskeyarnrefwithname)
+      * [`obj spec.initProvider.kmsKeyArnRef.policy`](#obj-specinitproviderkmskeyarnrefpolicy)
+        * [`fn withResolution(resolution)`](#fn-specinitproviderkmskeyarnrefpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specinitproviderkmskeyarnrefpolicywithresolve)
+    * [`obj spec.initProvider.kmsKeyArnSelector`](#obj-specinitproviderkmskeyarnselector)
+      * [`fn withMatchControllerRef(matchControllerRef)`](#fn-specinitproviderkmskeyarnselectorwithmatchcontrollerref)
+      * [`fn withMatchLabels(matchLabels)`](#fn-specinitproviderkmskeyarnselectorwithmatchlabels)
+      * [`fn withMatchLabelsMixin(matchLabels)`](#fn-specinitproviderkmskeyarnselectorwithmatchlabelsmixin)
+      * [`obj spec.initProvider.kmsKeyArnSelector.policy`](#obj-specinitproviderkmskeyarnselectorpolicy)
+        * [`fn withResolution(resolution)`](#fn-specinitproviderkmskeyarnselectorpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specinitproviderkmskeyarnselectorpolicywithresolve)
+    * [`obj spec.initProvider.metricsConfig`](#obj-specinitprovidermetricsconfig)
+      * [`fn withMetrics(metrics)`](#fn-specinitprovidermetricsconfigwithmetrics)
+      * [`fn withMetricsMixin(metrics)`](#fn-specinitprovidermetricsconfigwithmetricsmixin)
+    * [`obj spec.initProvider.provisionedPollerConfig`](#obj-specinitproviderprovisionedpollerconfig)
+      * [`fn withMaximumPollers(maximumPollers)`](#fn-specinitproviderprovisionedpollerconfigwithmaximumpollers)
+      * [`fn withMinimumPollers(minimumPollers)`](#fn-specinitproviderprovisionedpollerconfigwithminimumpollers)
+    * [`obj spec.initProvider.scalingConfig`](#obj-specinitproviderscalingconfig)
+      * [`fn withMaximumConcurrency(maximumConcurrency)`](#fn-specinitproviderscalingconfigwithmaximumconcurrency)
+    * [`obj spec.initProvider.selfManagedEventSource`](#obj-specinitproviderselfmanagedeventsource)
+      * [`fn withEndpoints(endpoints)`](#fn-specinitproviderselfmanagedeventsourcewithendpoints)
+      * [`fn withEndpointsMixin(endpoints)`](#fn-specinitproviderselfmanagedeventsourcewithendpointsmixin)
+    * [`obj spec.initProvider.selfManagedKafkaEventSourceConfig`](#obj-specinitproviderselfmanagedkafkaeventsourceconfig)
+      * [`fn withConsumerGroupId(consumerGroupId)`](#fn-specinitproviderselfmanagedkafkaeventsourceconfigwithconsumergroupid)
+    * [`obj spec.initProvider.sourceAccessConfiguration`](#obj-specinitprovidersourceaccessconfiguration)
+      * [`fn withType(type)`](#fn-specinitprovidersourceaccessconfigurationwithtype)
+      * [`fn withUri(uri)`](#fn-specinitprovidersourceaccessconfigurationwithuri)
+  * [`obj spec.providerConfigRef`](#obj-specproviderconfigref)
+    * [`fn withName(name)`](#fn-specproviderconfigrefwithname)
+    * [`obj spec.providerConfigRef.policy`](#obj-specproviderconfigrefpolicy)
+      * [`fn withResolution(resolution)`](#fn-specproviderconfigrefpolicywithresolution)
+      * [`fn withResolve(resolve)`](#fn-specproviderconfigrefpolicywithresolve)
+  * [`obj spec.writeConnectionSecretToRef`](#obj-specwriteconnectionsecrettoref)
+    * [`fn withName(name)`](#fn-specwriteconnectionsecrettorefwithname)
+    * [`fn withNamespace(namespace)`](#fn-specwriteconnectionsecrettorefwithnamespace)
+
+## Fields
+
+### fn new
+
+```ts
+new(name)
+```
+
+new returns an instance of EventSourceMapping
+
+## obj metadata
+
+"ObjectMeta is metadata that all persisted resources must have, which includes all objects users must create."
+
+### fn metadata.withAnnotations
+
+```ts
+withAnnotations(annotations)
+```
+
+"Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations"
+
+### fn metadata.withAnnotationsMixin
+
+```ts
+withAnnotationsMixin(annotations)
+```
+
+"Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations"
+
+**Note:** This function appends passed data to existing values
+
+### fn metadata.withClusterName
+
+```ts
+withClusterName(clusterName)
+```
+
+"The name of the cluster which the object belongs to. This is used to distinguish resources with same name and namespace in different clusters. This field is not set anywhere right now and apiserver is going to ignore it if set in create or update request."
+
+### fn metadata.withCreationTimestamp
+
+```ts
+withCreationTimestamp(creationTimestamp)
+```
+
+"Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers."
+
+### fn metadata.withDeletionGracePeriodSeconds
+
+```ts
+withDeletionGracePeriodSeconds(deletionGracePeriodSeconds)
+```
+
+"Number of seconds allowed for this object to gracefully terminate before it will be removed from the system. Only set when deletionTimestamp is also set. May only be shortened. Read-only."
+
+### fn metadata.withDeletionTimestamp
+
+```ts
+withDeletionTimestamp(deletionTimestamp)
+```
+
+"Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers."
+
+### fn metadata.withFinalizers
+
+```ts
+withFinalizers(finalizers)
+```
+
+"Must be empty before the object is deleted from the registry. Each entry is an identifier for the responsible component that will remove the entry from the list. If the deletionTimestamp of the object is non-nil, entries in this list can only be removed. Finalizers may be processed and removed in any order.  Order is NOT enforced because it introduces significant risk of stuck finalizers. finalizers is a shared field, any actor with permission can reorder it. If the finalizer list is processed in order, then this can lead to a situation in which the component responsible for the first finalizer in the list is waiting for a signal (field value, external system, or other) produced by a component responsible for a finalizer later in the list, resulting in a deadlock. Without enforced ordering finalizers are free to order amongst themselves and are not vulnerable to ordering changes in the list."
+
+### fn metadata.withFinalizersMixin
+
+```ts
+withFinalizersMixin(finalizers)
+```
+
+"Must be empty before the object is deleted from the registry. Each entry is an identifier for the responsible component that will remove the entry from the list. If the deletionTimestamp of the object is non-nil, entries in this list can only be removed. Finalizers may be processed and removed in any order.  Order is NOT enforced because it introduces significant risk of stuck finalizers. finalizers is a shared field, any actor with permission can reorder it. If the finalizer list is processed in order, then this can lead to a situation in which the component responsible for the first finalizer in the list is waiting for a signal (field value, external system, or other) produced by a component responsible for a finalizer later in the list, resulting in a deadlock. Without enforced ordering finalizers are free to order amongst themselves and are not vulnerable to ordering changes in the list."
+
+**Note:** This function appends passed data to existing values
+
+### fn metadata.withGenerateName
+
+```ts
+withGenerateName(generateName)
+```
+
+"GenerateName is an optional prefix, used by the server, to generate a unique name ONLY IF the Name field has not been provided. If this field is used, the name returned to the client will be different than the name passed. This value will also be combined with a unique suffix. The provided value has the same validation rules as the Name field, and may be truncated by the length of the suffix required to make the value unique on the server.\n\nIf this field is specified and the generated name exists, the server will NOT return a 409 - instead, it will either return 201 Created or 500 with Reason ServerTimeout indicating a unique name could not be found in the time allotted, and the client should retry (optionally after the time indicated in the Retry-After header).\n\nApplied only if Name is not specified. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#idempotency"
+
+### fn metadata.withGeneration
+
+```ts
+withGeneration(generation)
+```
+
+"A sequence number representing a specific generation of the desired state. Populated by the system. Read-only."
+
+### fn metadata.withLabels
+
+```ts
+withLabels(labels)
+```
+
+"Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
+
+### fn metadata.withLabelsMixin
+
+```ts
+withLabelsMixin(labels)
+```
+
+"Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
+
+**Note:** This function appends passed data to existing values
+
+### fn metadata.withName
+
+```ts
+withName(name)
+```
+
+"Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+
+### fn metadata.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace defines the space within which each name must be unique. An empty namespace is equivalent to the \"default\" namespace, but \"default\" is the canonical representation. Not all objects are required to be scoped to a namespace - the value of this field for those objects will be empty.\n\nMust be a DNS_LABEL. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/namespaces"
+
+### fn metadata.withOwnerReferences
+
+```ts
+withOwnerReferences(ownerReferences)
+```
+
+"List of objects depended by this object. If ALL objects in the list have been deleted, this object will be garbage collected. If this object is managed by a controller, then an entry in this list will point to this controller, with the controller field set to true. There cannot be more than one managing controller."
+
+### fn metadata.withOwnerReferencesMixin
+
+```ts
+withOwnerReferencesMixin(ownerReferences)
+```
+
+"List of objects depended by this object. If ALL objects in the list have been deleted, this object will be garbage collected. If this object is managed by a controller, then an entry in this list will point to this controller, with the controller field set to true. There cannot be more than one managing controller."
+
+**Note:** This function appends passed data to existing values
+
+### fn metadata.withResourceVersion
+
+```ts
+withResourceVersion(resourceVersion)
+```
+
+"An opaque value that represents the internal version of this object that can be used by clients to determine when objects have changed. May be used for optimistic concurrency, change detection, and the watch operation on a resource or set of resources. Clients must treat these values as opaque and passed unmodified back to the server. They may only be valid for a particular resource or set of resources.\n\nPopulated by the system. Read-only. Value must be treated as opaque by clients and . More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency"
+
+### fn metadata.withSelfLink
+
+```ts
+withSelfLink(selfLink)
+```
+
+"SelfLink is a URL representing this object. Populated by the system. Read-only.\n\nDEPRECATED Kubernetes will stop propagating this field in 1.20 release and the field is planned to be removed in 1.21 release."
+
+### fn metadata.withUid
+
+```ts
+withUid(uid)
+```
+
+"UID is the unique in time and space value for this object. It is typically generated by the server on successful creation of a resource and is not allowed to change on PUT operations.\n\nPopulated by the system. Read-only. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+
+## obj spec
+
+"EventSourceMappingSpec defines the desired state of EventSourceMapping"
+
+### fn spec.withDeletionPolicy
+
+```ts
+withDeletionPolicy(deletionPolicy)
+```
+
+"DeletionPolicy specifies what will happen to the underlying external\nwhen this managed resource is deleted - either \"Delete\" or \"Orphan\" the\nexternal resource.\nThis field is planned to be deprecated in favor of the ManagementPolicies\nfield in a future release. Currently, both could be set independently and\nnon-default values would be honored if the feature flag is enabled.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223"
+
+### fn spec.withManagementPolicies
+
+```ts
+withManagementPolicies(managementPolicies)
+```
+
+"THIS IS A BETA FIELD. It is on by default but can be opted out\nthrough a Crossplane feature flag.\nManagementPolicies specify the array of actions Crossplane is allowed to\ntake on the managed and external resources.\nThis field is planned to replace the DeletionPolicy field in a future\nrelease. Currently, both could be set independently and non-default\nvalues would be honored if the feature flag is enabled. If both are\ncustom, the DeletionPolicy field will be ignored.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223\nand this one: https://github.com/crossplane/crossplane/blob/444267e84783136daa93568b364a5f01228cacbe/design/one-pager-ignore-changes.md"
+
+### fn spec.withManagementPoliciesMixin
+
+```ts
+withManagementPoliciesMixin(managementPolicies)
+```
+
+"THIS IS A BETA FIELD. It is on by default but can be opted out\nthrough a Crossplane feature flag.\nManagementPolicies specify the array of actions Crossplane is allowed to\ntake on the managed and external resources.\nThis field is planned to replace the DeletionPolicy field in a future\nrelease. Currently, both could be set independently and non-default\nvalues would be honored if the feature flag is enabled. If both are\ncustom, the DeletionPolicy field will be ignored.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223\nand this one: https://github.com/crossplane/crossplane/blob/444267e84783136daa93568b364a5f01228cacbe/design/one-pager-ignore-changes.md"
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.forProvider
+
+
+
+### fn spec.forProvider.withBatchSize
+
+```ts
+withBatchSize(batchSize)
+```
+
+"Largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to 100 for DynamoDB, Kinesis, MQ and MSK, 10 for SQS."
+
+### fn spec.forProvider.withBisectBatchOnFunctionError
+
+```ts
+withBisectBatchOnFunctionError(bisectBatchOnFunctionError)
+```
+
+"Whether to split the batch in two and retry if the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Defaults to false."
+
+### fn spec.forProvider.withEnabled
+
+```ts
+withEnabled(enabled)
+```
+
+"Whether the mapping is enabled. Defaults to true."
+
+### fn spec.forProvider.withEventSourceArn
+
+```ts
+withEventSourceArn(eventSourceArn)
+```
+
+"Event source ARN - required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream. Incompatible with Self Managed Kafka source."
+
+### fn spec.forProvider.withFunctionName
+
+```ts
+withFunctionName(functionName)
+```
+
+"Name or ARN of the Lambda function that will be subscribing to events."
+
+### fn spec.forProvider.withFunctionResponseTypes
+
+```ts
+withFunctionResponseTypes(functionResponseTypes)
+```
+
+"List of current response type enums applied to the event source mapping for AWS Lambda checkpointing. Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: ReportBatchItemFailures."
+
+### fn spec.forProvider.withFunctionResponseTypesMixin
+
+```ts
+withFunctionResponseTypesMixin(functionResponseTypes)
+```
+
+"List of current response type enums applied to the event source mapping for AWS Lambda checkpointing. Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: ReportBatchItemFailures."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.withKmsKeyArn
+
+```ts
+withKmsKeyArn(kmsKeyArn)
+```
+
+"ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's filter criteria."
+
+### fn spec.forProvider.withMaximumBatchingWindowInSeconds
+
+```ts
+withMaximumBatchingWindowInSeconds(maximumBatchingWindowInSeconds)
+```
+
+"Maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer until either maximum_batching_window_in_seconds expires or batch_size has been met. For streaming event sources, defaults to as soon as records are available in the stream. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues."
+
+### fn spec.forProvider.withMaximumRecordAgeInSeconds
+
+```ts
+withMaximumRecordAgeInSeconds(maximumRecordAgeInSeconds)
+```
+
+"Maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive)."
+
+### fn spec.forProvider.withMaximumRetryAttempts
+
+```ts
+withMaximumRetryAttempts(maximumRetryAttempts)
+```
+
+"Maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000."
+
+### fn spec.forProvider.withParallelizationFactor
+
+```ts
+withParallelizationFactor(parallelizationFactor)
+```
+
+"Number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10."
+
+### fn spec.forProvider.withQueues
+
+```ts
+withQueues(queues)
+```
+
+"Name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name."
+
+### fn spec.forProvider.withQueuesMixin
+
+```ts
+withQueuesMixin(queues)
+```
+
+"Name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.withRegion
+
+```ts
+withRegion(region)
+```
+
+"Region where this resource will be managed. Defaults to the Region set in the provider configuration.\nRegion is the region you'd like your resource to be created in."
+
+### fn spec.forProvider.withSourceAccessConfiguration
+
+```ts
+withSourceAccessConfiguration(sourceAccessConfiguration)
+```
+
+"For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include self_managed_event_source. See below."
+
+### fn spec.forProvider.withSourceAccessConfigurationMixin
+
+```ts
+withSourceAccessConfigurationMixin(sourceAccessConfiguration)
+```
+
+"For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include self_managed_event_source. See below."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.withStartingPosition
+
+```ts
+withStartingPosition(startingPosition)
+```
+
+"Position in the stream where AWS Lambda should start reading. Must be one of AT_TIMESTAMP (Kinesis only), LATEST or TRIM_HORIZON if getting events from Kinesis, DynamoDB, MSK or Self Managed Apache Kafka. Must not be provided if getting events from SQS. More information about these positions can be found in the AWS DynamoDB Streams API Reference and AWS Kinesis API Reference."
+
+### fn spec.forProvider.withStartingPositionTimestamp
+
+```ts
+withStartingPositionTimestamp(startingPositionTimestamp)
+```
+
+"Timestamp in RFC3339 format of the data record which to start reading when using starting_position set to AT_TIMESTAMP. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen."
+
+### fn spec.forProvider.withTags
+
+```ts
+withTags(tags)
+```
+
+"Key-value map of resource tags."
+
+### fn spec.forProvider.withTagsMixin
+
+```ts
+withTagsMixin(tags)
+```
+
+"Key-value map of resource tags."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.withTopics
+
+```ts
+withTopics(topics)
+```
+
+"Name of the Kafka topics. Only available for MSK sources. A single topic name must be specified."
+
+### fn spec.forProvider.withTopicsMixin
+
+```ts
+withTopicsMixin(topics)
+```
+
+"Name of the Kafka topics. Only available for MSK sources. A single topic name must be specified."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.withTumblingWindowInSeconds
+
+```ts
+withTumblingWindowInSeconds(tumblingWindowInSeconds)
+```
+
+"Duration in seconds of a processing window for AWS Lambda streaming analytics. The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis)."
+
+## obj spec.forProvider.amazonManagedKafkaEventSourceConfig
+
+"Additional configuration block for Amazon Managed Kafka sources. Incompatible with self_managed_event_source and self_managed_kafka_event_source_config. See below."
+
+### fn spec.forProvider.amazonManagedKafkaEventSourceConfig.withConsumerGroupId
+
+```ts
+withConsumerGroupId(consumerGroupId)
+```
+
+"Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See AmazonManagedKafkaEventSourceConfig Syntax."
+
+## obj spec.forProvider.destinationConfig
+
+"Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). See below."
+
+## obj spec.forProvider.destinationConfig.onFailure
+
+"Destination configuration for failed invocations. See below."
+
+### fn spec.forProvider.destinationConfig.onFailure.withDestinationArn
+
+```ts
+withDestinationArn(destinationArn)
+```
+
+"ARN of the destination resource."
+
+## obj spec.forProvider.destinationConfig.onFailure.destinationArnRef
+
+"Reference to a Queue in sqs to populate destinationArn."
+
+### fn spec.forProvider.destinationConfig.onFailure.destinationArnRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+## obj spec.forProvider.destinationConfig.onFailure.destinationArnRef.policy
+
+"Policies for referencing."
+
+### fn spec.forProvider.destinationConfig.onFailure.destinationArnRef.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.forProvider.destinationConfig.onFailure.destinationArnRef.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.forProvider.destinationConfig.onFailure.destinationArnSelector
+
+"Selector for a Queue in sqs to populate destinationArn."
+
+### fn spec.forProvider.destinationConfig.onFailure.destinationArnSelector.withMatchControllerRef
+
+```ts
+withMatchControllerRef(matchControllerRef)
+```
+
+"MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected."
+
+### fn spec.forProvider.destinationConfig.onFailure.destinationArnSelector.withMatchLabels
+
+```ts
+withMatchLabels(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+### fn spec.forProvider.destinationConfig.onFailure.destinationArnSelector.withMatchLabelsMixin
+
+```ts
+withMatchLabelsMixin(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.forProvider.destinationConfig.onFailure.destinationArnSelector.policy
+
+"Policies for selection."
+
+### fn spec.forProvider.destinationConfig.onFailure.destinationArnSelector.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.forProvider.destinationConfig.onFailure.destinationArnSelector.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.forProvider.documentDbEventSourceConfig
+
+"Configuration settings for a DocumentDB event source. See below."
+
+### fn spec.forProvider.documentDbEventSourceConfig.withCollectionName
+
+```ts
+withCollectionName(collectionName)
+```
+
+"Name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections."
+
+### fn spec.forProvider.documentDbEventSourceConfig.withDatabaseName
+
+```ts
+withDatabaseName(databaseName)
+```
+
+"Name of the database to consume within the DocumentDB cluster."
+
+### fn spec.forProvider.documentDbEventSourceConfig.withFullDocument
+
+```ts
+withFullDocument(fullDocument)
+```
+
+"Determines what DocumentDB sends to your event stream during document update operations. If set to UpdateLookup, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. Valid values: UpdateLookup, Default."
+
+## obj spec.forProvider.filterCriteria
+
+"Criteria to use for event filtering Kinesis stream, DynamoDB stream, SQS queue event sources. See below."
+
+### fn spec.forProvider.filterCriteria.withFilter
+
+```ts
+withFilter(filter)
+```
+
+"Set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. See below."
+
+### fn spec.forProvider.filterCriteria.withFilterMixin
+
+```ts
+withFilterMixin(filter)
+```
+
+"Set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. See below."
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.forProvider.filterCriteria.filter
+
+"Set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. See below."
+
+### fn spec.forProvider.filterCriteria.filter.withPattern
+
+```ts
+withPattern(pattern)
+```
+
+"Filter pattern up to 4096 characters. See Filter Rule Syntax."
+
+## obj spec.forProvider.functionNameRef
+
+"Reference to a Function in lambda to populate functionName."
+
+### fn spec.forProvider.functionNameRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+## obj spec.forProvider.functionNameRef.policy
+
+"Policies for referencing."
+
+### fn spec.forProvider.functionNameRef.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.forProvider.functionNameRef.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.forProvider.functionNameSelector
+
+"Selector for a Function in lambda to populate functionName."
+
+### fn spec.forProvider.functionNameSelector.withMatchControllerRef
+
+```ts
+withMatchControllerRef(matchControllerRef)
+```
+
+"MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected."
+
+### fn spec.forProvider.functionNameSelector.withMatchLabels
+
+```ts
+withMatchLabels(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+### fn spec.forProvider.functionNameSelector.withMatchLabelsMixin
+
+```ts
+withMatchLabelsMixin(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.forProvider.functionNameSelector.policy
+
+"Policies for selection."
+
+### fn spec.forProvider.functionNameSelector.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.forProvider.functionNameSelector.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.forProvider.kmsKeyArnRef
+
+"Reference to a Key in kms to populate kmsKeyArn."
+
+### fn spec.forProvider.kmsKeyArnRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+## obj spec.forProvider.kmsKeyArnRef.policy
+
+"Policies for referencing."
+
+### fn spec.forProvider.kmsKeyArnRef.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.forProvider.kmsKeyArnRef.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.forProvider.kmsKeyArnSelector
+
+"Selector for a Key in kms to populate kmsKeyArn."
+
+### fn spec.forProvider.kmsKeyArnSelector.withMatchControllerRef
+
+```ts
+withMatchControllerRef(matchControllerRef)
+```
+
+"MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected."
+
+### fn spec.forProvider.kmsKeyArnSelector.withMatchLabels
+
+```ts
+withMatchLabels(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+### fn spec.forProvider.kmsKeyArnSelector.withMatchLabelsMixin
+
+```ts
+withMatchLabelsMixin(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.forProvider.kmsKeyArnSelector.policy
+
+"Policies for selection."
+
+### fn spec.forProvider.kmsKeyArnSelector.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.forProvider.kmsKeyArnSelector.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.forProvider.metricsConfig
+
+"CloudWatch metrics configuration of the event source. Only available for stream sources (DynamoDB and Kinesis) and SQS queues. See below."
+
+### fn spec.forProvider.metricsConfig.withMetrics
+
+```ts
+withMetrics(metrics)
+```
+
+"List containing the metrics to be produced by the event source mapping. Valid values: EventCount."
+
+### fn spec.forProvider.metricsConfig.withMetricsMixin
+
+```ts
+withMetricsMixin(metrics)
+```
+
+"List containing the metrics to be produced by the event source mapping. Valid values: EventCount."
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.forProvider.provisionedPollerConfig
+
+"Event poller configuration for the event source. Only valid for Amazon MSK or self-managed Apache Kafka sources. See below."
+
+### fn spec.forProvider.provisionedPollerConfig.withMaximumPollers
+
+```ts
+withMaximumPollers(maximumPollers)
+```
+
+"Maximum number of event pollers this event source can scale up to. The range is between 1 and 2000."
+
+### fn spec.forProvider.provisionedPollerConfig.withMinimumPollers
+
+```ts
+withMinimumPollers(minimumPollers)
+```
+
+"Minimum number of event pollers this event source can scale down to. The range is between 1 and 200."
+
+## obj spec.forProvider.scalingConfig
+
+"Scaling configuration of the event source. Only available for SQS queues. See below."
+
+### fn spec.forProvider.scalingConfig.withMaximumConcurrency
+
+```ts
+withMaximumConcurrency(maximumConcurrency)
+```
+
+"Limits the number of concurrent instances that the Amazon SQS event source can invoke. Must be greater than or equal to 2. See Configuring maximum concurrency for Amazon SQS event sources. You need to raise a Service Quota Ticket to increase the concurrency beyond 1000."
+
+## obj spec.forProvider.selfManagedEventSource
+
+"For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include source_access_configuration. See below."
+
+### fn spec.forProvider.selfManagedEventSource.withEndpoints
+
+```ts
+withEndpoints(endpoints)
+```
+
+"Map of endpoints for the self managed source. For Kafka self-managed sources, the key should be KAFKA_BOOTSTRAP_SERVERS and the value should be a string with a comma separated list of broker endpoints."
+
+### fn spec.forProvider.selfManagedEventSource.withEndpointsMixin
+
+```ts
+withEndpointsMixin(endpoints)
+```
+
+"Map of endpoints for the self managed source. For Kafka self-managed sources, the key should be KAFKA_BOOTSTRAP_SERVERS and the value should be a string with a comma separated list of broker endpoints."
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.forProvider.selfManagedKafkaEventSourceConfig
+
+"Additional configuration block for Self Managed Kafka sources. Incompatible with event_source_arn and amazon_managed_kafka_event_source_config. See below."
+
+### fn spec.forProvider.selfManagedKafkaEventSourceConfig.withConsumerGroupId
+
+```ts
+withConsumerGroupId(consumerGroupId)
+```
+
+"Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See SelfManagedKafkaEventSourceConfig Syntax."
+
+## obj spec.forProvider.sourceAccessConfiguration
+
+"For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include self_managed_event_source. See below."
+
+### fn spec.forProvider.sourceAccessConfiguration.withType
+
+```ts
+withType(type)
+```
+
+"Type of authentication protocol, VPC components, or virtual host for your event source. For valid values, refer to the AWS documentation."
+
+### fn spec.forProvider.sourceAccessConfiguration.withUri
+
+```ts
+withUri(uri)
+```
+
+"URI for this configuration. For type VPC_SUBNET the value should be subnet:subnet_id where subnet_id is the value you would find in an aws_subnet resource's id attribute. For type VPC_SECURITY_GROUP the value should be security_group:security_group_id where security_group_id is the value you would find in an aws_security_group resource's id attribute."
+
+## obj spec.initProvider
+
+"THIS IS A BETA FIELD. It will be honored\nunless the Management Policies feature flag is disabled.\nInitProvider holds the same fields as ForProvider, with the exception\nof Identifier and other resource reference fields. The fields that are\nin InitProvider are merged into ForProvider when the resource is created.\nThe same fields are also added to the terraform ignore_changes hook, to\navoid updating them after creation. This is useful for fields that are\nrequired on creation, but we do not desire to update them after creation,\nfor example because of an external controller is managing them, like an\nautoscaler."
+
+### fn spec.initProvider.withBatchSize
+
+```ts
+withBatchSize(batchSize)
+```
+
+"Largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to 100 for DynamoDB, Kinesis, MQ and MSK, 10 for SQS."
+
+### fn spec.initProvider.withBisectBatchOnFunctionError
+
+```ts
+withBisectBatchOnFunctionError(bisectBatchOnFunctionError)
+```
+
+"Whether to split the batch in two and retry if the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Defaults to false."
+
+### fn spec.initProvider.withEnabled
+
+```ts
+withEnabled(enabled)
+```
+
+"Whether the mapping is enabled. Defaults to true."
+
+### fn spec.initProvider.withEventSourceArn
+
+```ts
+withEventSourceArn(eventSourceArn)
+```
+
+"Event source ARN - required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream. Incompatible with Self Managed Kafka source."
+
+### fn spec.initProvider.withFunctionName
+
+```ts
+withFunctionName(functionName)
+```
+
+"Name or ARN of the Lambda function that will be subscribing to events."
+
+### fn spec.initProvider.withFunctionResponseTypes
+
+```ts
+withFunctionResponseTypes(functionResponseTypes)
+```
+
+"List of current response type enums applied to the event source mapping for AWS Lambda checkpointing. Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: ReportBatchItemFailures."
+
+### fn spec.initProvider.withFunctionResponseTypesMixin
+
+```ts
+withFunctionResponseTypesMixin(functionResponseTypes)
+```
+
+"List of current response type enums applied to the event source mapping for AWS Lambda checkpointing. Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: ReportBatchItemFailures."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.initProvider.withKmsKeyArn
+
+```ts
+withKmsKeyArn(kmsKeyArn)
+```
+
+"ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's filter criteria."
+
+### fn spec.initProvider.withMaximumBatchingWindowInSeconds
+
+```ts
+withMaximumBatchingWindowInSeconds(maximumBatchingWindowInSeconds)
+```
+
+"Maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer until either maximum_batching_window_in_seconds expires or batch_size has been met. For streaming event sources, defaults to as soon as records are available in the stream. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues."
+
+### fn spec.initProvider.withMaximumRecordAgeInSeconds
+
+```ts
+withMaximumRecordAgeInSeconds(maximumRecordAgeInSeconds)
+```
+
+"Maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive)."
+
+### fn spec.initProvider.withMaximumRetryAttempts
+
+```ts
+withMaximumRetryAttempts(maximumRetryAttempts)
+```
+
+"Maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000."
+
+### fn spec.initProvider.withParallelizationFactor
+
+```ts
+withParallelizationFactor(parallelizationFactor)
+```
+
+"Number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10."
+
+### fn spec.initProvider.withQueues
+
+```ts
+withQueues(queues)
+```
+
+"Name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name."
+
+### fn spec.initProvider.withQueuesMixin
+
+```ts
+withQueuesMixin(queues)
+```
+
+"Name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.initProvider.withSourceAccessConfiguration
+
+```ts
+withSourceAccessConfiguration(sourceAccessConfiguration)
+```
+
+"For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include self_managed_event_source. See below."
+
+### fn spec.initProvider.withSourceAccessConfigurationMixin
+
+```ts
+withSourceAccessConfigurationMixin(sourceAccessConfiguration)
+```
+
+"For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include self_managed_event_source. See below."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.initProvider.withStartingPosition
+
+```ts
+withStartingPosition(startingPosition)
+```
+
+"Position in the stream where AWS Lambda should start reading. Must be one of AT_TIMESTAMP (Kinesis only), LATEST or TRIM_HORIZON if getting events from Kinesis, DynamoDB, MSK or Self Managed Apache Kafka. Must not be provided if getting events from SQS. More information about these positions can be found in the AWS DynamoDB Streams API Reference and AWS Kinesis API Reference."
+
+### fn spec.initProvider.withStartingPositionTimestamp
+
+```ts
+withStartingPositionTimestamp(startingPositionTimestamp)
+```
+
+"Timestamp in RFC3339 format of the data record which to start reading when using starting_position set to AT_TIMESTAMP. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen."
+
+### fn spec.initProvider.withTags
+
+```ts
+withTags(tags)
+```
+
+"Key-value map of resource tags."
+
+### fn spec.initProvider.withTagsMixin
+
+```ts
+withTagsMixin(tags)
+```
+
+"Key-value map of resource tags."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.initProvider.withTopics
+
+```ts
+withTopics(topics)
+```
+
+"Name of the Kafka topics. Only available for MSK sources. A single topic name must be specified."
+
+### fn spec.initProvider.withTopicsMixin
+
+```ts
+withTopicsMixin(topics)
+```
+
+"Name of the Kafka topics. Only available for MSK sources. A single topic name must be specified."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.initProvider.withTumblingWindowInSeconds
+
+```ts
+withTumblingWindowInSeconds(tumblingWindowInSeconds)
+```
+
+"Duration in seconds of a processing window for AWS Lambda streaming analytics. The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis)."
+
+## obj spec.initProvider.amazonManagedKafkaEventSourceConfig
+
+"Additional configuration block for Amazon Managed Kafka sources. Incompatible with self_managed_event_source and self_managed_kafka_event_source_config. See below."
+
+### fn spec.initProvider.amazonManagedKafkaEventSourceConfig.withConsumerGroupId
+
+```ts
+withConsumerGroupId(consumerGroupId)
+```
+
+"Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See AmazonManagedKafkaEventSourceConfig Syntax."
+
+## obj spec.initProvider.destinationConfig
+
+"Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). See below."
+
+## obj spec.initProvider.destinationConfig.onFailure
+
+"Destination configuration for failed invocations. See below."
+
+### fn spec.initProvider.destinationConfig.onFailure.withDestinationArn
+
+```ts
+withDestinationArn(destinationArn)
+```
+
+"ARN of the destination resource."
+
+## obj spec.initProvider.destinationConfig.onFailure.destinationArnRef
+
+"Reference to a Queue in sqs to populate destinationArn."
+
+### fn spec.initProvider.destinationConfig.onFailure.destinationArnRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+## obj spec.initProvider.destinationConfig.onFailure.destinationArnRef.policy
+
+"Policies for referencing."
+
+### fn spec.initProvider.destinationConfig.onFailure.destinationArnRef.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.initProvider.destinationConfig.onFailure.destinationArnRef.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.initProvider.destinationConfig.onFailure.destinationArnSelector
+
+"Selector for a Queue in sqs to populate destinationArn."
+
+### fn spec.initProvider.destinationConfig.onFailure.destinationArnSelector.withMatchControllerRef
+
+```ts
+withMatchControllerRef(matchControllerRef)
+```
+
+"MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected."
+
+### fn spec.initProvider.destinationConfig.onFailure.destinationArnSelector.withMatchLabels
+
+```ts
+withMatchLabels(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+### fn spec.initProvider.destinationConfig.onFailure.destinationArnSelector.withMatchLabelsMixin
+
+```ts
+withMatchLabelsMixin(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.initProvider.destinationConfig.onFailure.destinationArnSelector.policy
+
+"Policies for selection."
+
+### fn spec.initProvider.destinationConfig.onFailure.destinationArnSelector.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.initProvider.destinationConfig.onFailure.destinationArnSelector.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.initProvider.documentDbEventSourceConfig
+
+"Configuration settings for a DocumentDB event source. See below."
+
+### fn spec.initProvider.documentDbEventSourceConfig.withCollectionName
+
+```ts
+withCollectionName(collectionName)
+```
+
+"Name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections."
+
+### fn spec.initProvider.documentDbEventSourceConfig.withDatabaseName
+
+```ts
+withDatabaseName(databaseName)
+```
+
+"Name of the database to consume within the DocumentDB cluster."
+
+### fn spec.initProvider.documentDbEventSourceConfig.withFullDocument
+
+```ts
+withFullDocument(fullDocument)
+```
+
+"Determines what DocumentDB sends to your event stream during document update operations. If set to UpdateLookup, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. Valid values: UpdateLookup, Default."
+
+## obj spec.initProvider.filterCriteria
+
+"Criteria to use for event filtering Kinesis stream, DynamoDB stream, SQS queue event sources. See below."
+
+### fn spec.initProvider.filterCriteria.withFilter
+
+```ts
+withFilter(filter)
+```
+
+"Set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. See below."
+
+### fn spec.initProvider.filterCriteria.withFilterMixin
+
+```ts
+withFilterMixin(filter)
+```
+
+"Set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. See below."
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.initProvider.filterCriteria.filter
+
+"Set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. See below."
+
+### fn spec.initProvider.filterCriteria.filter.withPattern
+
+```ts
+withPattern(pattern)
+```
+
+"Filter pattern up to 4096 characters. See Filter Rule Syntax."
+
+## obj spec.initProvider.functionNameRef
+
+"Reference to a Function in lambda to populate functionName."
+
+### fn spec.initProvider.functionNameRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+## obj spec.initProvider.functionNameRef.policy
+
+"Policies for referencing."
+
+### fn spec.initProvider.functionNameRef.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.initProvider.functionNameRef.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.initProvider.functionNameSelector
+
+"Selector for a Function in lambda to populate functionName."
+
+### fn spec.initProvider.functionNameSelector.withMatchControllerRef
+
+```ts
+withMatchControllerRef(matchControllerRef)
+```
+
+"MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected."
+
+### fn spec.initProvider.functionNameSelector.withMatchLabels
+
+```ts
+withMatchLabels(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+### fn spec.initProvider.functionNameSelector.withMatchLabelsMixin
+
+```ts
+withMatchLabelsMixin(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.initProvider.functionNameSelector.policy
+
+"Policies for selection."
+
+### fn spec.initProvider.functionNameSelector.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.initProvider.functionNameSelector.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.initProvider.kmsKeyArnRef
+
+"Reference to a Key in kms to populate kmsKeyArn."
+
+### fn spec.initProvider.kmsKeyArnRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+## obj spec.initProvider.kmsKeyArnRef.policy
+
+"Policies for referencing."
+
+### fn spec.initProvider.kmsKeyArnRef.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.initProvider.kmsKeyArnRef.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.initProvider.kmsKeyArnSelector
+
+"Selector for a Key in kms to populate kmsKeyArn."
+
+### fn spec.initProvider.kmsKeyArnSelector.withMatchControllerRef
+
+```ts
+withMatchControllerRef(matchControllerRef)
+```
+
+"MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected."
+
+### fn spec.initProvider.kmsKeyArnSelector.withMatchLabels
+
+```ts
+withMatchLabels(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+### fn spec.initProvider.kmsKeyArnSelector.withMatchLabelsMixin
+
+```ts
+withMatchLabelsMixin(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.initProvider.kmsKeyArnSelector.policy
+
+"Policies for selection."
+
+### fn spec.initProvider.kmsKeyArnSelector.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.initProvider.kmsKeyArnSelector.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.initProvider.metricsConfig
+
+"CloudWatch metrics configuration of the event source. Only available for stream sources (DynamoDB and Kinesis) and SQS queues. See below."
+
+### fn spec.initProvider.metricsConfig.withMetrics
+
+```ts
+withMetrics(metrics)
+```
+
+"List containing the metrics to be produced by the event source mapping. Valid values: EventCount."
+
+### fn spec.initProvider.metricsConfig.withMetricsMixin
+
+```ts
+withMetricsMixin(metrics)
+```
+
+"List containing the metrics to be produced by the event source mapping. Valid values: EventCount."
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.initProvider.provisionedPollerConfig
+
+"Event poller configuration for the event source. Only valid for Amazon MSK or self-managed Apache Kafka sources. See below."
+
+### fn spec.initProvider.provisionedPollerConfig.withMaximumPollers
+
+```ts
+withMaximumPollers(maximumPollers)
+```
+
+"Maximum number of event pollers this event source can scale up to. The range is between 1 and 2000."
+
+### fn spec.initProvider.provisionedPollerConfig.withMinimumPollers
+
+```ts
+withMinimumPollers(minimumPollers)
+```
+
+"Minimum number of event pollers this event source can scale down to. The range is between 1 and 200."
+
+## obj spec.initProvider.scalingConfig
+
+"Scaling configuration of the event source. Only available for SQS queues. See below."
+
+### fn spec.initProvider.scalingConfig.withMaximumConcurrency
+
+```ts
+withMaximumConcurrency(maximumConcurrency)
+```
+
+"Limits the number of concurrent instances that the Amazon SQS event source can invoke. Must be greater than or equal to 2. See Configuring maximum concurrency for Amazon SQS event sources. You need to raise a Service Quota Ticket to increase the concurrency beyond 1000."
+
+## obj spec.initProvider.selfManagedEventSource
+
+"For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include source_access_configuration. See below."
+
+### fn spec.initProvider.selfManagedEventSource.withEndpoints
+
+```ts
+withEndpoints(endpoints)
+```
+
+"Map of endpoints for the self managed source. For Kafka self-managed sources, the key should be KAFKA_BOOTSTRAP_SERVERS and the value should be a string with a comma separated list of broker endpoints."
+
+### fn spec.initProvider.selfManagedEventSource.withEndpointsMixin
+
+```ts
+withEndpointsMixin(endpoints)
+```
+
+"Map of endpoints for the self managed source. For Kafka self-managed sources, the key should be KAFKA_BOOTSTRAP_SERVERS and the value should be a string with a comma separated list of broker endpoints."
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.initProvider.selfManagedKafkaEventSourceConfig
+
+"Additional configuration block for Self Managed Kafka sources. Incompatible with event_source_arn and amazon_managed_kafka_event_source_config. See below."
+
+### fn spec.initProvider.selfManagedKafkaEventSourceConfig.withConsumerGroupId
+
+```ts
+withConsumerGroupId(consumerGroupId)
+```
+
+"Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See SelfManagedKafkaEventSourceConfig Syntax."
+
+## obj spec.initProvider.sourceAccessConfiguration
+
+"For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include self_managed_event_source. See below."
+
+### fn spec.initProvider.sourceAccessConfiguration.withType
+
+```ts
+withType(type)
+```
+
+"Type of authentication protocol, VPC components, or virtual host for your event source. For valid values, refer to the AWS documentation."
+
+### fn spec.initProvider.sourceAccessConfiguration.withUri
+
+```ts
+withUri(uri)
+```
+
+"URI for this configuration. For type VPC_SUBNET the value should be subnet:subnet_id where subnet_id is the value you would find in an aws_subnet resource's id attribute. For type VPC_SECURITY_GROUP the value should be security_group:security_group_id where security_group_id is the value you would find in an aws_security_group resource's id attribute."
+
+## obj spec.providerConfigRef
+
+"ProviderConfigReference specifies how the provider that will be used to\ncreate, observe, update, and delete this managed resource should be\nconfigured."
+
+### fn spec.providerConfigRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+## obj spec.providerConfigRef.policy
+
+"Policies for referencing."
+
+### fn spec.providerConfigRef.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.providerConfigRef.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.writeConnectionSecretToRef
+
+"WriteConnectionSecretToReference specifies the namespace and name of a\nSecret to which any connection details for this managed resource should\nbe written. Connection details frequently include the endpoint, username,\nand password required to connect to the managed resource."
+
+### fn spec.writeConnectionSecretToRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the secret."
+
+### fn spec.writeConnectionSecretToRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the secret."

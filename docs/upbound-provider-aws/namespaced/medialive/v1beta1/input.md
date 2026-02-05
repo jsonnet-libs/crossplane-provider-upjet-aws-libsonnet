@@ -1,0 +1,1306 @@
+---
+permalink: /upbound-provider-aws/namespaced/medialive/v1beta1/input/
+---
+
+# medialive.v1beta1.input
+
+"Input is the Schema for the Inputs API."
+
+## Index
+
+* [`fn new(name)`](#fn-new)
+* [`obj metadata`](#obj-metadata)
+  * [`fn withAnnotations(annotations)`](#fn-metadatawithannotations)
+  * [`fn withAnnotationsMixin(annotations)`](#fn-metadatawithannotationsmixin)
+  * [`fn withClusterName(clusterName)`](#fn-metadatawithclustername)
+  * [`fn withCreationTimestamp(creationTimestamp)`](#fn-metadatawithcreationtimestamp)
+  * [`fn withDeletionGracePeriodSeconds(deletionGracePeriodSeconds)`](#fn-metadatawithdeletiongraceperiodseconds)
+  * [`fn withDeletionTimestamp(deletionTimestamp)`](#fn-metadatawithdeletiontimestamp)
+  * [`fn withFinalizers(finalizers)`](#fn-metadatawithfinalizers)
+  * [`fn withFinalizersMixin(finalizers)`](#fn-metadatawithfinalizersmixin)
+  * [`fn withGenerateName(generateName)`](#fn-metadatawithgeneratename)
+  * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
+  * [`fn withLabels(labels)`](#fn-metadatawithlabels)
+  * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
+  * [`fn withName(name)`](#fn-metadatawithname)
+  * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
+  * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
+  * [`fn withOwnerReferencesMixin(ownerReferences)`](#fn-metadatawithownerreferencesmixin)
+  * [`fn withResourceVersion(resourceVersion)`](#fn-metadatawithresourceversion)
+  * [`fn withSelfLink(selfLink)`](#fn-metadatawithselflink)
+  * [`fn withUid(uid)`](#fn-metadatawithuid)
+* [`obj spec`](#obj-spec)
+  * [`fn withManagementPolicies(managementPolicies)`](#fn-specwithmanagementpolicies)
+  * [`fn withManagementPoliciesMixin(managementPolicies)`](#fn-specwithmanagementpoliciesmixin)
+  * [`obj spec.forProvider`](#obj-specforprovider)
+    * [`fn withDestinations(destinations)`](#fn-specforproviderwithdestinations)
+    * [`fn withDestinationsMixin(destinations)`](#fn-specforproviderwithdestinationsmixin)
+    * [`fn withInputDevices(inputDevices)`](#fn-specforproviderwithinputdevices)
+    * [`fn withInputDevicesMixin(inputDevices)`](#fn-specforproviderwithinputdevicesmixin)
+    * [`fn withInputSecurityGroups(inputSecurityGroups)`](#fn-specforproviderwithinputsecuritygroups)
+    * [`fn withInputSecurityGroupsMixin(inputSecurityGroups)`](#fn-specforproviderwithinputsecuritygroupsmixin)
+    * [`fn withInputSecurityGroupsRefs(inputSecurityGroupsRefs)`](#fn-specforproviderwithinputsecuritygroupsrefs)
+    * [`fn withInputSecurityGroupsRefsMixin(inputSecurityGroupsRefs)`](#fn-specforproviderwithinputsecuritygroupsrefsmixin)
+    * [`fn withMediaConnectFlows(mediaConnectFlows)`](#fn-specforproviderwithmediaconnectflows)
+    * [`fn withMediaConnectFlowsMixin(mediaConnectFlows)`](#fn-specforproviderwithmediaconnectflowsmixin)
+    * [`fn withName(name)`](#fn-specforproviderwithname)
+    * [`fn withRegion(region)`](#fn-specforproviderwithregion)
+    * [`fn withRoleArn(roleArn)`](#fn-specforproviderwithrolearn)
+    * [`fn withSources(sources)`](#fn-specforproviderwithsources)
+    * [`fn withSourcesMixin(sources)`](#fn-specforproviderwithsourcesmixin)
+    * [`fn withTags(tags)`](#fn-specforproviderwithtags)
+    * [`fn withTagsMixin(tags)`](#fn-specforproviderwithtagsmixin)
+    * [`fn withType(type)`](#fn-specforproviderwithtype)
+    * [`obj spec.forProvider.destinations`](#obj-specforproviderdestinations)
+      * [`fn withStreamName(streamName)`](#fn-specforproviderdestinationswithstreamname)
+    * [`obj spec.forProvider.inputDevices`](#obj-specforproviderinputdevices)
+      * [`fn withId(id)`](#fn-specforproviderinputdeviceswithid)
+    * [`obj spec.forProvider.inputSecurityGroupsRefs`](#obj-specforproviderinputsecuritygroupsrefs)
+      * [`fn withName(name)`](#fn-specforproviderinputsecuritygroupsrefswithname)
+      * [`fn withNamespace(namespace)`](#fn-specforproviderinputsecuritygroupsrefswithnamespace)
+      * [`obj spec.forProvider.inputSecurityGroupsRefs.policy`](#obj-specforproviderinputsecuritygroupsrefspolicy)
+        * [`fn withResolution(resolution)`](#fn-specforproviderinputsecuritygroupsrefspolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specforproviderinputsecuritygroupsrefspolicywithresolve)
+    * [`obj spec.forProvider.inputSecurityGroupsSelector`](#obj-specforproviderinputsecuritygroupsselector)
+      * [`fn withMatchControllerRef(matchControllerRef)`](#fn-specforproviderinputsecuritygroupsselectorwithmatchcontrollerref)
+      * [`fn withMatchLabels(matchLabels)`](#fn-specforproviderinputsecuritygroupsselectorwithmatchlabels)
+      * [`fn withMatchLabelsMixin(matchLabels)`](#fn-specforproviderinputsecuritygroupsselectorwithmatchlabelsmixin)
+      * [`fn withNamespace(namespace)`](#fn-specforproviderinputsecuritygroupsselectorwithnamespace)
+      * [`obj spec.forProvider.inputSecurityGroupsSelector.policy`](#obj-specforproviderinputsecuritygroupsselectorpolicy)
+        * [`fn withResolution(resolution)`](#fn-specforproviderinputsecuritygroupsselectorpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specforproviderinputsecuritygroupsselectorpolicywithresolve)
+    * [`obj spec.forProvider.mediaConnectFlows`](#obj-specforprovidermediaconnectflows)
+      * [`fn withFlowArn(flowArn)`](#fn-specforprovidermediaconnectflowswithflowarn)
+    * [`obj spec.forProvider.roleArnRef`](#obj-specforproviderrolearnref)
+      * [`fn withName(name)`](#fn-specforproviderrolearnrefwithname)
+      * [`fn withNamespace(namespace)`](#fn-specforproviderrolearnrefwithnamespace)
+      * [`obj spec.forProvider.roleArnRef.policy`](#obj-specforproviderrolearnrefpolicy)
+        * [`fn withResolution(resolution)`](#fn-specforproviderrolearnrefpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specforproviderrolearnrefpolicywithresolve)
+    * [`obj spec.forProvider.roleArnSelector`](#obj-specforproviderrolearnselector)
+      * [`fn withMatchControllerRef(matchControllerRef)`](#fn-specforproviderrolearnselectorwithmatchcontrollerref)
+      * [`fn withMatchLabels(matchLabels)`](#fn-specforproviderrolearnselectorwithmatchlabels)
+      * [`fn withMatchLabelsMixin(matchLabels)`](#fn-specforproviderrolearnselectorwithmatchlabelsmixin)
+      * [`fn withNamespace(namespace)`](#fn-specforproviderrolearnselectorwithnamespace)
+      * [`obj spec.forProvider.roleArnSelector.policy`](#obj-specforproviderrolearnselectorpolicy)
+        * [`fn withResolution(resolution)`](#fn-specforproviderrolearnselectorpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specforproviderrolearnselectorpolicywithresolve)
+    * [`obj spec.forProvider.sources`](#obj-specforprovidersources)
+      * [`fn withPasswordParam(passwordParam)`](#fn-specforprovidersourceswithpasswordparam)
+      * [`fn withUrl(url)`](#fn-specforprovidersourceswithurl)
+      * [`fn withUsername(username)`](#fn-specforprovidersourceswithusername)
+    * [`obj spec.forProvider.vpc`](#obj-specforprovidervpc)
+      * [`fn withSecurityGroupIds(securityGroupIds)`](#fn-specforprovidervpcwithsecuritygroupids)
+      * [`fn withSecurityGroupIdsMixin(securityGroupIds)`](#fn-specforprovidervpcwithsecuritygroupidsmixin)
+      * [`fn withSubnetIds(subnetIds)`](#fn-specforprovidervpcwithsubnetids)
+      * [`fn withSubnetIdsMixin(subnetIds)`](#fn-specforprovidervpcwithsubnetidsmixin)
+  * [`obj spec.initProvider`](#obj-specinitprovider)
+    * [`fn withDestinations(destinations)`](#fn-specinitproviderwithdestinations)
+    * [`fn withDestinationsMixin(destinations)`](#fn-specinitproviderwithdestinationsmixin)
+    * [`fn withInputDevices(inputDevices)`](#fn-specinitproviderwithinputdevices)
+    * [`fn withInputDevicesMixin(inputDevices)`](#fn-specinitproviderwithinputdevicesmixin)
+    * [`fn withInputSecurityGroups(inputSecurityGroups)`](#fn-specinitproviderwithinputsecuritygroups)
+    * [`fn withInputSecurityGroupsMixin(inputSecurityGroups)`](#fn-specinitproviderwithinputsecuritygroupsmixin)
+    * [`fn withInputSecurityGroupsRefs(inputSecurityGroupsRefs)`](#fn-specinitproviderwithinputsecuritygroupsrefs)
+    * [`fn withInputSecurityGroupsRefsMixin(inputSecurityGroupsRefs)`](#fn-specinitproviderwithinputsecuritygroupsrefsmixin)
+    * [`fn withMediaConnectFlows(mediaConnectFlows)`](#fn-specinitproviderwithmediaconnectflows)
+    * [`fn withMediaConnectFlowsMixin(mediaConnectFlows)`](#fn-specinitproviderwithmediaconnectflowsmixin)
+    * [`fn withName(name)`](#fn-specinitproviderwithname)
+    * [`fn withRoleArn(roleArn)`](#fn-specinitproviderwithrolearn)
+    * [`fn withSources(sources)`](#fn-specinitproviderwithsources)
+    * [`fn withSourcesMixin(sources)`](#fn-specinitproviderwithsourcesmixin)
+    * [`fn withTags(tags)`](#fn-specinitproviderwithtags)
+    * [`fn withTagsMixin(tags)`](#fn-specinitproviderwithtagsmixin)
+    * [`fn withType(type)`](#fn-specinitproviderwithtype)
+    * [`obj spec.initProvider.destinations`](#obj-specinitproviderdestinations)
+      * [`fn withStreamName(streamName)`](#fn-specinitproviderdestinationswithstreamname)
+    * [`obj spec.initProvider.inputDevices`](#obj-specinitproviderinputdevices)
+      * [`fn withId(id)`](#fn-specinitproviderinputdeviceswithid)
+    * [`obj spec.initProvider.inputSecurityGroupsRefs`](#obj-specinitproviderinputsecuritygroupsrefs)
+      * [`fn withName(name)`](#fn-specinitproviderinputsecuritygroupsrefswithname)
+      * [`fn withNamespace(namespace)`](#fn-specinitproviderinputsecuritygroupsrefswithnamespace)
+      * [`obj spec.initProvider.inputSecurityGroupsRefs.policy`](#obj-specinitproviderinputsecuritygroupsrefspolicy)
+        * [`fn withResolution(resolution)`](#fn-specinitproviderinputsecuritygroupsrefspolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specinitproviderinputsecuritygroupsrefspolicywithresolve)
+    * [`obj spec.initProvider.inputSecurityGroupsSelector`](#obj-specinitproviderinputsecuritygroupsselector)
+      * [`fn withMatchControllerRef(matchControllerRef)`](#fn-specinitproviderinputsecuritygroupsselectorwithmatchcontrollerref)
+      * [`fn withMatchLabels(matchLabels)`](#fn-specinitproviderinputsecuritygroupsselectorwithmatchlabels)
+      * [`fn withMatchLabelsMixin(matchLabels)`](#fn-specinitproviderinputsecuritygroupsselectorwithmatchlabelsmixin)
+      * [`fn withNamespace(namespace)`](#fn-specinitproviderinputsecuritygroupsselectorwithnamespace)
+      * [`obj spec.initProvider.inputSecurityGroupsSelector.policy`](#obj-specinitproviderinputsecuritygroupsselectorpolicy)
+        * [`fn withResolution(resolution)`](#fn-specinitproviderinputsecuritygroupsselectorpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specinitproviderinputsecuritygroupsselectorpolicywithresolve)
+    * [`obj spec.initProvider.mediaConnectFlows`](#obj-specinitprovidermediaconnectflows)
+      * [`fn withFlowArn(flowArn)`](#fn-specinitprovidermediaconnectflowswithflowarn)
+    * [`obj spec.initProvider.roleArnRef`](#obj-specinitproviderrolearnref)
+      * [`fn withName(name)`](#fn-specinitproviderrolearnrefwithname)
+      * [`fn withNamespace(namespace)`](#fn-specinitproviderrolearnrefwithnamespace)
+      * [`obj spec.initProvider.roleArnRef.policy`](#obj-specinitproviderrolearnrefpolicy)
+        * [`fn withResolution(resolution)`](#fn-specinitproviderrolearnrefpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specinitproviderrolearnrefpolicywithresolve)
+    * [`obj spec.initProvider.roleArnSelector`](#obj-specinitproviderrolearnselector)
+      * [`fn withMatchControllerRef(matchControllerRef)`](#fn-specinitproviderrolearnselectorwithmatchcontrollerref)
+      * [`fn withMatchLabels(matchLabels)`](#fn-specinitproviderrolearnselectorwithmatchlabels)
+      * [`fn withMatchLabelsMixin(matchLabels)`](#fn-specinitproviderrolearnselectorwithmatchlabelsmixin)
+      * [`fn withNamespace(namespace)`](#fn-specinitproviderrolearnselectorwithnamespace)
+      * [`obj spec.initProvider.roleArnSelector.policy`](#obj-specinitproviderrolearnselectorpolicy)
+        * [`fn withResolution(resolution)`](#fn-specinitproviderrolearnselectorpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specinitproviderrolearnselectorpolicywithresolve)
+    * [`obj spec.initProvider.sources`](#obj-specinitprovidersources)
+      * [`fn withPasswordParam(passwordParam)`](#fn-specinitprovidersourceswithpasswordparam)
+      * [`fn withUrl(url)`](#fn-specinitprovidersourceswithurl)
+      * [`fn withUsername(username)`](#fn-specinitprovidersourceswithusername)
+    * [`obj spec.initProvider.vpc`](#obj-specinitprovidervpc)
+      * [`fn withSecurityGroupIds(securityGroupIds)`](#fn-specinitprovidervpcwithsecuritygroupids)
+      * [`fn withSecurityGroupIdsMixin(securityGroupIds)`](#fn-specinitprovidervpcwithsecuritygroupidsmixin)
+      * [`fn withSubnetIds(subnetIds)`](#fn-specinitprovidervpcwithsubnetids)
+      * [`fn withSubnetIdsMixin(subnetIds)`](#fn-specinitprovidervpcwithsubnetidsmixin)
+  * [`obj spec.providerConfigRef`](#obj-specproviderconfigref)
+    * [`fn withKind(kind)`](#fn-specproviderconfigrefwithkind)
+    * [`fn withName(name)`](#fn-specproviderconfigrefwithname)
+  * [`obj spec.writeConnectionSecretToRef`](#obj-specwriteconnectionsecrettoref)
+    * [`fn withName(name)`](#fn-specwriteconnectionsecrettorefwithname)
+
+## Fields
+
+### fn new
+
+```ts
+new(name)
+```
+
+new returns an instance of Input
+
+## obj metadata
+
+"ObjectMeta is metadata that all persisted resources must have, which includes all objects users must create."
+
+### fn metadata.withAnnotations
+
+```ts
+withAnnotations(annotations)
+```
+
+"Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations"
+
+### fn metadata.withAnnotationsMixin
+
+```ts
+withAnnotationsMixin(annotations)
+```
+
+"Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations"
+
+**Note:** This function appends passed data to existing values
+
+### fn metadata.withClusterName
+
+```ts
+withClusterName(clusterName)
+```
+
+"The name of the cluster which the object belongs to. This is used to distinguish resources with same name and namespace in different clusters. This field is not set anywhere right now and apiserver is going to ignore it if set in create or update request."
+
+### fn metadata.withCreationTimestamp
+
+```ts
+withCreationTimestamp(creationTimestamp)
+```
+
+"Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers."
+
+### fn metadata.withDeletionGracePeriodSeconds
+
+```ts
+withDeletionGracePeriodSeconds(deletionGracePeriodSeconds)
+```
+
+"Number of seconds allowed for this object to gracefully terminate before it will be removed from the system. Only set when deletionTimestamp is also set. May only be shortened. Read-only."
+
+### fn metadata.withDeletionTimestamp
+
+```ts
+withDeletionTimestamp(deletionTimestamp)
+```
+
+"Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers."
+
+### fn metadata.withFinalizers
+
+```ts
+withFinalizers(finalizers)
+```
+
+"Must be empty before the object is deleted from the registry. Each entry is an identifier for the responsible component that will remove the entry from the list. If the deletionTimestamp of the object is non-nil, entries in this list can only be removed. Finalizers may be processed and removed in any order.  Order is NOT enforced because it introduces significant risk of stuck finalizers. finalizers is a shared field, any actor with permission can reorder it. If the finalizer list is processed in order, then this can lead to a situation in which the component responsible for the first finalizer in the list is waiting for a signal (field value, external system, or other) produced by a component responsible for a finalizer later in the list, resulting in a deadlock. Without enforced ordering finalizers are free to order amongst themselves and are not vulnerable to ordering changes in the list."
+
+### fn metadata.withFinalizersMixin
+
+```ts
+withFinalizersMixin(finalizers)
+```
+
+"Must be empty before the object is deleted from the registry. Each entry is an identifier for the responsible component that will remove the entry from the list. If the deletionTimestamp of the object is non-nil, entries in this list can only be removed. Finalizers may be processed and removed in any order.  Order is NOT enforced because it introduces significant risk of stuck finalizers. finalizers is a shared field, any actor with permission can reorder it. If the finalizer list is processed in order, then this can lead to a situation in which the component responsible for the first finalizer in the list is waiting for a signal (field value, external system, or other) produced by a component responsible for a finalizer later in the list, resulting in a deadlock. Without enforced ordering finalizers are free to order amongst themselves and are not vulnerable to ordering changes in the list."
+
+**Note:** This function appends passed data to existing values
+
+### fn metadata.withGenerateName
+
+```ts
+withGenerateName(generateName)
+```
+
+"GenerateName is an optional prefix, used by the server, to generate a unique name ONLY IF the Name field has not been provided. If this field is used, the name returned to the client will be different than the name passed. This value will also be combined with a unique suffix. The provided value has the same validation rules as the Name field, and may be truncated by the length of the suffix required to make the value unique on the server.\n\nIf this field is specified and the generated name exists, the server will NOT return a 409 - instead, it will either return 201 Created or 500 with Reason ServerTimeout indicating a unique name could not be found in the time allotted, and the client should retry (optionally after the time indicated in the Retry-After header).\n\nApplied only if Name is not specified. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#idempotency"
+
+### fn metadata.withGeneration
+
+```ts
+withGeneration(generation)
+```
+
+"A sequence number representing a specific generation of the desired state. Populated by the system. Read-only."
+
+### fn metadata.withLabels
+
+```ts
+withLabels(labels)
+```
+
+"Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
+
+### fn metadata.withLabelsMixin
+
+```ts
+withLabelsMixin(labels)
+```
+
+"Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
+
+**Note:** This function appends passed data to existing values
+
+### fn metadata.withName
+
+```ts
+withName(name)
+```
+
+"Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+
+### fn metadata.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace defines the space within which each name must be unique. An empty namespace is equivalent to the \"default\" namespace, but \"default\" is the canonical representation. Not all objects are required to be scoped to a namespace - the value of this field for those objects will be empty.\n\nMust be a DNS_LABEL. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/namespaces"
+
+### fn metadata.withOwnerReferences
+
+```ts
+withOwnerReferences(ownerReferences)
+```
+
+"List of objects depended by this object. If ALL objects in the list have been deleted, this object will be garbage collected. If this object is managed by a controller, then an entry in this list will point to this controller, with the controller field set to true. There cannot be more than one managing controller."
+
+### fn metadata.withOwnerReferencesMixin
+
+```ts
+withOwnerReferencesMixin(ownerReferences)
+```
+
+"List of objects depended by this object. If ALL objects in the list have been deleted, this object will be garbage collected. If this object is managed by a controller, then an entry in this list will point to this controller, with the controller field set to true. There cannot be more than one managing controller."
+
+**Note:** This function appends passed data to existing values
+
+### fn metadata.withResourceVersion
+
+```ts
+withResourceVersion(resourceVersion)
+```
+
+"An opaque value that represents the internal version of this object that can be used by clients to determine when objects have changed. May be used for optimistic concurrency, change detection, and the watch operation on a resource or set of resources. Clients must treat these values as opaque and passed unmodified back to the server. They may only be valid for a particular resource or set of resources.\n\nPopulated by the system. Read-only. Value must be treated as opaque by clients and . More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency"
+
+### fn metadata.withSelfLink
+
+```ts
+withSelfLink(selfLink)
+```
+
+"SelfLink is a URL representing this object. Populated by the system. Read-only.\n\nDEPRECATED Kubernetes will stop propagating this field in 1.20 release and the field is planned to be removed in 1.21 release."
+
+### fn metadata.withUid
+
+```ts
+withUid(uid)
+```
+
+"UID is the unique in time and space value for this object. It is typically generated by the server on successful creation of a resource and is not allowed to change on PUT operations.\n\nPopulated by the system. Read-only. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+
+## obj spec
+
+"InputSpec defines the desired state of Input"
+
+### fn spec.withManagementPolicies
+
+```ts
+withManagementPolicies(managementPolicies)
+```
+
+"THIS IS A BETA FIELD. It is on by default but can be opted out\nthrough a Crossplane feature flag.\nManagementPolicies specify the array of actions Crossplane is allowed to\ntake on the managed and external resources.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223\nand this one: https://github.com/crossplane/crossplane/blob/444267e84783136daa93568b364a5f01228cacbe/design/one-pager-ignore-changes.md"
+
+### fn spec.withManagementPoliciesMixin
+
+```ts
+withManagementPoliciesMixin(managementPolicies)
+```
+
+"THIS IS A BETA FIELD. It is on by default but can be opted out\nthrough a Crossplane feature flag.\nManagementPolicies specify the array of actions Crossplane is allowed to\ntake on the managed and external resources.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223\nand this one: https://github.com/crossplane/crossplane/blob/444267e84783136daa93568b364a5f01228cacbe/design/one-pager-ignore-changes.md"
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.forProvider
+
+
+
+### fn spec.forProvider.withDestinations
+
+```ts
+withDestinations(destinations)
+```
+
+"Destination settings for PUSH type inputs. See Destinations for more details."
+
+### fn spec.forProvider.withDestinationsMixin
+
+```ts
+withDestinationsMixin(destinations)
+```
+
+"Destination settings for PUSH type inputs. See Destinations for more details."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.withInputDevices
+
+```ts
+withInputDevices(inputDevices)
+```
+
+"Settings for the devices. See Input Devices for more details."
+
+### fn spec.forProvider.withInputDevicesMixin
+
+```ts
+withInputDevicesMixin(inputDevices)
+```
+
+"Settings for the devices. See Input Devices for more details."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.withInputSecurityGroups
+
+```ts
+withInputSecurityGroups(inputSecurityGroups)
+```
+
+"List of input security groups."
+
+### fn spec.forProvider.withInputSecurityGroupsMixin
+
+```ts
+withInputSecurityGroupsMixin(inputSecurityGroups)
+```
+
+"List of input security groups."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.withInputSecurityGroupsRefs
+
+```ts
+withInputSecurityGroupsRefs(inputSecurityGroupsRefs)
+```
+
+"References to InputSecurityGroup in medialive to populate inputSecurityGroups."
+
+### fn spec.forProvider.withInputSecurityGroupsRefsMixin
+
+```ts
+withInputSecurityGroupsRefsMixin(inputSecurityGroupsRefs)
+```
+
+"References to InputSecurityGroup in medialive to populate inputSecurityGroups."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.withMediaConnectFlows
+
+```ts
+withMediaConnectFlows(mediaConnectFlows)
+```
+
+"A list of the MediaConnect Flows. See Media Connect Flows for more details."
+
+### fn spec.forProvider.withMediaConnectFlowsMixin
+
+```ts
+withMediaConnectFlowsMixin(mediaConnectFlows)
+```
+
+"A list of the MediaConnect Flows. See Media Connect Flows for more details."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.withName
+
+```ts
+withName(name)
+```
+
+"Name of the input."
+
+### fn spec.forProvider.withRegion
+
+```ts
+withRegion(region)
+```
+
+"Region where this resource will be managed. Defaults to the Region set in the provider configuration.\nRegion is the region you'd like your resource to be created in."
+
+### fn spec.forProvider.withRoleArn
+
+```ts
+withRoleArn(roleArn)
+```
+
+"The ARN of the role this input assumes during and after creation."
+
+### fn spec.forProvider.withSources
+
+```ts
+withSources(sources)
+```
+
+"The source URLs for a PULL-type input. See Sources for more details."
+
+### fn spec.forProvider.withSourcesMixin
+
+```ts
+withSourcesMixin(sources)
+```
+
+"The source URLs for a PULL-type input. See Sources for more details."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.withTags
+
+```ts
+withTags(tags)
+```
+
+"Key-value map of resource tags."
+
+### fn spec.forProvider.withTagsMixin
+
+```ts
+withTagsMixin(tags)
+```
+
+"Key-value map of resource tags."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.withType
+
+```ts
+withType(type)
+```
+
+"The different types of inputs that AWS Elemental MediaLive supports."
+
+## obj spec.forProvider.destinations
+
+"Destination settings for PUSH type inputs. See Destinations for more details."
+
+### fn spec.forProvider.destinations.withStreamName
+
+```ts
+withStreamName(streamName)
+```
+
+"A unique name for the location the RTMP stream is being pushed to."
+
+## obj spec.forProvider.inputDevices
+
+"Settings for the devices. See Input Devices for more details."
+
+### fn spec.forProvider.inputDevices.withId
+
+```ts
+withId(id)
+```
+
+"The unique ID for the device."
+
+## obj spec.forProvider.inputSecurityGroupsRefs
+
+"References to InputSecurityGroup in medialive to populate inputSecurityGroups."
+
+### fn spec.forProvider.inputSecurityGroupsRefs.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+### fn spec.forProvider.inputSecurityGroupsRefs.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referenced object"
+
+## obj spec.forProvider.inputSecurityGroupsRefs.policy
+
+"Policies for referencing."
+
+### fn spec.forProvider.inputSecurityGroupsRefs.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.forProvider.inputSecurityGroupsRefs.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.forProvider.inputSecurityGroupsSelector
+
+"Selector for a list of InputSecurityGroup in medialive to populate inputSecurityGroups."
+
+### fn spec.forProvider.inputSecurityGroupsSelector.withMatchControllerRef
+
+```ts
+withMatchControllerRef(matchControllerRef)
+```
+
+"MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected."
+
+### fn spec.forProvider.inputSecurityGroupsSelector.withMatchLabels
+
+```ts
+withMatchLabels(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+### fn spec.forProvider.inputSecurityGroupsSelector.withMatchLabelsMixin
+
+```ts
+withMatchLabelsMixin(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.inputSecurityGroupsSelector.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace for the selector"
+
+## obj spec.forProvider.inputSecurityGroupsSelector.policy
+
+"Policies for selection."
+
+### fn spec.forProvider.inputSecurityGroupsSelector.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.forProvider.inputSecurityGroupsSelector.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.forProvider.mediaConnectFlows
+
+"A list of the MediaConnect Flows. See Media Connect Flows for more details."
+
+### fn spec.forProvider.mediaConnectFlows.withFlowArn
+
+```ts
+withFlowArn(flowArn)
+```
+
+"The ARN of the MediaConnect Flow"
+
+## obj spec.forProvider.roleArnRef
+
+"Reference to a Role in iam to populate roleArn."
+
+### fn spec.forProvider.roleArnRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+### fn spec.forProvider.roleArnRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referenced object"
+
+## obj spec.forProvider.roleArnRef.policy
+
+"Policies for referencing."
+
+### fn spec.forProvider.roleArnRef.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.forProvider.roleArnRef.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.forProvider.roleArnSelector
+
+"Selector for a Role in iam to populate roleArn."
+
+### fn spec.forProvider.roleArnSelector.withMatchControllerRef
+
+```ts
+withMatchControllerRef(matchControllerRef)
+```
+
+"MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected."
+
+### fn spec.forProvider.roleArnSelector.withMatchLabels
+
+```ts
+withMatchLabels(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+### fn spec.forProvider.roleArnSelector.withMatchLabelsMixin
+
+```ts
+withMatchLabelsMixin(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.roleArnSelector.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace for the selector"
+
+## obj spec.forProvider.roleArnSelector.policy
+
+"Policies for selection."
+
+### fn spec.forProvider.roleArnSelector.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.forProvider.roleArnSelector.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.forProvider.sources
+
+"The source URLs for a PULL-type input. See Sources for more details."
+
+### fn spec.forProvider.sources.withPasswordParam
+
+```ts
+withPasswordParam(passwordParam)
+```
+
+"The key used to extract the password from EC2 Parameter store."
+
+### fn spec.forProvider.sources.withUrl
+
+```ts
+withUrl(url)
+```
+
+"The URL where the stream is pulled from."
+
+### fn spec.forProvider.sources.withUsername
+
+```ts
+withUsername(username)
+```
+
+"The username for the input source."
+
+## obj spec.forProvider.vpc
+
+"Settings for a private VPC Input. See VPC for more details."
+
+### fn spec.forProvider.vpc.withSecurityGroupIds
+
+```ts
+withSecurityGroupIds(securityGroupIds)
+```
+
+"A list of up to 5 EC2 VPC security group IDs to attach to the Input."
+
+### fn spec.forProvider.vpc.withSecurityGroupIdsMixin
+
+```ts
+withSecurityGroupIdsMixin(securityGroupIds)
+```
+
+"A list of up to 5 EC2 VPC security group IDs to attach to the Input."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.vpc.withSubnetIds
+
+```ts
+withSubnetIds(subnetIds)
+```
+
+"A list of 2 VPC subnet IDs from the same VPC."
+
+### fn spec.forProvider.vpc.withSubnetIdsMixin
+
+```ts
+withSubnetIdsMixin(subnetIds)
+```
+
+"A list of 2 VPC subnet IDs from the same VPC."
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.initProvider
+
+"THIS IS A BETA FIELD. It will be honored\nunless the Management Policies feature flag is disabled.\nInitProvider holds the same fields as ForProvider, with the exception\nof Identifier and other resource reference fields. The fields that are\nin InitProvider are merged into ForProvider when the resource is created.\nThe same fields are also added to the terraform ignore_changes hook, to\navoid updating them after creation. This is useful for fields that are\nrequired on creation, but we do not desire to update them after creation,\nfor example because of an external controller is managing them, like an\nautoscaler."
+
+### fn spec.initProvider.withDestinations
+
+```ts
+withDestinations(destinations)
+```
+
+"Destination settings for PUSH type inputs. See Destinations for more details."
+
+### fn spec.initProvider.withDestinationsMixin
+
+```ts
+withDestinationsMixin(destinations)
+```
+
+"Destination settings for PUSH type inputs. See Destinations for more details."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.initProvider.withInputDevices
+
+```ts
+withInputDevices(inputDevices)
+```
+
+"Settings for the devices. See Input Devices for more details."
+
+### fn spec.initProvider.withInputDevicesMixin
+
+```ts
+withInputDevicesMixin(inputDevices)
+```
+
+"Settings for the devices. See Input Devices for more details."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.initProvider.withInputSecurityGroups
+
+```ts
+withInputSecurityGroups(inputSecurityGroups)
+```
+
+"List of input security groups."
+
+### fn spec.initProvider.withInputSecurityGroupsMixin
+
+```ts
+withInputSecurityGroupsMixin(inputSecurityGroups)
+```
+
+"List of input security groups."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.initProvider.withInputSecurityGroupsRefs
+
+```ts
+withInputSecurityGroupsRefs(inputSecurityGroupsRefs)
+```
+
+"References to InputSecurityGroup in medialive to populate inputSecurityGroups."
+
+### fn spec.initProvider.withInputSecurityGroupsRefsMixin
+
+```ts
+withInputSecurityGroupsRefsMixin(inputSecurityGroupsRefs)
+```
+
+"References to InputSecurityGroup in medialive to populate inputSecurityGroups."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.initProvider.withMediaConnectFlows
+
+```ts
+withMediaConnectFlows(mediaConnectFlows)
+```
+
+"A list of the MediaConnect Flows. See Media Connect Flows for more details."
+
+### fn spec.initProvider.withMediaConnectFlowsMixin
+
+```ts
+withMediaConnectFlowsMixin(mediaConnectFlows)
+```
+
+"A list of the MediaConnect Flows. See Media Connect Flows for more details."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.initProvider.withName
+
+```ts
+withName(name)
+```
+
+"Name of the input."
+
+### fn spec.initProvider.withRoleArn
+
+```ts
+withRoleArn(roleArn)
+```
+
+"The ARN of the role this input assumes during and after creation."
+
+### fn spec.initProvider.withSources
+
+```ts
+withSources(sources)
+```
+
+"The source URLs for a PULL-type input. See Sources for more details."
+
+### fn spec.initProvider.withSourcesMixin
+
+```ts
+withSourcesMixin(sources)
+```
+
+"The source URLs for a PULL-type input. See Sources for more details."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.initProvider.withTags
+
+```ts
+withTags(tags)
+```
+
+"Key-value map of resource tags."
+
+### fn spec.initProvider.withTagsMixin
+
+```ts
+withTagsMixin(tags)
+```
+
+"Key-value map of resource tags."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.initProvider.withType
+
+```ts
+withType(type)
+```
+
+"The different types of inputs that AWS Elemental MediaLive supports."
+
+## obj spec.initProvider.destinations
+
+"Destination settings for PUSH type inputs. See Destinations for more details."
+
+### fn spec.initProvider.destinations.withStreamName
+
+```ts
+withStreamName(streamName)
+```
+
+"A unique name for the location the RTMP stream is being pushed to."
+
+## obj spec.initProvider.inputDevices
+
+"Settings for the devices. See Input Devices for more details."
+
+### fn spec.initProvider.inputDevices.withId
+
+```ts
+withId(id)
+```
+
+"The unique ID for the device."
+
+## obj spec.initProvider.inputSecurityGroupsRefs
+
+"References to InputSecurityGroup in medialive to populate inputSecurityGroups."
+
+### fn spec.initProvider.inputSecurityGroupsRefs.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+### fn spec.initProvider.inputSecurityGroupsRefs.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referenced object"
+
+## obj spec.initProvider.inputSecurityGroupsRefs.policy
+
+"Policies for referencing."
+
+### fn spec.initProvider.inputSecurityGroupsRefs.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.initProvider.inputSecurityGroupsRefs.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.initProvider.inputSecurityGroupsSelector
+
+"Selector for a list of InputSecurityGroup in medialive to populate inputSecurityGroups."
+
+### fn spec.initProvider.inputSecurityGroupsSelector.withMatchControllerRef
+
+```ts
+withMatchControllerRef(matchControllerRef)
+```
+
+"MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected."
+
+### fn spec.initProvider.inputSecurityGroupsSelector.withMatchLabels
+
+```ts
+withMatchLabels(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+### fn spec.initProvider.inputSecurityGroupsSelector.withMatchLabelsMixin
+
+```ts
+withMatchLabelsMixin(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.initProvider.inputSecurityGroupsSelector.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace for the selector"
+
+## obj spec.initProvider.inputSecurityGroupsSelector.policy
+
+"Policies for selection."
+
+### fn spec.initProvider.inputSecurityGroupsSelector.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.initProvider.inputSecurityGroupsSelector.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.initProvider.mediaConnectFlows
+
+"A list of the MediaConnect Flows. See Media Connect Flows for more details."
+
+### fn spec.initProvider.mediaConnectFlows.withFlowArn
+
+```ts
+withFlowArn(flowArn)
+```
+
+"The ARN of the MediaConnect Flow"
+
+## obj spec.initProvider.roleArnRef
+
+"Reference to a Role in iam to populate roleArn."
+
+### fn spec.initProvider.roleArnRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+### fn spec.initProvider.roleArnRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referenced object"
+
+## obj spec.initProvider.roleArnRef.policy
+
+"Policies for referencing."
+
+### fn spec.initProvider.roleArnRef.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.initProvider.roleArnRef.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.initProvider.roleArnSelector
+
+"Selector for a Role in iam to populate roleArn."
+
+### fn spec.initProvider.roleArnSelector.withMatchControllerRef
+
+```ts
+withMatchControllerRef(matchControllerRef)
+```
+
+"MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected."
+
+### fn spec.initProvider.roleArnSelector.withMatchLabels
+
+```ts
+withMatchLabels(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+### fn spec.initProvider.roleArnSelector.withMatchLabelsMixin
+
+```ts
+withMatchLabelsMixin(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.initProvider.roleArnSelector.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace for the selector"
+
+## obj spec.initProvider.roleArnSelector.policy
+
+"Policies for selection."
+
+### fn spec.initProvider.roleArnSelector.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.initProvider.roleArnSelector.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.initProvider.sources
+
+"The source URLs for a PULL-type input. See Sources for more details."
+
+### fn spec.initProvider.sources.withPasswordParam
+
+```ts
+withPasswordParam(passwordParam)
+```
+
+"The key used to extract the password from EC2 Parameter store."
+
+### fn spec.initProvider.sources.withUrl
+
+```ts
+withUrl(url)
+```
+
+"The URL where the stream is pulled from."
+
+### fn spec.initProvider.sources.withUsername
+
+```ts
+withUsername(username)
+```
+
+"The username for the input source."
+
+## obj spec.initProvider.vpc
+
+"Settings for a private VPC Input. See VPC for more details."
+
+### fn spec.initProvider.vpc.withSecurityGroupIds
+
+```ts
+withSecurityGroupIds(securityGroupIds)
+```
+
+"A list of up to 5 EC2 VPC security group IDs to attach to the Input."
+
+### fn spec.initProvider.vpc.withSecurityGroupIdsMixin
+
+```ts
+withSecurityGroupIdsMixin(securityGroupIds)
+```
+
+"A list of up to 5 EC2 VPC security group IDs to attach to the Input."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.initProvider.vpc.withSubnetIds
+
+```ts
+withSubnetIds(subnetIds)
+```
+
+"A list of 2 VPC subnet IDs from the same VPC."
+
+### fn spec.initProvider.vpc.withSubnetIdsMixin
+
+```ts
+withSubnetIdsMixin(subnetIds)
+```
+
+"A list of 2 VPC subnet IDs from the same VPC."
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.providerConfigRef
+
+"ProviderConfigReference specifies how the provider that will be used to\ncreate, observe, update, and delete this managed resource should be\nconfigured."
+
+### fn spec.providerConfigRef.withKind
+
+```ts
+withKind(kind)
+```
+
+"Kind of the referenced object."
+
+### fn spec.providerConfigRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+## obj spec.writeConnectionSecretToRef
+
+"WriteConnectionSecretToReference specifies the namespace and name of a\nSecret to which any connection details for this managed resource should\nbe written. Connection details frequently include the endpoint, username,\nand password required to connect to the managed resource."
+
+### fn spec.writeConnectionSecretToRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the secret."

@@ -1,0 +1,18 @@
+{
+  local d = (import 'doc-util/main.libsonnet'),
+  '#':: d.pkg(name='v1beta1', url='', help=''),
+  accessLogSubscription: (import 'accessLogSubscription.libsonnet'),
+  authPolicy: (import 'authPolicy.libsonnet'),
+  listener: (import 'listener.libsonnet'),
+  listenerRule: (import 'listenerRule.libsonnet'),
+  resourceConfiguration: (import 'resourceConfiguration.libsonnet'),
+  resourceGateway: (import 'resourceGateway.libsonnet'),
+  resourcePolicy: (import 'resourcePolicy.libsonnet'),
+  service: (import 'service.libsonnet'),
+  serviceNetwork: (import 'serviceNetwork.libsonnet'),
+  serviceNetworkResourceAssociation: (import 'serviceNetworkResourceAssociation.libsonnet'),
+  serviceNetworkServiceAssociation: (import 'serviceNetworkServiceAssociation.libsonnet'),
+  serviceNetworkVPCAssociation: (import 'serviceNetworkVPCAssociation.libsonnet'),
+  targetGroup: (import 'targetGroup.libsonnet'),
+  targetGroupAttachment: (import 'targetGroupAttachment.libsonnet'),
+}

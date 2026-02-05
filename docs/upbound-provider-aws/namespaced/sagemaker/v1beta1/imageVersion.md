@@ -1,0 +1,712 @@
+---
+permalink: /upbound-provider-aws/namespaced/sagemaker/v1beta1/imageVersion/
+---
+
+# sagemaker.v1beta1.imageVersion
+
+"ImageVersion is the Schema for the ImageVersions API. Provides a SageMaker AI Image Version resource."
+
+## Index
+
+* [`fn new(name)`](#fn-new)
+* [`obj metadata`](#obj-metadata)
+  * [`fn withAnnotations(annotations)`](#fn-metadatawithannotations)
+  * [`fn withAnnotationsMixin(annotations)`](#fn-metadatawithannotationsmixin)
+  * [`fn withClusterName(clusterName)`](#fn-metadatawithclustername)
+  * [`fn withCreationTimestamp(creationTimestamp)`](#fn-metadatawithcreationtimestamp)
+  * [`fn withDeletionGracePeriodSeconds(deletionGracePeriodSeconds)`](#fn-metadatawithdeletiongraceperiodseconds)
+  * [`fn withDeletionTimestamp(deletionTimestamp)`](#fn-metadatawithdeletiontimestamp)
+  * [`fn withFinalizers(finalizers)`](#fn-metadatawithfinalizers)
+  * [`fn withFinalizersMixin(finalizers)`](#fn-metadatawithfinalizersmixin)
+  * [`fn withGenerateName(generateName)`](#fn-metadatawithgeneratename)
+  * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
+  * [`fn withLabels(labels)`](#fn-metadatawithlabels)
+  * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
+  * [`fn withName(name)`](#fn-metadatawithname)
+  * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
+  * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
+  * [`fn withOwnerReferencesMixin(ownerReferences)`](#fn-metadatawithownerreferencesmixin)
+  * [`fn withResourceVersion(resourceVersion)`](#fn-metadatawithresourceversion)
+  * [`fn withSelfLink(selfLink)`](#fn-metadatawithselflink)
+  * [`fn withUid(uid)`](#fn-metadatawithuid)
+* [`obj spec`](#obj-spec)
+  * [`fn withManagementPolicies(managementPolicies)`](#fn-specwithmanagementpolicies)
+  * [`fn withManagementPoliciesMixin(managementPolicies)`](#fn-specwithmanagementpoliciesmixin)
+  * [`obj spec.forProvider`](#obj-specforprovider)
+    * [`fn withAliases(aliases)`](#fn-specforproviderwithaliases)
+    * [`fn withAliasesMixin(aliases)`](#fn-specforproviderwithaliasesmixin)
+    * [`fn withBaseImage(baseImage)`](#fn-specforproviderwithbaseimage)
+    * [`fn withHorovod(horovod)`](#fn-specforproviderwithhorovod)
+    * [`fn withImageName(imageName)`](#fn-specforproviderwithimagename)
+    * [`fn withJobType(jobType)`](#fn-specforproviderwithjobtype)
+    * [`fn withMlFramework(mlFramework)`](#fn-specforproviderwithmlframework)
+    * [`fn withProcessor(processor)`](#fn-specforproviderwithprocessor)
+    * [`fn withProgrammingLang(programmingLang)`](#fn-specforproviderwithprogramminglang)
+    * [`fn withRegion(region)`](#fn-specforproviderwithregion)
+    * [`fn withReleaseNotes(releaseNotes)`](#fn-specforproviderwithreleasenotes)
+    * [`fn withVendorGuidance(vendorGuidance)`](#fn-specforproviderwithvendorguidance)
+    * [`obj spec.forProvider.imageNameRef`](#obj-specforproviderimagenameref)
+      * [`fn withName(name)`](#fn-specforproviderimagenamerefwithname)
+      * [`fn withNamespace(namespace)`](#fn-specforproviderimagenamerefwithnamespace)
+      * [`obj spec.forProvider.imageNameRef.policy`](#obj-specforproviderimagenamerefpolicy)
+        * [`fn withResolution(resolution)`](#fn-specforproviderimagenamerefpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specforproviderimagenamerefpolicywithresolve)
+    * [`obj spec.forProvider.imageNameSelector`](#obj-specforproviderimagenameselector)
+      * [`fn withMatchControllerRef(matchControllerRef)`](#fn-specforproviderimagenameselectorwithmatchcontrollerref)
+      * [`fn withMatchLabels(matchLabels)`](#fn-specforproviderimagenameselectorwithmatchlabels)
+      * [`fn withMatchLabelsMixin(matchLabels)`](#fn-specforproviderimagenameselectorwithmatchlabelsmixin)
+      * [`fn withNamespace(namespace)`](#fn-specforproviderimagenameselectorwithnamespace)
+      * [`obj spec.forProvider.imageNameSelector.policy`](#obj-specforproviderimagenameselectorpolicy)
+        * [`fn withResolution(resolution)`](#fn-specforproviderimagenameselectorpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specforproviderimagenameselectorpolicywithresolve)
+  * [`obj spec.initProvider`](#obj-specinitprovider)
+    * [`fn withAliases(aliases)`](#fn-specinitproviderwithaliases)
+    * [`fn withAliasesMixin(aliases)`](#fn-specinitproviderwithaliasesmixin)
+    * [`fn withBaseImage(baseImage)`](#fn-specinitproviderwithbaseimage)
+    * [`fn withHorovod(horovod)`](#fn-specinitproviderwithhorovod)
+    * [`fn withImageName(imageName)`](#fn-specinitproviderwithimagename)
+    * [`fn withJobType(jobType)`](#fn-specinitproviderwithjobtype)
+    * [`fn withMlFramework(mlFramework)`](#fn-specinitproviderwithmlframework)
+    * [`fn withProcessor(processor)`](#fn-specinitproviderwithprocessor)
+    * [`fn withProgrammingLang(programmingLang)`](#fn-specinitproviderwithprogramminglang)
+    * [`fn withReleaseNotes(releaseNotes)`](#fn-specinitproviderwithreleasenotes)
+    * [`fn withVendorGuidance(vendorGuidance)`](#fn-specinitproviderwithvendorguidance)
+    * [`obj spec.initProvider.imageNameRef`](#obj-specinitproviderimagenameref)
+      * [`fn withName(name)`](#fn-specinitproviderimagenamerefwithname)
+      * [`fn withNamespace(namespace)`](#fn-specinitproviderimagenamerefwithnamespace)
+      * [`obj spec.initProvider.imageNameRef.policy`](#obj-specinitproviderimagenamerefpolicy)
+        * [`fn withResolution(resolution)`](#fn-specinitproviderimagenamerefpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specinitproviderimagenamerefpolicywithresolve)
+    * [`obj spec.initProvider.imageNameSelector`](#obj-specinitproviderimagenameselector)
+      * [`fn withMatchControllerRef(matchControllerRef)`](#fn-specinitproviderimagenameselectorwithmatchcontrollerref)
+      * [`fn withMatchLabels(matchLabels)`](#fn-specinitproviderimagenameselectorwithmatchlabels)
+      * [`fn withMatchLabelsMixin(matchLabels)`](#fn-specinitproviderimagenameselectorwithmatchlabelsmixin)
+      * [`fn withNamespace(namespace)`](#fn-specinitproviderimagenameselectorwithnamespace)
+      * [`obj spec.initProvider.imageNameSelector.policy`](#obj-specinitproviderimagenameselectorpolicy)
+        * [`fn withResolution(resolution)`](#fn-specinitproviderimagenameselectorpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specinitproviderimagenameselectorpolicywithresolve)
+  * [`obj spec.providerConfigRef`](#obj-specproviderconfigref)
+    * [`fn withKind(kind)`](#fn-specproviderconfigrefwithkind)
+    * [`fn withName(name)`](#fn-specproviderconfigrefwithname)
+  * [`obj spec.writeConnectionSecretToRef`](#obj-specwriteconnectionsecrettoref)
+    * [`fn withName(name)`](#fn-specwriteconnectionsecrettorefwithname)
+
+## Fields
+
+### fn new
+
+```ts
+new(name)
+```
+
+new returns an instance of ImageVersion
+
+## obj metadata
+
+"ObjectMeta is metadata that all persisted resources must have, which includes all objects users must create."
+
+### fn metadata.withAnnotations
+
+```ts
+withAnnotations(annotations)
+```
+
+"Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations"
+
+### fn metadata.withAnnotationsMixin
+
+```ts
+withAnnotationsMixin(annotations)
+```
+
+"Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations"
+
+**Note:** This function appends passed data to existing values
+
+### fn metadata.withClusterName
+
+```ts
+withClusterName(clusterName)
+```
+
+"The name of the cluster which the object belongs to. This is used to distinguish resources with same name and namespace in different clusters. This field is not set anywhere right now and apiserver is going to ignore it if set in create or update request."
+
+### fn metadata.withCreationTimestamp
+
+```ts
+withCreationTimestamp(creationTimestamp)
+```
+
+"Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers."
+
+### fn metadata.withDeletionGracePeriodSeconds
+
+```ts
+withDeletionGracePeriodSeconds(deletionGracePeriodSeconds)
+```
+
+"Number of seconds allowed for this object to gracefully terminate before it will be removed from the system. Only set when deletionTimestamp is also set. May only be shortened. Read-only."
+
+### fn metadata.withDeletionTimestamp
+
+```ts
+withDeletionTimestamp(deletionTimestamp)
+```
+
+"Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers."
+
+### fn metadata.withFinalizers
+
+```ts
+withFinalizers(finalizers)
+```
+
+"Must be empty before the object is deleted from the registry. Each entry is an identifier for the responsible component that will remove the entry from the list. If the deletionTimestamp of the object is non-nil, entries in this list can only be removed. Finalizers may be processed and removed in any order.  Order is NOT enforced because it introduces significant risk of stuck finalizers. finalizers is a shared field, any actor with permission can reorder it. If the finalizer list is processed in order, then this can lead to a situation in which the component responsible for the first finalizer in the list is waiting for a signal (field value, external system, or other) produced by a component responsible for a finalizer later in the list, resulting in a deadlock. Without enforced ordering finalizers are free to order amongst themselves and are not vulnerable to ordering changes in the list."
+
+### fn metadata.withFinalizersMixin
+
+```ts
+withFinalizersMixin(finalizers)
+```
+
+"Must be empty before the object is deleted from the registry. Each entry is an identifier for the responsible component that will remove the entry from the list. If the deletionTimestamp of the object is non-nil, entries in this list can only be removed. Finalizers may be processed and removed in any order.  Order is NOT enforced because it introduces significant risk of stuck finalizers. finalizers is a shared field, any actor with permission can reorder it. If the finalizer list is processed in order, then this can lead to a situation in which the component responsible for the first finalizer in the list is waiting for a signal (field value, external system, or other) produced by a component responsible for a finalizer later in the list, resulting in a deadlock. Without enforced ordering finalizers are free to order amongst themselves and are not vulnerable to ordering changes in the list."
+
+**Note:** This function appends passed data to existing values
+
+### fn metadata.withGenerateName
+
+```ts
+withGenerateName(generateName)
+```
+
+"GenerateName is an optional prefix, used by the server, to generate a unique name ONLY IF the Name field has not been provided. If this field is used, the name returned to the client will be different than the name passed. This value will also be combined with a unique suffix. The provided value has the same validation rules as the Name field, and may be truncated by the length of the suffix required to make the value unique on the server.\n\nIf this field is specified and the generated name exists, the server will NOT return a 409 - instead, it will either return 201 Created or 500 with Reason ServerTimeout indicating a unique name could not be found in the time allotted, and the client should retry (optionally after the time indicated in the Retry-After header).\n\nApplied only if Name is not specified. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#idempotency"
+
+### fn metadata.withGeneration
+
+```ts
+withGeneration(generation)
+```
+
+"A sequence number representing a specific generation of the desired state. Populated by the system. Read-only."
+
+### fn metadata.withLabels
+
+```ts
+withLabels(labels)
+```
+
+"Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
+
+### fn metadata.withLabelsMixin
+
+```ts
+withLabelsMixin(labels)
+```
+
+"Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
+
+**Note:** This function appends passed data to existing values
+
+### fn metadata.withName
+
+```ts
+withName(name)
+```
+
+"Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+
+### fn metadata.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace defines the space within which each name must be unique. An empty namespace is equivalent to the \"default\" namespace, but \"default\" is the canonical representation. Not all objects are required to be scoped to a namespace - the value of this field for those objects will be empty.\n\nMust be a DNS_LABEL. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/namespaces"
+
+### fn metadata.withOwnerReferences
+
+```ts
+withOwnerReferences(ownerReferences)
+```
+
+"List of objects depended by this object. If ALL objects in the list have been deleted, this object will be garbage collected. If this object is managed by a controller, then an entry in this list will point to this controller, with the controller field set to true. There cannot be more than one managing controller."
+
+### fn metadata.withOwnerReferencesMixin
+
+```ts
+withOwnerReferencesMixin(ownerReferences)
+```
+
+"List of objects depended by this object. If ALL objects in the list have been deleted, this object will be garbage collected. If this object is managed by a controller, then an entry in this list will point to this controller, with the controller field set to true. There cannot be more than one managing controller."
+
+**Note:** This function appends passed data to existing values
+
+### fn metadata.withResourceVersion
+
+```ts
+withResourceVersion(resourceVersion)
+```
+
+"An opaque value that represents the internal version of this object that can be used by clients to determine when objects have changed. May be used for optimistic concurrency, change detection, and the watch operation on a resource or set of resources. Clients must treat these values as opaque and passed unmodified back to the server. They may only be valid for a particular resource or set of resources.\n\nPopulated by the system. Read-only. Value must be treated as opaque by clients and . More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency"
+
+### fn metadata.withSelfLink
+
+```ts
+withSelfLink(selfLink)
+```
+
+"SelfLink is a URL representing this object. Populated by the system. Read-only.\n\nDEPRECATED Kubernetes will stop propagating this field in 1.20 release and the field is planned to be removed in 1.21 release."
+
+### fn metadata.withUid
+
+```ts
+withUid(uid)
+```
+
+"UID is the unique in time and space value for this object. It is typically generated by the server on successful creation of a resource and is not allowed to change on PUT operations.\n\nPopulated by the system. Read-only. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+
+## obj spec
+
+"ImageVersionSpec defines the desired state of ImageVersion"
+
+### fn spec.withManagementPolicies
+
+```ts
+withManagementPolicies(managementPolicies)
+```
+
+"THIS IS A BETA FIELD. It is on by default but can be opted out\nthrough a Crossplane feature flag.\nManagementPolicies specify the array of actions Crossplane is allowed to\ntake on the managed and external resources.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223\nand this one: https://github.com/crossplane/crossplane/blob/444267e84783136daa93568b364a5f01228cacbe/design/one-pager-ignore-changes.md"
+
+### fn spec.withManagementPoliciesMixin
+
+```ts
+withManagementPoliciesMixin(managementPolicies)
+```
+
+"THIS IS A BETA FIELD. It is on by default but can be opted out\nthrough a Crossplane feature flag.\nManagementPolicies specify the array of actions Crossplane is allowed to\ntake on the managed and external resources.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223\nand this one: https://github.com/crossplane/crossplane/blob/444267e84783136daa93568b364a5f01228cacbe/design/one-pager-ignore-changes.md"
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.forProvider
+
+
+
+### fn spec.forProvider.withAliases
+
+```ts
+withAliases(aliases)
+```
+
+"A list of aliases for the image version."
+
+### fn spec.forProvider.withAliasesMixin
+
+```ts
+withAliasesMixin(aliases)
+```
+
+"A list of aliases for the image version."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.withBaseImage
+
+```ts
+withBaseImage(baseImage)
+```
+
+"The registry path of the container image on which this image version is based."
+
+### fn spec.forProvider.withHorovod
+
+```ts
+withHorovod(horovod)
+```
+
+"Indicates Horovod compatibility."
+
+### fn spec.forProvider.withImageName
+
+```ts
+withImageName(imageName)
+```
+
+"The name of the image. Must be unique to your account."
+
+### fn spec.forProvider.withJobType
+
+```ts
+withJobType(jobType)
+```
+
+"Indicates SageMaker AI job type compatibility. Valid values are: TRAINING, INFERENCE, and NOTEBOOK_KERNEL."
+
+### fn spec.forProvider.withMlFramework
+
+```ts
+withMlFramework(mlFramework)
+```
+
+"The machine learning framework vended in the image version."
+
+### fn spec.forProvider.withProcessor
+
+```ts
+withProcessor(processor)
+```
+
+"Indicates CPU or GPU compatibility. Valid values are: CPU and GPU."
+
+### fn spec.forProvider.withProgrammingLang
+
+```ts
+withProgrammingLang(programmingLang)
+```
+
+"The supported programming language and its version."
+
+### fn spec.forProvider.withRegion
+
+```ts
+withRegion(region)
+```
+
+"Region where this resource will be managed. Defaults to the Region set in the provider configuration.\nRegion is the region you'd like your resource to be created in."
+
+### fn spec.forProvider.withReleaseNotes
+
+```ts
+withReleaseNotes(releaseNotes)
+```
+
+"The maintainer description of the image version."
+
+### fn spec.forProvider.withVendorGuidance
+
+```ts
+withVendorGuidance(vendorGuidance)
+```
+
+"The stability of the image version, specified by the maintainer. Valid values are: NOT_PROVIDED, STABLE, TO_BE_ARCHIVED, and ARCHIVED."
+
+## obj spec.forProvider.imageNameRef
+
+"Reference to a Image in sagemaker to populate imageName."
+
+### fn spec.forProvider.imageNameRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+### fn spec.forProvider.imageNameRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referenced object"
+
+## obj spec.forProvider.imageNameRef.policy
+
+"Policies for referencing."
+
+### fn spec.forProvider.imageNameRef.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.forProvider.imageNameRef.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.forProvider.imageNameSelector
+
+"Selector for a Image in sagemaker to populate imageName."
+
+### fn spec.forProvider.imageNameSelector.withMatchControllerRef
+
+```ts
+withMatchControllerRef(matchControllerRef)
+```
+
+"MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected."
+
+### fn spec.forProvider.imageNameSelector.withMatchLabels
+
+```ts
+withMatchLabels(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+### fn spec.forProvider.imageNameSelector.withMatchLabelsMixin
+
+```ts
+withMatchLabelsMixin(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.imageNameSelector.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace for the selector"
+
+## obj spec.forProvider.imageNameSelector.policy
+
+"Policies for selection."
+
+### fn spec.forProvider.imageNameSelector.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.forProvider.imageNameSelector.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.initProvider
+
+"THIS IS A BETA FIELD. It will be honored\nunless the Management Policies feature flag is disabled.\nInitProvider holds the same fields as ForProvider, with the exception\nof Identifier and other resource reference fields. The fields that are\nin InitProvider are merged into ForProvider when the resource is created.\nThe same fields are also added to the terraform ignore_changes hook, to\navoid updating them after creation. This is useful for fields that are\nrequired on creation, but we do not desire to update them after creation,\nfor example because of an external controller is managing them, like an\nautoscaler."
+
+### fn spec.initProvider.withAliases
+
+```ts
+withAliases(aliases)
+```
+
+"A list of aliases for the image version."
+
+### fn spec.initProvider.withAliasesMixin
+
+```ts
+withAliasesMixin(aliases)
+```
+
+"A list of aliases for the image version."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.initProvider.withBaseImage
+
+```ts
+withBaseImage(baseImage)
+```
+
+"The registry path of the container image on which this image version is based."
+
+### fn spec.initProvider.withHorovod
+
+```ts
+withHorovod(horovod)
+```
+
+"Indicates Horovod compatibility."
+
+### fn spec.initProvider.withImageName
+
+```ts
+withImageName(imageName)
+```
+
+"The name of the image. Must be unique to your account."
+
+### fn spec.initProvider.withJobType
+
+```ts
+withJobType(jobType)
+```
+
+"Indicates SageMaker AI job type compatibility. Valid values are: TRAINING, INFERENCE, and NOTEBOOK_KERNEL."
+
+### fn spec.initProvider.withMlFramework
+
+```ts
+withMlFramework(mlFramework)
+```
+
+"The machine learning framework vended in the image version."
+
+### fn spec.initProvider.withProcessor
+
+```ts
+withProcessor(processor)
+```
+
+"Indicates CPU or GPU compatibility. Valid values are: CPU and GPU."
+
+### fn spec.initProvider.withProgrammingLang
+
+```ts
+withProgrammingLang(programmingLang)
+```
+
+"The supported programming language and its version."
+
+### fn spec.initProvider.withReleaseNotes
+
+```ts
+withReleaseNotes(releaseNotes)
+```
+
+"The maintainer description of the image version."
+
+### fn spec.initProvider.withVendorGuidance
+
+```ts
+withVendorGuidance(vendorGuidance)
+```
+
+"The stability of the image version, specified by the maintainer. Valid values are: NOT_PROVIDED, STABLE, TO_BE_ARCHIVED, and ARCHIVED."
+
+## obj spec.initProvider.imageNameRef
+
+"Reference to a Image in sagemaker to populate imageName."
+
+### fn spec.initProvider.imageNameRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+### fn spec.initProvider.imageNameRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referenced object"
+
+## obj spec.initProvider.imageNameRef.policy
+
+"Policies for referencing."
+
+### fn spec.initProvider.imageNameRef.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.initProvider.imageNameRef.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.initProvider.imageNameSelector
+
+"Selector for a Image in sagemaker to populate imageName."
+
+### fn spec.initProvider.imageNameSelector.withMatchControllerRef
+
+```ts
+withMatchControllerRef(matchControllerRef)
+```
+
+"MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected."
+
+### fn spec.initProvider.imageNameSelector.withMatchLabels
+
+```ts
+withMatchLabels(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+### fn spec.initProvider.imageNameSelector.withMatchLabelsMixin
+
+```ts
+withMatchLabelsMixin(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.initProvider.imageNameSelector.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace for the selector"
+
+## obj spec.initProvider.imageNameSelector.policy
+
+"Policies for selection."
+
+### fn spec.initProvider.imageNameSelector.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.initProvider.imageNameSelector.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.providerConfigRef
+
+"ProviderConfigReference specifies how the provider that will be used to\ncreate, observe, update, and delete this managed resource should be\nconfigured."
+
+### fn spec.providerConfigRef.withKind
+
+```ts
+withKind(kind)
+```
+
+"Kind of the referenced object."
+
+### fn spec.providerConfigRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+## obj spec.writeConnectionSecretToRef
+
+"WriteConnectionSecretToReference specifies the namespace and name of a\nSecret to which any connection details for this managed resource should\nbe written. Connection details frequently include the endpoint, username,\nand password required to connect to the managed resource."
+
+### fn spec.writeConnectionSecretToRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the secret."

@@ -1,0 +1,1790 @@
+---
+permalink: /upbound-provider-aws/namespaced/ec2/v1beta1/securityGroupRule/
+---
+
+# ec2.v1beta1.securityGroupRule
+
+"SecurityGroupRule is the Schema for the SecurityGroupRules API. Provides an security group rule resource."
+
+## Index
+
+* [`fn new(name)`](#fn-new)
+* [`obj metadata`](#obj-metadata)
+  * [`fn withAnnotations(annotations)`](#fn-metadatawithannotations)
+  * [`fn withAnnotationsMixin(annotations)`](#fn-metadatawithannotationsmixin)
+  * [`fn withClusterName(clusterName)`](#fn-metadatawithclustername)
+  * [`fn withCreationTimestamp(creationTimestamp)`](#fn-metadatawithcreationtimestamp)
+  * [`fn withDeletionGracePeriodSeconds(deletionGracePeriodSeconds)`](#fn-metadatawithdeletiongraceperiodseconds)
+  * [`fn withDeletionTimestamp(deletionTimestamp)`](#fn-metadatawithdeletiontimestamp)
+  * [`fn withFinalizers(finalizers)`](#fn-metadatawithfinalizers)
+  * [`fn withFinalizersMixin(finalizers)`](#fn-metadatawithfinalizersmixin)
+  * [`fn withGenerateName(generateName)`](#fn-metadatawithgeneratename)
+  * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
+  * [`fn withLabels(labels)`](#fn-metadatawithlabels)
+  * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
+  * [`fn withName(name)`](#fn-metadatawithname)
+  * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
+  * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
+  * [`fn withOwnerReferencesMixin(ownerReferences)`](#fn-metadatawithownerreferencesmixin)
+  * [`fn withResourceVersion(resourceVersion)`](#fn-metadatawithresourceversion)
+  * [`fn withSelfLink(selfLink)`](#fn-metadatawithselflink)
+  * [`fn withUid(uid)`](#fn-metadatawithuid)
+* [`obj spec`](#obj-spec)
+  * [`fn withManagementPolicies(managementPolicies)`](#fn-specwithmanagementpolicies)
+  * [`fn withManagementPoliciesMixin(managementPolicies)`](#fn-specwithmanagementpoliciesmixin)
+  * [`obj spec.forProvider`](#obj-specforprovider)
+    * [`fn withCidrBlocks(cidrBlocks)`](#fn-specforproviderwithcidrblocks)
+    * [`fn withCidrBlocksMixin(cidrBlocks)`](#fn-specforproviderwithcidrblocksmixin)
+    * [`fn withCidrBlocksRefs(cidrBlocksRefs)`](#fn-specforproviderwithcidrblocksrefs)
+    * [`fn withCidrBlocksRefsMixin(cidrBlocksRefs)`](#fn-specforproviderwithcidrblocksrefsmixin)
+    * [`fn withDescription(description)`](#fn-specforproviderwithdescription)
+    * [`fn withFromPort(fromPort)`](#fn-specforproviderwithfromport)
+    * [`fn withIpv6CidrBlocks(ipv6CidrBlocks)`](#fn-specforproviderwithipv6cidrblocks)
+    * [`fn withIpv6CidrBlocksMixin(ipv6CidrBlocks)`](#fn-specforproviderwithipv6cidrblocksmixin)
+    * [`fn withIpv6CidrBlocksRefs(ipv6CidrBlocksRefs)`](#fn-specforproviderwithipv6cidrblocksrefs)
+    * [`fn withIpv6CidrBlocksRefsMixin(ipv6CidrBlocksRefs)`](#fn-specforproviderwithipv6cidrblocksrefsmixin)
+    * [`fn withPrefixListIdRefs(prefixListIdRefs)`](#fn-specforproviderwithprefixlistidrefs)
+    * [`fn withPrefixListIdRefsMixin(prefixListIdRefs)`](#fn-specforproviderwithprefixlistidrefsmixin)
+    * [`fn withPrefixListIds(prefixListIds)`](#fn-specforproviderwithprefixlistids)
+    * [`fn withPrefixListIdsMixin(prefixListIds)`](#fn-specforproviderwithprefixlistidsmixin)
+    * [`fn withProtocol(protocol)`](#fn-specforproviderwithprotocol)
+    * [`fn withRegion(region)`](#fn-specforproviderwithregion)
+    * [`fn withSecurityGroupId(securityGroupId)`](#fn-specforproviderwithsecuritygroupid)
+    * [`fn withSelf(Self)`](#fn-specforproviderwithself)
+    * [`fn withSourceSecurityGroupId(sourceSecurityGroupId)`](#fn-specforproviderwithsourcesecuritygroupid)
+    * [`fn withToPort(toPort)`](#fn-specforproviderwithtoport)
+    * [`fn withType(type)`](#fn-specforproviderwithtype)
+    * [`obj spec.forProvider.cidrBlocksRefs`](#obj-specforprovidercidrblocksrefs)
+      * [`fn withName(name)`](#fn-specforprovidercidrblocksrefswithname)
+      * [`fn withNamespace(namespace)`](#fn-specforprovidercidrblocksrefswithnamespace)
+      * [`obj spec.forProvider.cidrBlocksRefs.policy`](#obj-specforprovidercidrblocksrefspolicy)
+        * [`fn withResolution(resolution)`](#fn-specforprovidercidrblocksrefspolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specforprovidercidrblocksrefspolicywithresolve)
+    * [`obj spec.forProvider.cidrBlocksSelector`](#obj-specforprovidercidrblocksselector)
+      * [`fn withMatchControllerRef(matchControllerRef)`](#fn-specforprovidercidrblocksselectorwithmatchcontrollerref)
+      * [`fn withMatchLabels(matchLabels)`](#fn-specforprovidercidrblocksselectorwithmatchlabels)
+      * [`fn withMatchLabelsMixin(matchLabels)`](#fn-specforprovidercidrblocksselectorwithmatchlabelsmixin)
+      * [`fn withNamespace(namespace)`](#fn-specforprovidercidrblocksselectorwithnamespace)
+      * [`obj spec.forProvider.cidrBlocksSelector.policy`](#obj-specforprovidercidrblocksselectorpolicy)
+        * [`fn withResolution(resolution)`](#fn-specforprovidercidrblocksselectorpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specforprovidercidrblocksselectorpolicywithresolve)
+    * [`obj spec.forProvider.ipv6CidrBlocksRefs`](#obj-specforprovideripv6cidrblocksrefs)
+      * [`fn withName(name)`](#fn-specforprovideripv6cidrblocksrefswithname)
+      * [`fn withNamespace(namespace)`](#fn-specforprovideripv6cidrblocksrefswithnamespace)
+      * [`obj spec.forProvider.ipv6CidrBlocksRefs.policy`](#obj-specforprovideripv6cidrblocksrefspolicy)
+        * [`fn withResolution(resolution)`](#fn-specforprovideripv6cidrblocksrefspolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specforprovideripv6cidrblocksrefspolicywithresolve)
+    * [`obj spec.forProvider.ipv6CidrBlocksSelector`](#obj-specforprovideripv6cidrblocksselector)
+      * [`fn withMatchControllerRef(matchControllerRef)`](#fn-specforprovideripv6cidrblocksselectorwithmatchcontrollerref)
+      * [`fn withMatchLabels(matchLabels)`](#fn-specforprovideripv6cidrblocksselectorwithmatchlabels)
+      * [`fn withMatchLabelsMixin(matchLabels)`](#fn-specforprovideripv6cidrblocksselectorwithmatchlabelsmixin)
+      * [`fn withNamespace(namespace)`](#fn-specforprovideripv6cidrblocksselectorwithnamespace)
+      * [`obj spec.forProvider.ipv6CidrBlocksSelector.policy`](#obj-specforprovideripv6cidrblocksselectorpolicy)
+        * [`fn withResolution(resolution)`](#fn-specforprovideripv6cidrblocksselectorpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specforprovideripv6cidrblocksselectorpolicywithresolve)
+    * [`obj spec.forProvider.prefixListIdRefs`](#obj-specforproviderprefixlistidrefs)
+      * [`fn withName(name)`](#fn-specforproviderprefixlistidrefswithname)
+      * [`fn withNamespace(namespace)`](#fn-specforproviderprefixlistidrefswithnamespace)
+      * [`obj spec.forProvider.prefixListIdRefs.policy`](#obj-specforproviderprefixlistidrefspolicy)
+        * [`fn withResolution(resolution)`](#fn-specforproviderprefixlistidrefspolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specforproviderprefixlistidrefspolicywithresolve)
+    * [`obj spec.forProvider.prefixListIdSelector`](#obj-specforproviderprefixlistidselector)
+      * [`fn withMatchControllerRef(matchControllerRef)`](#fn-specforproviderprefixlistidselectorwithmatchcontrollerref)
+      * [`fn withMatchLabels(matchLabels)`](#fn-specforproviderprefixlistidselectorwithmatchlabels)
+      * [`fn withMatchLabelsMixin(matchLabels)`](#fn-specforproviderprefixlistidselectorwithmatchlabelsmixin)
+      * [`fn withNamespace(namespace)`](#fn-specforproviderprefixlistidselectorwithnamespace)
+      * [`obj spec.forProvider.prefixListIdSelector.policy`](#obj-specforproviderprefixlistidselectorpolicy)
+        * [`fn withResolution(resolution)`](#fn-specforproviderprefixlistidselectorpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specforproviderprefixlistidselectorpolicywithresolve)
+    * [`obj spec.forProvider.securityGroupIdRef`](#obj-specforprovidersecuritygroupidref)
+      * [`fn withName(name)`](#fn-specforprovidersecuritygroupidrefwithname)
+      * [`fn withNamespace(namespace)`](#fn-specforprovidersecuritygroupidrefwithnamespace)
+      * [`obj spec.forProvider.securityGroupIdRef.policy`](#obj-specforprovidersecuritygroupidrefpolicy)
+        * [`fn withResolution(resolution)`](#fn-specforprovidersecuritygroupidrefpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specforprovidersecuritygroupidrefpolicywithresolve)
+    * [`obj spec.forProvider.securityGroupIdSelector`](#obj-specforprovidersecuritygroupidselector)
+      * [`fn withMatchControllerRef(matchControllerRef)`](#fn-specforprovidersecuritygroupidselectorwithmatchcontrollerref)
+      * [`fn withMatchLabels(matchLabels)`](#fn-specforprovidersecuritygroupidselectorwithmatchlabels)
+      * [`fn withMatchLabelsMixin(matchLabels)`](#fn-specforprovidersecuritygroupidselectorwithmatchlabelsmixin)
+      * [`fn withNamespace(namespace)`](#fn-specforprovidersecuritygroupidselectorwithnamespace)
+      * [`obj spec.forProvider.securityGroupIdSelector.policy`](#obj-specforprovidersecuritygroupidselectorpolicy)
+        * [`fn withResolution(resolution)`](#fn-specforprovidersecuritygroupidselectorpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specforprovidersecuritygroupidselectorpolicywithresolve)
+    * [`obj spec.forProvider.sourceSecurityGroupIdRef`](#obj-specforprovidersourcesecuritygroupidref)
+      * [`fn withName(name)`](#fn-specforprovidersourcesecuritygroupidrefwithname)
+      * [`fn withNamespace(namespace)`](#fn-specforprovidersourcesecuritygroupidrefwithnamespace)
+      * [`obj spec.forProvider.sourceSecurityGroupIdRef.policy`](#obj-specforprovidersourcesecuritygroupidrefpolicy)
+        * [`fn withResolution(resolution)`](#fn-specforprovidersourcesecuritygroupidrefpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specforprovidersourcesecuritygroupidrefpolicywithresolve)
+    * [`obj spec.forProvider.sourceSecurityGroupIdSelector`](#obj-specforprovidersourcesecuritygroupidselector)
+      * [`fn withMatchControllerRef(matchControllerRef)`](#fn-specforprovidersourcesecuritygroupidselectorwithmatchcontrollerref)
+      * [`fn withMatchLabels(matchLabels)`](#fn-specforprovidersourcesecuritygroupidselectorwithmatchlabels)
+      * [`fn withMatchLabelsMixin(matchLabels)`](#fn-specforprovidersourcesecuritygroupidselectorwithmatchlabelsmixin)
+      * [`fn withNamespace(namespace)`](#fn-specforprovidersourcesecuritygroupidselectorwithnamespace)
+      * [`obj spec.forProvider.sourceSecurityGroupIdSelector.policy`](#obj-specforprovidersourcesecuritygroupidselectorpolicy)
+        * [`fn withResolution(resolution)`](#fn-specforprovidersourcesecuritygroupidselectorpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specforprovidersourcesecuritygroupidselectorpolicywithresolve)
+  * [`obj spec.initProvider`](#obj-specinitprovider)
+    * [`fn withCidrBlocks(cidrBlocks)`](#fn-specinitproviderwithcidrblocks)
+    * [`fn withCidrBlocksMixin(cidrBlocks)`](#fn-specinitproviderwithcidrblocksmixin)
+    * [`fn withCidrBlocksRefs(cidrBlocksRefs)`](#fn-specinitproviderwithcidrblocksrefs)
+    * [`fn withCidrBlocksRefsMixin(cidrBlocksRefs)`](#fn-specinitproviderwithcidrblocksrefsmixin)
+    * [`fn withDescription(description)`](#fn-specinitproviderwithdescription)
+    * [`fn withFromPort(fromPort)`](#fn-specinitproviderwithfromport)
+    * [`fn withIpv6CidrBlocks(ipv6CidrBlocks)`](#fn-specinitproviderwithipv6cidrblocks)
+    * [`fn withIpv6CidrBlocksMixin(ipv6CidrBlocks)`](#fn-specinitproviderwithipv6cidrblocksmixin)
+    * [`fn withIpv6CidrBlocksRefs(ipv6CidrBlocksRefs)`](#fn-specinitproviderwithipv6cidrblocksrefs)
+    * [`fn withIpv6CidrBlocksRefsMixin(ipv6CidrBlocksRefs)`](#fn-specinitproviderwithipv6cidrblocksrefsmixin)
+    * [`fn withPrefixListIdRefs(prefixListIdRefs)`](#fn-specinitproviderwithprefixlistidrefs)
+    * [`fn withPrefixListIdRefsMixin(prefixListIdRefs)`](#fn-specinitproviderwithprefixlistidrefsmixin)
+    * [`fn withPrefixListIds(prefixListIds)`](#fn-specinitproviderwithprefixlistids)
+    * [`fn withPrefixListIdsMixin(prefixListIds)`](#fn-specinitproviderwithprefixlistidsmixin)
+    * [`fn withProtocol(protocol)`](#fn-specinitproviderwithprotocol)
+    * [`fn withSecurityGroupId(securityGroupId)`](#fn-specinitproviderwithsecuritygroupid)
+    * [`fn withSelf(Self)`](#fn-specinitproviderwithself)
+    * [`fn withSourceSecurityGroupId(sourceSecurityGroupId)`](#fn-specinitproviderwithsourcesecuritygroupid)
+    * [`fn withToPort(toPort)`](#fn-specinitproviderwithtoport)
+    * [`fn withType(type)`](#fn-specinitproviderwithtype)
+    * [`obj spec.initProvider.cidrBlocksRefs`](#obj-specinitprovidercidrblocksrefs)
+      * [`fn withName(name)`](#fn-specinitprovidercidrblocksrefswithname)
+      * [`fn withNamespace(namespace)`](#fn-specinitprovidercidrblocksrefswithnamespace)
+      * [`obj spec.initProvider.cidrBlocksRefs.policy`](#obj-specinitprovidercidrblocksrefspolicy)
+        * [`fn withResolution(resolution)`](#fn-specinitprovidercidrblocksrefspolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specinitprovidercidrblocksrefspolicywithresolve)
+    * [`obj spec.initProvider.cidrBlocksSelector`](#obj-specinitprovidercidrblocksselector)
+      * [`fn withMatchControllerRef(matchControllerRef)`](#fn-specinitprovidercidrblocksselectorwithmatchcontrollerref)
+      * [`fn withMatchLabels(matchLabels)`](#fn-specinitprovidercidrblocksselectorwithmatchlabels)
+      * [`fn withMatchLabelsMixin(matchLabels)`](#fn-specinitprovidercidrblocksselectorwithmatchlabelsmixin)
+      * [`fn withNamespace(namespace)`](#fn-specinitprovidercidrblocksselectorwithnamespace)
+      * [`obj spec.initProvider.cidrBlocksSelector.policy`](#obj-specinitprovidercidrblocksselectorpolicy)
+        * [`fn withResolution(resolution)`](#fn-specinitprovidercidrblocksselectorpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specinitprovidercidrblocksselectorpolicywithresolve)
+    * [`obj spec.initProvider.ipv6CidrBlocksRefs`](#obj-specinitprovideripv6cidrblocksrefs)
+      * [`fn withName(name)`](#fn-specinitprovideripv6cidrblocksrefswithname)
+      * [`fn withNamespace(namespace)`](#fn-specinitprovideripv6cidrblocksrefswithnamespace)
+      * [`obj spec.initProvider.ipv6CidrBlocksRefs.policy`](#obj-specinitprovideripv6cidrblocksrefspolicy)
+        * [`fn withResolution(resolution)`](#fn-specinitprovideripv6cidrblocksrefspolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specinitprovideripv6cidrblocksrefspolicywithresolve)
+    * [`obj spec.initProvider.ipv6CidrBlocksSelector`](#obj-specinitprovideripv6cidrblocksselector)
+      * [`fn withMatchControllerRef(matchControllerRef)`](#fn-specinitprovideripv6cidrblocksselectorwithmatchcontrollerref)
+      * [`fn withMatchLabels(matchLabels)`](#fn-specinitprovideripv6cidrblocksselectorwithmatchlabels)
+      * [`fn withMatchLabelsMixin(matchLabels)`](#fn-specinitprovideripv6cidrblocksselectorwithmatchlabelsmixin)
+      * [`fn withNamespace(namespace)`](#fn-specinitprovideripv6cidrblocksselectorwithnamespace)
+      * [`obj spec.initProvider.ipv6CidrBlocksSelector.policy`](#obj-specinitprovideripv6cidrblocksselectorpolicy)
+        * [`fn withResolution(resolution)`](#fn-specinitprovideripv6cidrblocksselectorpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specinitprovideripv6cidrblocksselectorpolicywithresolve)
+    * [`obj spec.initProvider.prefixListIdRefs`](#obj-specinitproviderprefixlistidrefs)
+      * [`fn withName(name)`](#fn-specinitproviderprefixlistidrefswithname)
+      * [`fn withNamespace(namespace)`](#fn-specinitproviderprefixlistidrefswithnamespace)
+      * [`obj spec.initProvider.prefixListIdRefs.policy`](#obj-specinitproviderprefixlistidrefspolicy)
+        * [`fn withResolution(resolution)`](#fn-specinitproviderprefixlistidrefspolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specinitproviderprefixlistidrefspolicywithresolve)
+    * [`obj spec.initProvider.prefixListIdSelector`](#obj-specinitproviderprefixlistidselector)
+      * [`fn withMatchControllerRef(matchControllerRef)`](#fn-specinitproviderprefixlistidselectorwithmatchcontrollerref)
+      * [`fn withMatchLabels(matchLabels)`](#fn-specinitproviderprefixlistidselectorwithmatchlabels)
+      * [`fn withMatchLabelsMixin(matchLabels)`](#fn-specinitproviderprefixlistidselectorwithmatchlabelsmixin)
+      * [`fn withNamespace(namespace)`](#fn-specinitproviderprefixlistidselectorwithnamespace)
+      * [`obj spec.initProvider.prefixListIdSelector.policy`](#obj-specinitproviderprefixlistidselectorpolicy)
+        * [`fn withResolution(resolution)`](#fn-specinitproviderprefixlistidselectorpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specinitproviderprefixlistidselectorpolicywithresolve)
+    * [`obj spec.initProvider.securityGroupIdRef`](#obj-specinitprovidersecuritygroupidref)
+      * [`fn withName(name)`](#fn-specinitprovidersecuritygroupidrefwithname)
+      * [`fn withNamespace(namespace)`](#fn-specinitprovidersecuritygroupidrefwithnamespace)
+      * [`obj spec.initProvider.securityGroupIdRef.policy`](#obj-specinitprovidersecuritygroupidrefpolicy)
+        * [`fn withResolution(resolution)`](#fn-specinitprovidersecuritygroupidrefpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specinitprovidersecuritygroupidrefpolicywithresolve)
+    * [`obj spec.initProvider.securityGroupIdSelector`](#obj-specinitprovidersecuritygroupidselector)
+      * [`fn withMatchControllerRef(matchControllerRef)`](#fn-specinitprovidersecuritygroupidselectorwithmatchcontrollerref)
+      * [`fn withMatchLabels(matchLabels)`](#fn-specinitprovidersecuritygroupidselectorwithmatchlabels)
+      * [`fn withMatchLabelsMixin(matchLabels)`](#fn-specinitprovidersecuritygroupidselectorwithmatchlabelsmixin)
+      * [`fn withNamespace(namespace)`](#fn-specinitprovidersecuritygroupidselectorwithnamespace)
+      * [`obj spec.initProvider.securityGroupIdSelector.policy`](#obj-specinitprovidersecuritygroupidselectorpolicy)
+        * [`fn withResolution(resolution)`](#fn-specinitprovidersecuritygroupidselectorpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specinitprovidersecuritygroupidselectorpolicywithresolve)
+    * [`obj spec.initProvider.sourceSecurityGroupIdRef`](#obj-specinitprovidersourcesecuritygroupidref)
+      * [`fn withName(name)`](#fn-specinitprovidersourcesecuritygroupidrefwithname)
+      * [`fn withNamespace(namespace)`](#fn-specinitprovidersourcesecuritygroupidrefwithnamespace)
+      * [`obj spec.initProvider.sourceSecurityGroupIdRef.policy`](#obj-specinitprovidersourcesecuritygroupidrefpolicy)
+        * [`fn withResolution(resolution)`](#fn-specinitprovidersourcesecuritygroupidrefpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specinitprovidersourcesecuritygroupidrefpolicywithresolve)
+    * [`obj spec.initProvider.sourceSecurityGroupIdSelector`](#obj-specinitprovidersourcesecuritygroupidselector)
+      * [`fn withMatchControllerRef(matchControllerRef)`](#fn-specinitprovidersourcesecuritygroupidselectorwithmatchcontrollerref)
+      * [`fn withMatchLabels(matchLabels)`](#fn-specinitprovidersourcesecuritygroupidselectorwithmatchlabels)
+      * [`fn withMatchLabelsMixin(matchLabels)`](#fn-specinitprovidersourcesecuritygroupidselectorwithmatchlabelsmixin)
+      * [`fn withNamespace(namespace)`](#fn-specinitprovidersourcesecuritygroupidselectorwithnamespace)
+      * [`obj spec.initProvider.sourceSecurityGroupIdSelector.policy`](#obj-specinitprovidersourcesecuritygroupidselectorpolicy)
+        * [`fn withResolution(resolution)`](#fn-specinitprovidersourcesecuritygroupidselectorpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specinitprovidersourcesecuritygroupidselectorpolicywithresolve)
+  * [`obj spec.providerConfigRef`](#obj-specproviderconfigref)
+    * [`fn withKind(kind)`](#fn-specproviderconfigrefwithkind)
+    * [`fn withName(name)`](#fn-specproviderconfigrefwithname)
+  * [`obj spec.writeConnectionSecretToRef`](#obj-specwriteconnectionsecrettoref)
+    * [`fn withName(name)`](#fn-specwriteconnectionsecrettorefwithname)
+
+## Fields
+
+### fn new
+
+```ts
+new(name)
+```
+
+new returns an instance of SecurityGroupRule
+
+## obj metadata
+
+"ObjectMeta is metadata that all persisted resources must have, which includes all objects users must create."
+
+### fn metadata.withAnnotations
+
+```ts
+withAnnotations(annotations)
+```
+
+"Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations"
+
+### fn metadata.withAnnotationsMixin
+
+```ts
+withAnnotationsMixin(annotations)
+```
+
+"Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations"
+
+**Note:** This function appends passed data to existing values
+
+### fn metadata.withClusterName
+
+```ts
+withClusterName(clusterName)
+```
+
+"The name of the cluster which the object belongs to. This is used to distinguish resources with same name and namespace in different clusters. This field is not set anywhere right now and apiserver is going to ignore it if set in create or update request."
+
+### fn metadata.withCreationTimestamp
+
+```ts
+withCreationTimestamp(creationTimestamp)
+```
+
+"Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers."
+
+### fn metadata.withDeletionGracePeriodSeconds
+
+```ts
+withDeletionGracePeriodSeconds(deletionGracePeriodSeconds)
+```
+
+"Number of seconds allowed for this object to gracefully terminate before it will be removed from the system. Only set when deletionTimestamp is also set. May only be shortened. Read-only."
+
+### fn metadata.withDeletionTimestamp
+
+```ts
+withDeletionTimestamp(deletionTimestamp)
+```
+
+"Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers."
+
+### fn metadata.withFinalizers
+
+```ts
+withFinalizers(finalizers)
+```
+
+"Must be empty before the object is deleted from the registry. Each entry is an identifier for the responsible component that will remove the entry from the list. If the deletionTimestamp of the object is non-nil, entries in this list can only be removed. Finalizers may be processed and removed in any order.  Order is NOT enforced because it introduces significant risk of stuck finalizers. finalizers is a shared field, any actor with permission can reorder it. If the finalizer list is processed in order, then this can lead to a situation in which the component responsible for the first finalizer in the list is waiting for a signal (field value, external system, or other) produced by a component responsible for a finalizer later in the list, resulting in a deadlock. Without enforced ordering finalizers are free to order amongst themselves and are not vulnerable to ordering changes in the list."
+
+### fn metadata.withFinalizersMixin
+
+```ts
+withFinalizersMixin(finalizers)
+```
+
+"Must be empty before the object is deleted from the registry. Each entry is an identifier for the responsible component that will remove the entry from the list. If the deletionTimestamp of the object is non-nil, entries in this list can only be removed. Finalizers may be processed and removed in any order.  Order is NOT enforced because it introduces significant risk of stuck finalizers. finalizers is a shared field, any actor with permission can reorder it. If the finalizer list is processed in order, then this can lead to a situation in which the component responsible for the first finalizer in the list is waiting for a signal (field value, external system, or other) produced by a component responsible for a finalizer later in the list, resulting in a deadlock. Without enforced ordering finalizers are free to order amongst themselves and are not vulnerable to ordering changes in the list."
+
+**Note:** This function appends passed data to existing values
+
+### fn metadata.withGenerateName
+
+```ts
+withGenerateName(generateName)
+```
+
+"GenerateName is an optional prefix, used by the server, to generate a unique name ONLY IF the Name field has not been provided. If this field is used, the name returned to the client will be different than the name passed. This value will also be combined with a unique suffix. The provided value has the same validation rules as the Name field, and may be truncated by the length of the suffix required to make the value unique on the server.\n\nIf this field is specified and the generated name exists, the server will NOT return a 409 - instead, it will either return 201 Created or 500 with Reason ServerTimeout indicating a unique name could not be found in the time allotted, and the client should retry (optionally after the time indicated in the Retry-After header).\n\nApplied only if Name is not specified. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#idempotency"
+
+### fn metadata.withGeneration
+
+```ts
+withGeneration(generation)
+```
+
+"A sequence number representing a specific generation of the desired state. Populated by the system. Read-only."
+
+### fn metadata.withLabels
+
+```ts
+withLabels(labels)
+```
+
+"Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
+
+### fn metadata.withLabelsMixin
+
+```ts
+withLabelsMixin(labels)
+```
+
+"Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
+
+**Note:** This function appends passed data to existing values
+
+### fn metadata.withName
+
+```ts
+withName(name)
+```
+
+"Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+
+### fn metadata.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace defines the space within which each name must be unique. An empty namespace is equivalent to the \"default\" namespace, but \"default\" is the canonical representation. Not all objects are required to be scoped to a namespace - the value of this field for those objects will be empty.\n\nMust be a DNS_LABEL. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/namespaces"
+
+### fn metadata.withOwnerReferences
+
+```ts
+withOwnerReferences(ownerReferences)
+```
+
+"List of objects depended by this object. If ALL objects in the list have been deleted, this object will be garbage collected. If this object is managed by a controller, then an entry in this list will point to this controller, with the controller field set to true. There cannot be more than one managing controller."
+
+### fn metadata.withOwnerReferencesMixin
+
+```ts
+withOwnerReferencesMixin(ownerReferences)
+```
+
+"List of objects depended by this object. If ALL objects in the list have been deleted, this object will be garbage collected. If this object is managed by a controller, then an entry in this list will point to this controller, with the controller field set to true. There cannot be more than one managing controller."
+
+**Note:** This function appends passed data to existing values
+
+### fn metadata.withResourceVersion
+
+```ts
+withResourceVersion(resourceVersion)
+```
+
+"An opaque value that represents the internal version of this object that can be used by clients to determine when objects have changed. May be used for optimistic concurrency, change detection, and the watch operation on a resource or set of resources. Clients must treat these values as opaque and passed unmodified back to the server. They may only be valid for a particular resource or set of resources.\n\nPopulated by the system. Read-only. Value must be treated as opaque by clients and . More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency"
+
+### fn metadata.withSelfLink
+
+```ts
+withSelfLink(selfLink)
+```
+
+"SelfLink is a URL representing this object. Populated by the system. Read-only.\n\nDEPRECATED Kubernetes will stop propagating this field in 1.20 release and the field is planned to be removed in 1.21 release."
+
+### fn metadata.withUid
+
+```ts
+withUid(uid)
+```
+
+"UID is the unique in time and space value for this object. It is typically generated by the server on successful creation of a resource and is not allowed to change on PUT operations.\n\nPopulated by the system. Read-only. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+
+## obj spec
+
+"SecurityGroupRuleSpec defines the desired state of SecurityGroupRule"
+
+### fn spec.withManagementPolicies
+
+```ts
+withManagementPolicies(managementPolicies)
+```
+
+"THIS IS A BETA FIELD. It is on by default but can be opted out\nthrough a Crossplane feature flag.\nManagementPolicies specify the array of actions Crossplane is allowed to\ntake on the managed and external resources.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223\nand this one: https://github.com/crossplane/crossplane/blob/444267e84783136daa93568b364a5f01228cacbe/design/one-pager-ignore-changes.md"
+
+### fn spec.withManagementPoliciesMixin
+
+```ts
+withManagementPoliciesMixin(managementPolicies)
+```
+
+"THIS IS A BETA FIELD. It is on by default but can be opted out\nthrough a Crossplane feature flag.\nManagementPolicies specify the array of actions Crossplane is allowed to\ntake on the managed and external resources.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223\nand this one: https://github.com/crossplane/crossplane/blob/444267e84783136daa93568b364a5f01228cacbe/design/one-pager-ignore-changes.md"
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.forProvider
+
+
+
+### fn spec.forProvider.withCidrBlocks
+
+```ts
+withCidrBlocks(cidrBlocks)
+```
+
+"List of CIDR blocks. Cannot be specified with source_security_group_id or self."
+
+### fn spec.forProvider.withCidrBlocksMixin
+
+```ts
+withCidrBlocksMixin(cidrBlocks)
+```
+
+"List of CIDR blocks. Cannot be specified with source_security_group_id or self."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.withCidrBlocksRefs
+
+```ts
+withCidrBlocksRefs(cidrBlocksRefs)
+```
+
+"References to VPC in ec2 to populate cidrBlocks."
+
+### fn spec.forProvider.withCidrBlocksRefsMixin
+
+```ts
+withCidrBlocksRefsMixin(cidrBlocksRefs)
+```
+
+"References to VPC in ec2 to populate cidrBlocks."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.withDescription
+
+```ts
+withDescription(description)
+```
+
+"Description of the rule."
+
+### fn spec.forProvider.withFromPort
+
+```ts
+withFromPort(fromPort)
+```
+
+"Start port (or ICMP type number if protocol is \"icmp\" or \"icmpv6\")."
+
+### fn spec.forProvider.withIpv6CidrBlocks
+
+```ts
+withIpv6CidrBlocks(ipv6CidrBlocks)
+```
+
+"List of IPv6 CIDR blocks. Cannot be specified with source_security_group_id or self."
+
+### fn spec.forProvider.withIpv6CidrBlocksMixin
+
+```ts
+withIpv6CidrBlocksMixin(ipv6CidrBlocks)
+```
+
+"List of IPv6 CIDR blocks. Cannot be specified with source_security_group_id or self."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.withIpv6CidrBlocksRefs
+
+```ts
+withIpv6CidrBlocksRefs(ipv6CidrBlocksRefs)
+```
+
+"References to VPC in ec2 to populate ipv6CidrBlocks."
+
+### fn spec.forProvider.withIpv6CidrBlocksRefsMixin
+
+```ts
+withIpv6CidrBlocksRefsMixin(ipv6CidrBlocksRefs)
+```
+
+"References to VPC in ec2 to populate ipv6CidrBlocks."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.withPrefixListIdRefs
+
+```ts
+withPrefixListIdRefs(prefixListIdRefs)
+```
+
+"References to ManagedPrefixList in ec2 to populate prefixListIds."
+
+### fn spec.forProvider.withPrefixListIdRefsMixin
+
+```ts
+withPrefixListIdRefsMixin(prefixListIdRefs)
+```
+
+"References to ManagedPrefixList in ec2 to populate prefixListIds."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.withPrefixListIds
+
+```ts
+withPrefixListIds(prefixListIds)
+```
+
+"List of Prefix List IDs."
+
+### fn spec.forProvider.withPrefixListIdsMixin
+
+```ts
+withPrefixListIdsMixin(prefixListIds)
+```
+
+"List of Prefix List IDs."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.withProtocol
+
+```ts
+withProtocol(protocol)
+```
+
+"Protocol. If not icmp, icmpv6, tcp, udp, or all use the protocol number"
+
+### fn spec.forProvider.withRegion
+
+```ts
+withRegion(region)
+```
+
+"Region where this resource will be managed. Defaults to the Region set in the provider configuration.\nRegion is the region you'd like your resource to be created in."
+
+### fn spec.forProvider.withSecurityGroupId
+
+```ts
+withSecurityGroupId(securityGroupId)
+```
+
+"Security group to apply this rule to."
+
+### fn spec.forProvider.withSelf
+
+```ts
+withSelf(Self)
+```
+
+"Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with cidr_blocks, ipv6_cidr_blocks, or source_security_group_id."
+
+### fn spec.forProvider.withSourceSecurityGroupId
+
+```ts
+withSourceSecurityGroupId(sourceSecurityGroupId)
+```
+
+"Security group id to allow access to/from, depending on the type. Cannot be specified with cidr_blocks, ipv6_cidr_blocks, or self."
+
+### fn spec.forProvider.withToPort
+
+```ts
+withToPort(toPort)
+```
+
+"End port (or ICMP code if protocol is \"icmp\")."
+
+### fn spec.forProvider.withType
+
+```ts
+withType(type)
+```
+
+"Type of rule being created. Valid options are ingress (inbound)\nor egress (outbound)."
+
+## obj spec.forProvider.cidrBlocksRefs
+
+"References to VPC in ec2 to populate cidrBlocks."
+
+### fn spec.forProvider.cidrBlocksRefs.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+### fn spec.forProvider.cidrBlocksRefs.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referenced object"
+
+## obj spec.forProvider.cidrBlocksRefs.policy
+
+"Policies for referencing."
+
+### fn spec.forProvider.cidrBlocksRefs.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.forProvider.cidrBlocksRefs.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.forProvider.cidrBlocksSelector
+
+"Selector for a list of VPC in ec2 to populate cidrBlocks."
+
+### fn spec.forProvider.cidrBlocksSelector.withMatchControllerRef
+
+```ts
+withMatchControllerRef(matchControllerRef)
+```
+
+"MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected."
+
+### fn spec.forProvider.cidrBlocksSelector.withMatchLabels
+
+```ts
+withMatchLabels(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+### fn spec.forProvider.cidrBlocksSelector.withMatchLabelsMixin
+
+```ts
+withMatchLabelsMixin(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.cidrBlocksSelector.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace for the selector"
+
+## obj spec.forProvider.cidrBlocksSelector.policy
+
+"Policies for selection."
+
+### fn spec.forProvider.cidrBlocksSelector.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.forProvider.cidrBlocksSelector.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.forProvider.ipv6CidrBlocksRefs
+
+"References to VPC in ec2 to populate ipv6CidrBlocks."
+
+### fn spec.forProvider.ipv6CidrBlocksRefs.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+### fn spec.forProvider.ipv6CidrBlocksRefs.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referenced object"
+
+## obj spec.forProvider.ipv6CidrBlocksRefs.policy
+
+"Policies for referencing."
+
+### fn spec.forProvider.ipv6CidrBlocksRefs.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.forProvider.ipv6CidrBlocksRefs.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.forProvider.ipv6CidrBlocksSelector
+
+"Selector for a list of VPC in ec2 to populate ipv6CidrBlocks."
+
+### fn spec.forProvider.ipv6CidrBlocksSelector.withMatchControllerRef
+
+```ts
+withMatchControllerRef(matchControllerRef)
+```
+
+"MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected."
+
+### fn spec.forProvider.ipv6CidrBlocksSelector.withMatchLabels
+
+```ts
+withMatchLabels(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+### fn spec.forProvider.ipv6CidrBlocksSelector.withMatchLabelsMixin
+
+```ts
+withMatchLabelsMixin(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.ipv6CidrBlocksSelector.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace for the selector"
+
+## obj spec.forProvider.ipv6CidrBlocksSelector.policy
+
+"Policies for selection."
+
+### fn spec.forProvider.ipv6CidrBlocksSelector.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.forProvider.ipv6CidrBlocksSelector.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.forProvider.prefixListIdRefs
+
+"References to ManagedPrefixList in ec2 to populate prefixListIds."
+
+### fn spec.forProvider.prefixListIdRefs.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+### fn spec.forProvider.prefixListIdRefs.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referenced object"
+
+## obj spec.forProvider.prefixListIdRefs.policy
+
+"Policies for referencing."
+
+### fn spec.forProvider.prefixListIdRefs.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.forProvider.prefixListIdRefs.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.forProvider.prefixListIdSelector
+
+"Selector for a list of ManagedPrefixList in ec2 to populate prefixListIds."
+
+### fn spec.forProvider.prefixListIdSelector.withMatchControllerRef
+
+```ts
+withMatchControllerRef(matchControllerRef)
+```
+
+"MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected."
+
+### fn spec.forProvider.prefixListIdSelector.withMatchLabels
+
+```ts
+withMatchLabels(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+### fn spec.forProvider.prefixListIdSelector.withMatchLabelsMixin
+
+```ts
+withMatchLabelsMixin(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.prefixListIdSelector.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace for the selector"
+
+## obj spec.forProvider.prefixListIdSelector.policy
+
+"Policies for selection."
+
+### fn spec.forProvider.prefixListIdSelector.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.forProvider.prefixListIdSelector.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.forProvider.securityGroupIdRef
+
+"Reference to a SecurityGroup in ec2 to populate securityGroupId."
+
+### fn spec.forProvider.securityGroupIdRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+### fn spec.forProvider.securityGroupIdRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referenced object"
+
+## obj spec.forProvider.securityGroupIdRef.policy
+
+"Policies for referencing."
+
+### fn spec.forProvider.securityGroupIdRef.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.forProvider.securityGroupIdRef.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.forProvider.securityGroupIdSelector
+
+"Selector for a SecurityGroup in ec2 to populate securityGroupId."
+
+### fn spec.forProvider.securityGroupIdSelector.withMatchControllerRef
+
+```ts
+withMatchControllerRef(matchControllerRef)
+```
+
+"MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected."
+
+### fn spec.forProvider.securityGroupIdSelector.withMatchLabels
+
+```ts
+withMatchLabels(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+### fn spec.forProvider.securityGroupIdSelector.withMatchLabelsMixin
+
+```ts
+withMatchLabelsMixin(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.securityGroupIdSelector.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace for the selector"
+
+## obj spec.forProvider.securityGroupIdSelector.policy
+
+"Policies for selection."
+
+### fn spec.forProvider.securityGroupIdSelector.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.forProvider.securityGroupIdSelector.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.forProvider.sourceSecurityGroupIdRef
+
+"Reference to a SecurityGroup in ec2 to populate sourceSecurityGroupId."
+
+### fn spec.forProvider.sourceSecurityGroupIdRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+### fn spec.forProvider.sourceSecurityGroupIdRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referenced object"
+
+## obj spec.forProvider.sourceSecurityGroupIdRef.policy
+
+"Policies for referencing."
+
+### fn spec.forProvider.sourceSecurityGroupIdRef.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.forProvider.sourceSecurityGroupIdRef.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.forProvider.sourceSecurityGroupIdSelector
+
+"Selector for a SecurityGroup in ec2 to populate sourceSecurityGroupId."
+
+### fn spec.forProvider.sourceSecurityGroupIdSelector.withMatchControllerRef
+
+```ts
+withMatchControllerRef(matchControllerRef)
+```
+
+"MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected."
+
+### fn spec.forProvider.sourceSecurityGroupIdSelector.withMatchLabels
+
+```ts
+withMatchLabels(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+### fn spec.forProvider.sourceSecurityGroupIdSelector.withMatchLabelsMixin
+
+```ts
+withMatchLabelsMixin(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.sourceSecurityGroupIdSelector.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace for the selector"
+
+## obj spec.forProvider.sourceSecurityGroupIdSelector.policy
+
+"Policies for selection."
+
+### fn spec.forProvider.sourceSecurityGroupIdSelector.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.forProvider.sourceSecurityGroupIdSelector.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.initProvider
+
+"THIS IS A BETA FIELD. It will be honored\nunless the Management Policies feature flag is disabled.\nInitProvider holds the same fields as ForProvider, with the exception\nof Identifier and other resource reference fields. The fields that are\nin InitProvider are merged into ForProvider when the resource is created.\nThe same fields are also added to the terraform ignore_changes hook, to\navoid updating them after creation. This is useful for fields that are\nrequired on creation, but we do not desire to update them after creation,\nfor example because of an external controller is managing them, like an\nautoscaler."
+
+### fn spec.initProvider.withCidrBlocks
+
+```ts
+withCidrBlocks(cidrBlocks)
+```
+
+"List of CIDR blocks. Cannot be specified with source_security_group_id or self."
+
+### fn spec.initProvider.withCidrBlocksMixin
+
+```ts
+withCidrBlocksMixin(cidrBlocks)
+```
+
+"List of CIDR blocks. Cannot be specified with source_security_group_id or self."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.initProvider.withCidrBlocksRefs
+
+```ts
+withCidrBlocksRefs(cidrBlocksRefs)
+```
+
+"References to VPC in ec2 to populate cidrBlocks."
+
+### fn spec.initProvider.withCidrBlocksRefsMixin
+
+```ts
+withCidrBlocksRefsMixin(cidrBlocksRefs)
+```
+
+"References to VPC in ec2 to populate cidrBlocks."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.initProvider.withDescription
+
+```ts
+withDescription(description)
+```
+
+"Description of the rule."
+
+### fn spec.initProvider.withFromPort
+
+```ts
+withFromPort(fromPort)
+```
+
+"Start port (or ICMP type number if protocol is \"icmp\" or \"icmpv6\")."
+
+### fn spec.initProvider.withIpv6CidrBlocks
+
+```ts
+withIpv6CidrBlocks(ipv6CidrBlocks)
+```
+
+"List of IPv6 CIDR blocks. Cannot be specified with source_security_group_id or self."
+
+### fn spec.initProvider.withIpv6CidrBlocksMixin
+
+```ts
+withIpv6CidrBlocksMixin(ipv6CidrBlocks)
+```
+
+"List of IPv6 CIDR blocks. Cannot be specified with source_security_group_id or self."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.initProvider.withIpv6CidrBlocksRefs
+
+```ts
+withIpv6CidrBlocksRefs(ipv6CidrBlocksRefs)
+```
+
+"References to VPC in ec2 to populate ipv6CidrBlocks."
+
+### fn spec.initProvider.withIpv6CidrBlocksRefsMixin
+
+```ts
+withIpv6CidrBlocksRefsMixin(ipv6CidrBlocksRefs)
+```
+
+"References to VPC in ec2 to populate ipv6CidrBlocks."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.initProvider.withPrefixListIdRefs
+
+```ts
+withPrefixListIdRefs(prefixListIdRefs)
+```
+
+"References to ManagedPrefixList in ec2 to populate prefixListIds."
+
+### fn spec.initProvider.withPrefixListIdRefsMixin
+
+```ts
+withPrefixListIdRefsMixin(prefixListIdRefs)
+```
+
+"References to ManagedPrefixList in ec2 to populate prefixListIds."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.initProvider.withPrefixListIds
+
+```ts
+withPrefixListIds(prefixListIds)
+```
+
+"List of Prefix List IDs."
+
+### fn spec.initProvider.withPrefixListIdsMixin
+
+```ts
+withPrefixListIdsMixin(prefixListIds)
+```
+
+"List of Prefix List IDs."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.initProvider.withProtocol
+
+```ts
+withProtocol(protocol)
+```
+
+"Protocol. If not icmp, icmpv6, tcp, udp, or all use the protocol number"
+
+### fn spec.initProvider.withSecurityGroupId
+
+```ts
+withSecurityGroupId(securityGroupId)
+```
+
+"Security group to apply this rule to."
+
+### fn spec.initProvider.withSelf
+
+```ts
+withSelf(Self)
+```
+
+"Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with cidr_blocks, ipv6_cidr_blocks, or source_security_group_id."
+
+### fn spec.initProvider.withSourceSecurityGroupId
+
+```ts
+withSourceSecurityGroupId(sourceSecurityGroupId)
+```
+
+"Security group id to allow access to/from, depending on the type. Cannot be specified with cidr_blocks, ipv6_cidr_blocks, or self."
+
+### fn spec.initProvider.withToPort
+
+```ts
+withToPort(toPort)
+```
+
+"End port (or ICMP code if protocol is \"icmp\")."
+
+### fn spec.initProvider.withType
+
+```ts
+withType(type)
+```
+
+"Type of rule being created. Valid options are ingress (inbound)\nor egress (outbound)."
+
+## obj spec.initProvider.cidrBlocksRefs
+
+"References to VPC in ec2 to populate cidrBlocks."
+
+### fn spec.initProvider.cidrBlocksRefs.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+### fn spec.initProvider.cidrBlocksRefs.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referenced object"
+
+## obj spec.initProvider.cidrBlocksRefs.policy
+
+"Policies for referencing."
+
+### fn spec.initProvider.cidrBlocksRefs.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.initProvider.cidrBlocksRefs.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.initProvider.cidrBlocksSelector
+
+"Selector for a list of VPC in ec2 to populate cidrBlocks."
+
+### fn spec.initProvider.cidrBlocksSelector.withMatchControllerRef
+
+```ts
+withMatchControllerRef(matchControllerRef)
+```
+
+"MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected."
+
+### fn spec.initProvider.cidrBlocksSelector.withMatchLabels
+
+```ts
+withMatchLabels(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+### fn spec.initProvider.cidrBlocksSelector.withMatchLabelsMixin
+
+```ts
+withMatchLabelsMixin(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.initProvider.cidrBlocksSelector.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace for the selector"
+
+## obj spec.initProvider.cidrBlocksSelector.policy
+
+"Policies for selection."
+
+### fn spec.initProvider.cidrBlocksSelector.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.initProvider.cidrBlocksSelector.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.initProvider.ipv6CidrBlocksRefs
+
+"References to VPC in ec2 to populate ipv6CidrBlocks."
+
+### fn spec.initProvider.ipv6CidrBlocksRefs.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+### fn spec.initProvider.ipv6CidrBlocksRefs.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referenced object"
+
+## obj spec.initProvider.ipv6CidrBlocksRefs.policy
+
+"Policies for referencing."
+
+### fn spec.initProvider.ipv6CidrBlocksRefs.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.initProvider.ipv6CidrBlocksRefs.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.initProvider.ipv6CidrBlocksSelector
+
+"Selector for a list of VPC in ec2 to populate ipv6CidrBlocks."
+
+### fn spec.initProvider.ipv6CidrBlocksSelector.withMatchControllerRef
+
+```ts
+withMatchControllerRef(matchControllerRef)
+```
+
+"MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected."
+
+### fn spec.initProvider.ipv6CidrBlocksSelector.withMatchLabels
+
+```ts
+withMatchLabels(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+### fn spec.initProvider.ipv6CidrBlocksSelector.withMatchLabelsMixin
+
+```ts
+withMatchLabelsMixin(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.initProvider.ipv6CidrBlocksSelector.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace for the selector"
+
+## obj spec.initProvider.ipv6CidrBlocksSelector.policy
+
+"Policies for selection."
+
+### fn spec.initProvider.ipv6CidrBlocksSelector.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.initProvider.ipv6CidrBlocksSelector.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.initProvider.prefixListIdRefs
+
+"References to ManagedPrefixList in ec2 to populate prefixListIds."
+
+### fn spec.initProvider.prefixListIdRefs.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+### fn spec.initProvider.prefixListIdRefs.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referenced object"
+
+## obj spec.initProvider.prefixListIdRefs.policy
+
+"Policies for referencing."
+
+### fn spec.initProvider.prefixListIdRefs.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.initProvider.prefixListIdRefs.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.initProvider.prefixListIdSelector
+
+"Selector for a list of ManagedPrefixList in ec2 to populate prefixListIds."
+
+### fn spec.initProvider.prefixListIdSelector.withMatchControllerRef
+
+```ts
+withMatchControllerRef(matchControllerRef)
+```
+
+"MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected."
+
+### fn spec.initProvider.prefixListIdSelector.withMatchLabels
+
+```ts
+withMatchLabels(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+### fn spec.initProvider.prefixListIdSelector.withMatchLabelsMixin
+
+```ts
+withMatchLabelsMixin(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.initProvider.prefixListIdSelector.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace for the selector"
+
+## obj spec.initProvider.prefixListIdSelector.policy
+
+"Policies for selection."
+
+### fn spec.initProvider.prefixListIdSelector.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.initProvider.prefixListIdSelector.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.initProvider.securityGroupIdRef
+
+"Reference to a SecurityGroup in ec2 to populate securityGroupId."
+
+### fn spec.initProvider.securityGroupIdRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+### fn spec.initProvider.securityGroupIdRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referenced object"
+
+## obj spec.initProvider.securityGroupIdRef.policy
+
+"Policies for referencing."
+
+### fn spec.initProvider.securityGroupIdRef.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.initProvider.securityGroupIdRef.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.initProvider.securityGroupIdSelector
+
+"Selector for a SecurityGroup in ec2 to populate securityGroupId."
+
+### fn spec.initProvider.securityGroupIdSelector.withMatchControllerRef
+
+```ts
+withMatchControllerRef(matchControllerRef)
+```
+
+"MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected."
+
+### fn spec.initProvider.securityGroupIdSelector.withMatchLabels
+
+```ts
+withMatchLabels(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+### fn spec.initProvider.securityGroupIdSelector.withMatchLabelsMixin
+
+```ts
+withMatchLabelsMixin(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.initProvider.securityGroupIdSelector.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace for the selector"
+
+## obj spec.initProvider.securityGroupIdSelector.policy
+
+"Policies for selection."
+
+### fn spec.initProvider.securityGroupIdSelector.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.initProvider.securityGroupIdSelector.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.initProvider.sourceSecurityGroupIdRef
+
+"Reference to a SecurityGroup in ec2 to populate sourceSecurityGroupId."
+
+### fn spec.initProvider.sourceSecurityGroupIdRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+### fn spec.initProvider.sourceSecurityGroupIdRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referenced object"
+
+## obj spec.initProvider.sourceSecurityGroupIdRef.policy
+
+"Policies for referencing."
+
+### fn spec.initProvider.sourceSecurityGroupIdRef.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.initProvider.sourceSecurityGroupIdRef.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.initProvider.sourceSecurityGroupIdSelector
+
+"Selector for a SecurityGroup in ec2 to populate sourceSecurityGroupId."
+
+### fn spec.initProvider.sourceSecurityGroupIdSelector.withMatchControllerRef
+
+```ts
+withMatchControllerRef(matchControllerRef)
+```
+
+"MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected."
+
+### fn spec.initProvider.sourceSecurityGroupIdSelector.withMatchLabels
+
+```ts
+withMatchLabels(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+### fn spec.initProvider.sourceSecurityGroupIdSelector.withMatchLabelsMixin
+
+```ts
+withMatchLabelsMixin(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.initProvider.sourceSecurityGroupIdSelector.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace for the selector"
+
+## obj spec.initProvider.sourceSecurityGroupIdSelector.policy
+
+"Policies for selection."
+
+### fn spec.initProvider.sourceSecurityGroupIdSelector.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.initProvider.sourceSecurityGroupIdSelector.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.providerConfigRef
+
+"ProviderConfigReference specifies how the provider that will be used to\ncreate, observe, update, and delete this managed resource should be\nconfigured."
+
+### fn spec.providerConfigRef.withKind
+
+```ts
+withKind(kind)
+```
+
+"Kind of the referenced object."
+
+### fn spec.providerConfigRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+## obj spec.writeConnectionSecretToRef
+
+"WriteConnectionSecretToReference specifies the namespace and name of a\nSecret to which any connection details for this managed resource should\nbe written. Connection details frequently include the endpoint, username,\nand password required to connect to the managed resource."
+
+### fn spec.writeConnectionSecretToRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the secret."

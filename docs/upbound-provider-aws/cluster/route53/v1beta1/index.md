@@ -1,0 +1,19 @@
+---
+permalink: /upbound-provider-aws/cluster/route53/v1beta1/
+---
+
+# route53.v1beta1
+
+
+
+* [delegationSet](delegationSet.md)
+* [healthCheck](healthCheck.md)
+* [hostedZoneDNSSEC](hostedZoneDNSSEC.md)
+* [queryLog](queryLog.md)
+* [record](record.md)
+* [resolverConfig](resolverConfig.md)
+* [trafficPolicy](trafficPolicy.md)
+* [trafficPolicyInstance](trafficPolicyInstance.md)
+* [vpcAssociationAuthorization](vpcAssociationAuthorization.md)
+* [zone](zone.md)
+* [zoneAssociation](zoneAssociation.md)
